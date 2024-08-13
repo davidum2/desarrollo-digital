@@ -1,0 +1,123 @@
+{
+    "infoServicePage": {
+      "name": "Servicios de Consultoría Web",
+      "pageMeta": {
+        "title": "Servicios de Consultoría Web | Desarrollo Digital",
+        "description": "Ofrecemos consultoría web experta para optimizar tu presencia en línea, mejorar tu estrategia digital y potenciar tu negocio. Contacta con nosotros a través de WhatsApp, correo electrónico o teléfono para más información.",
+        "keywords": "Consultoría Web, Desarrollo Digital, Estrategia Digital, Optimización Web, Marketing Digital, Contacto"
+      },
+      
+              "requerimientos": [
+          {
+            "title": "Acceso al Host y Datos de Configuración",
+            "description": "Proporciona las credenciales de acceso al servidor de hosting y cualquier información relevante sobre la configuración del mismo. Esto incluye el acceso FTP/SFTP, credenciales de base de datos y detalles sobre el entorno del servidor.",
+            "img": "/img/requisitos/Acceso.webp",
+            "imagePosition": "left"
+          },
+          {
+            "title": "Código Fuente del Sitio Web",
+            "description": "Envía el código fuente completo del sitio web, incluyendo archivos HTML, CSS, JavaScript y cualquier otro recurso necesario. Esto nos permitirá revisar el código y ofrecer recomendaciones o mejoras.",
+            "img": "/img/requisitos/CodigoFuente.webp",
+            "imagePosition": "right"
+          },
+          {
+            "title": "Acceso a Herramientas de Gestión",
+            "description": "Proporciona acceso a las herramientas de gestión de contenido (CMS) y plataformas asociadas. Esto incluye credenciales para paneles de administración, sistemas de gestión de contenido y cualquier otra herramienta relevante.",
+            "img": "/img/requisitos/HerraminetasGestion.webp",
+            "imagePosition": "left"
+          },
+          
+          {
+            "title": "Documentación Técnica y Manuales",
+            "description": "Proporciona cualquier documentación técnica o manuales que puedan ayudar a comprender la estructura y funcionamiento del sitio. Esto incluye guías de usuario, manuales de administración y cualquier otro documento técnico relevante.",
+            "img": "/img/requisitos/documentacion.webp",
+            "imagePosition": "right"
+          },
+      
+         
+          {
+            "title": "Lista de Requerimientos y Objetivos",
+            "description": "Detalla cualquier requerimiento específico que tengas para la consultoría y los objetivos que esperas alcanzar. Esto nos ayudará a enfocar nuestros esfuerzos y recomendaciones según tus necesidades.",
+            "img": "/img/requisitos/Objetivo.webp",
+            "imagePosition": "left"
+          }
+        ],
+      
+      
+      "products": [
+        {
+          "name": "Consultoría Básica",
+          "cost": "3,000.00 MXN",
+          "features": [
+            { "description": "Análisis inicial del sitio web", "active": true },
+            { "description": "Recomendaciones para mejora de contenido", "active": true },
+            { "description": "Asesoramiento en SEO básico", "active": true },
+            { "description": "Optimización de velocidad de carga", "active": true },
+            { "description": "Consultoría sobre usabilidad y diseño", "active": true },
+            { "description": "Informe de diagnóstico y plan de acción", "active": true },
+            { "description": "Soporte durante una semana", "active": false },
+            { "description": "Acceso a herramientas premium de análisis", "active": false }
+          ]
+        },
+        {
+          "name": "Consultoría Pro",
+           "cost": "6,000.00 MXN",
+          "features": [
+            { "description": "Análisis detallado del sitio web", "active": true },
+            { "description": "Recomendaciones avanzadas para contenido y diseño", "active": true },
+            { "description": "Asesoramiento en SEO avanzado y estrategias de contenido", "active": true },
+            { "description": "Optimización de velocidad de carga y rendimiento", "active": true },
+            { "description": "Consultoría sobre usabilidad y experiencia de usuario (UX)", "active": true },
+            { "description": "Plan de acción detallado y seguimiento", "active": true },
+            { "description": "Soporte durante un mes", "active": true },
+            { "description": "Acceso a herramientas premium de análisis", "active": true },
+            { "description": "Análisis competitivo y benchmarking", "active": true }
+          ]
+        },
+        {
+          "name": "Consultoría Avanzada",
+          "cost": "10,000.00 MXN",
+          "features": [
+            { "description": "Análisis exhaustivo del sitio web y estrategia digital", "active": true },
+            { "description": "Recomendaciones personalizadas para cada área del sitio", "active": true },
+            { "description": "Asesoramiento integral en SEO y marketing digital", "active": true },
+            { "description": "Optimización de rendimiento y carga, y pruebas A/B", "active": true },
+            { "description": "Consultoría sobre UX, diseño y estrategias de conversión", "active": true },
+            { "description": "Plan de acción integral y seguimiento continuo", "active": true },
+            { "description": "Soporte durante tres meses", "active": true },
+            { "description": "Acceso a herramientas premium de análisis y reportes avanzados", "active": true },
+            { "description": "Análisis competitivo profundo y recomendaciones estratégicas", "active": true },
+            { "description": "Integración con CRM y herramientas de automatización", "active": true }
+          ]
+        }
+      ],
+      "pasos": [
+        {
+          "subtitulo": "Inicio del Proyecto",
+          "titulo": "Evaluación Inicial",
+          "descripcion": "En este primer paso, realizamos una evaluación inicial del sitio web y de la estrategia digital del cliente. Definimos los objetivos de la consultoría y acordamos los términos y expectativas."
+        },
+        {
+          "subtitulo": "Diagnóstico",
+          "titulo": "Análisis y Recomendaciones",
+          "descripcion": "Realizamos un análisis exhaustivo del sitio web, identificando áreas de mejora y oportunidades de optimización. Proporcionamos recomendaciones personalizadas para mejorar el contenido, el diseño, el SEO y la usabilidad."
+        },
+        {
+          "subtitulo": "Estrategia y Plan de Acción",
+          "titulo": "Desarrollo de Estrategia",
+          "descripcion": "Desarrollamos una estrategia detallada basada en el análisis previo. Creamos un plan de acción que incluye pasos específicos para mejorar el rendimiento del sitio web y alcanzar los objetivos digitales del cliente."
+        },
+        {
+          "subtitulo": "Implementación y Seguimiento",
+          "titulo": "Ejecución y Monitoreo",
+          "descripcion": "Asistimos en la implementación de las recomendaciones y estrategias propuestas. Monitoreamos el progreso y proporcionamos soporte continuo para asegurar que las mejoras se efectúen de manera efectiva."
+        },
+        {
+          "subtitulo": "Revisión Final",
+          "titulo": "Evaluación y Ajustes",
+          "descripcion": "Realizamos una revisión final del progreso realizado y ajustamos las estrategias según sea necesario. Proporcionamos un informe final detallado y recomendaciones para la gestión continua del sitio web y la estrategia digital."
+        }
+      ]
+    }
+  }
+  

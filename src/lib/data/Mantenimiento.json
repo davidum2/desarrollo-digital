@@ -1,0 +1,127 @@
+{
+    "infoServicePage": {
+      "name": "Servicios de Mantenimiento Mensual",
+      "pageMeta": {
+        "title": "Servicios de Mantenimiento Mensual | Desarrollo Digital",
+        "description": "Ofrecemos servicios de mantenimiento mensual para asegurar que tu sitio web funcione de manera óptima y esté actualizado. Contacta con nosotros para mantener tu sitio web seguro y eficiente.",
+        "keywords": "Mantenimiento Web, Desarrollo Digital, Actualización de Sitio Web, Soporte Técnico, Seguridad Web"
+      },
+      "products": [
+        {
+          "name": "Mantenimiento Básico",
+          "cost": "1,000.00 MXN",
+          "features": [
+            { "description": "Actualización de contenido básico", "active": true },
+            { "description": "Actualización de plugins y temas", "active": true },
+            { "description": "Monitoreo de seguridad básico", "active": true },
+            { "description": "Backup mensual del sitio web", "active": true },
+            { "description": "Soporte técnico por correo electrónico", "active": true },
+            { "description": "Informe mensual de estado del sitio", "active": true },
+            { "description": "Optimización de rendimiento básica", "active": false }
+          ]
+        },
+        {
+          "name": "Mantenimiento Intermedio",
+          "cost": "3,500.00 MXN",
+          "features": [
+            { "description": "Actualización de contenido avanzado", "active": true },
+            { "description": "Actualización de plugins y temas", "active": true },
+            { "description": "Monitoreo de seguridad avanzado", "active": true },
+            { "description": "Backup semanal del sitio web", "active": true },
+            { "description": "Soporte técnico por correo y chat", "active": true },
+            { "description": "Informe quincenal de estado del sitio", "active": true },
+            { "description": "Optimización de rendimiento avanzada", "active": true },
+            { "description": "Revisión y ajuste de SEO básico", "active": true }
+          ]
+        },
+        {
+          "name": "Mantenimiento Premium",
+          "cost": "5,000.00 MXN",
+          "features": [
+            { "description": "Actualización y gestión de contenido avanzado", "active": true },
+            { "description": "Actualización de plugins y temas", "active": true },
+            { "description": "Monitoreo y auditoría de seguridad completa", "active": true },
+            { "description": "Backup diario del sitio web", "active": true },
+            { "description": "Soporte técnico prioritario por correo y teléfono", "active": true },
+            { "description": "Informe semanal de estado del sitio", "active": true },
+            { "description": "Optimización de rendimiento y velocidad avanzada", "active": true },
+            { "description": "Revisión y ajuste de SEO avanzado", "active": true },
+            { "description": "Gestión de errores y problemas críticos", "active": true },
+            { "description": "Integración de nuevas funcionalidades menores", "active": true }
+          ]
+        }
+      ],
+      "pasos": [
+        {
+          "subtitulo": "Inicio del Servicio",
+          "titulo": "Configuración Inicial",
+          "descripcion": "En este primer paso, realizamos una evaluación del estado actual del sitio web y configuramos los accesos necesarios para iniciar el mantenimiento. Definimos el alcance del servicio y establecemos las prioridades."
+        },
+        {
+          "subtitulo": "Mantenimiento Continuo",
+          "titulo": "Actualizaciones y Monitoreo",
+          "descripcion": "Llevamos a cabo las actualizaciones necesarias de contenido, plugins y temas. Monitoreamos la seguridad del sitio web, realizamos backups según el plan elegido y optimizamos el rendimiento del sitio."
+        },
+        {
+          "subtitulo": "Soporte y Asesoramiento",
+          "titulo": "Soporte Técnico",
+          "descripcion": "Proporcionamos soporte técnico según el plan elegido, respondiendo a consultas y solucionando problemas. Ofrecemos asesoramiento para mejorar el sitio web y asegurar su correcto funcionamiento."
+        },
+        {
+          "subtitulo": "Revisión y Reporte",
+          "titulo": "Informe de Estado",
+          "descripcion": "Entregamos informes regulares sobre el estado del sitio web, incluyendo detalles sobre el rendimiento, problemas resueltos y recomendaciones para futuras mejoras."
+        },
+        {
+          "subtitulo": "Ajustes y Mejoras",
+          "titulo": "Optimización y Ajustes",
+          "descripcion": "Realizamos ajustes y mejoras según las necesidades identificadas durante el mantenimiento. Implementamos nuevas funcionalidades menores y realizamos ajustes en el SEO para asegurar la mejor visibilidad y rendimiento."
+        }
+      ],
+      "requerimientos": [
+        {
+          "title": "Manual de Identidad Corporativa (Brand Book)",
+          "description": "Este documento esencial define la personalidad visual y verbal de tu marca. Incluye directrices sobre logotipos, colores, tipografías y tono de voz para asegurar una presentación coherente y profesional en todos los medios.",
+          "img": "/img/requisitos/BrandBook.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Información detallada sobre el estado actual del sitio web",
+          "description": "Es crucial entender el estado actual de tu sitio web para identificar áreas de mejora. Esto incluye la revisión de su funcionalidad, diseño, y cualquier problema técnico o de seguridad que pueda existir.",
+           "img": "/img/requisitos/Salud del sitio.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Historial de cambios y actualizaciones",
+          "description": "Conocer el historial de cambios y actualizaciones en tu sitio web ayuda a gestionar y planificar futuras actualizaciones. Incluye detalles sobre las versiones anteriores y las modificaciones realizadas.",
+           "img": "/img/requisitos/HistorialCambios.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Plan de mantenimiento y actualizaciones",
+          "description": "Un plan claro para el mantenimiento y las actualizaciones garantiza que tu sitio web se mantenga al día con las últimas mejoras y correcciones. Esto incluye la programación de tareas regulares y el manejo de emergencias.",
+           "img": "/img/requisitos/PlanManto.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Sistema de respaldo y recuperación de datos",
+          "description": "Es fundamental contar con un sistema de respaldo y recuperación de datos para proteger tu sitio web en caso de fallos. Esto asegura que puedas recuperar tu sitio rápidamente si ocurre algún problema.",
+           "img": "/img/requisitos/Respaldo.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Detalles de contacto para soporte técnico",
+          "description": "Proporciona información de contacto para soporte técnico. Esto facilita la comunicación rápida en caso de problemas críticos o necesidades de asistencia urgente.",
+           "img": "/img/requisitos/Contacto.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Documentación técnica y de usuario",
+          "description": "La documentación técnica y de usuario es esencial para la gestión efectiva del sitio web. Incluye manuales, guías y procedimientos para asegurar un uso y mantenimiento adecuados.",
+           "img": "/img/requisitos/documentacion.webp",
+          "imagePosition": "left"
+        }
+      ]
+    }
+  }
+  

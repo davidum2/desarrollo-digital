@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import HeroPage from '../../components/HeroPage.astro'
+import TxtLImgR from "../../components/txtL-imgR.astro"
+import Card from "../../components/Card.astro"
+import "../../animations.css"
+import FlowWork from "../../components/FlowWork.astro"
+import PriceCard from "../../components/PriceCard.astro"
+import CardRequisitos from "../../components/CardRequisitos.astro"
+import HorizontalCardLefth from "../../components/HorizontalCardLefth.astro"
+import HorizontalCardRigth from "../../components/HorizontalCardRigth.astro"
+
+import landing from "../../lib/data/Landing.json"
+import {type MetaDataServices } from "../../lib/type/MetadataServices"
+
+
+
+const {infoServicePage} = landing as unknown as MetaDataServices
+
+
+---
+
+<Layout title={infoServicePage.pageMeta.title} description={infoServicePage.pageMeta.description} keywords={infoServicePage.pageMeta.keywords} >
+    <main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+       <HeroPage title="Landig Pages" urlImg="/img/heropage/landingpage.webp" />
+        <section class="mb-8">
+            <TxtLImgR title="Descripción del Servicio"
+            img="/img/landing coffe.webp"
+            altS="landig-page"
+            >
+
+            <p class="mb-4 animate-fade-in">Imagina tener una puerta mágica que convierte a los curiosos en clientes comprometidos con solo un clic. Esa puerta existe y se llama Landing Page.</p>
+            <h3 class="mb-4 animate-fade-in">¿Qué es una Landing Page?</h3>
+            <p class="mb-4 animate-fade-in">Una landing page, o página de aterrizaje, es una página web diseñada específicamente para convertir visitantes en leads o clientes. A diferencia de las páginas web tradicionales que ofrecen múltiples opciones de navegación, una landing page tiene un solo objetivo y una llamada a la acción clara y directa, como "Regístrate ahora", "Compra aquí" o "Descarga tu guía gratuita".</p>
+            <p class="mb-4 animate-fade-in">En Desarrollo Digital, nos especializamos en la creación de Landing Pages atractivas y efectivas que capturan la atención de tus visitantes y convierten leads en clientes. Una Landing Page bien diseñada es fundamental para cualquier campaña de marketing digital exitosa.</p>
+            
+            <div class="flex items-center justify-center mt-16">
+                <Card title="Enfoque del Cliente"
+                body="Nuestro servicio de Landing Pages está dirigido a emprendedores, pequeñas y medianas empresas, y cualquier organización que desee aumentar su presencia en línea y maximizar sus conversiones. Ya sea que estés lanzando un nuevo producto, promocionando un evento o recopilando suscriptores, nuestras Landing Pages están diseñadas para cumplir tus objetivos específicos."/>
+            </div>
+        
+        
+        </TxtLImgR>
+            
+        </section>
+
+
+        <section class="mb-8 ">
+            <h2 class="text-4xl text-center font-libre my-8">Información importante</h2>
+            <h3 class="text-3xl text-center font-libre my-8">Requisitos</h3>
+            <div class="flex flex-col gap-2">
+              {infoServicePage.requerimientos.map((requerimiento) => {
+                  
+                  return requerimiento.imagePosition === 'right' ? (
+                    <HorizontalCardRigth 
+                    
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  ) : (
+                    <HorizontalCardLefth 
+                     
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  );
+                })}
+                
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    Si no cumples con alguno de estos requisitos, no te preocupes. En Desarrollo Digital, podemos encargarnos de todo con alguno de nuestros planes personalizados. 
+                </p>
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    ¡Contáctanos para conocer más sobre cómo podemos apoyarte en cada paso del camino!
+                </p>
+            </div>   
+    
+            
+        </section>
+        <section>
+            <h2 class="text-4xl text-center font-libre my-8">Flujo de Trabajo</h2>
+             <FlowWork pasos={infoServicePage.pasos} />
+        </section>
+
+       
+<section class="mt-8">
+  
+       
+</section>
+    
+        <section class="text-center mt-10">
+            <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar?</h3>
+            <p class="mb-6">¡Hablemos sobre tu proyecto y cómo podemos ayudarte a alcanzar tus objetivos de marketing!</p>
+        </section>
+
+        <section class="flex flex-col md:flex-row justify-around">
+            {
+              infoServicePage.products.map((producto) => (
+                <div class="p-2">
+                <PriceCard 
+                  nombre={producto.name} 
+                  costo={producto.cost.toString()} 
+                  servicios={producto.features.map((feature) => ({
+                    descripcion: feature.description,
+                    activo: feature.active
+                  }))}
+                />
+                </div>
+              ))
+            }
+          </section>
+    </main>
+</Layout>

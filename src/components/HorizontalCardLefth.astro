@@ -1,0 +1,39 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    img: string;
+    alt?: string;
+    link?: string;
+}
+
+const {title, description, img, alt, link} = Astro.props
+
+const href = link || '#';
+---
+<div
+  class="flex flex-col overflow-hidden items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+>
+<h5
+class="md:hidden mb-2 text-2xl font-bold tracking-tight text-center"
+>
+{title}
+</h5>
+  <div id="img" class="h-56 w-56 overflow-hidden flex-shrink-0">
+    <img
+      class="h-full w-full object-cover  rounded-lg md:rounded-none"
+      src={img}
+      alt={alt}
+    />
+  </div>
+  <div id="text" class="flex flex-col justify-between p-4 flex-1 leading-normal">
+    <h5
+      class="hidden md:block mb-2 text-2xl font-bold tracking-tight"
+    >
+      {title}
+    </h5>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      {description}
+    </p>
+  </div>
+</div>

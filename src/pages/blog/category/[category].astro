@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { getAllCategories } from "../../../utils/getAllCategories";
+import CardBlog from "../../../components/CardBlog.astro";
+import ArticleList from "../../../layouts/ArticleList.astro";
+
+
+export const getStaticPaths = (async () => {
+    const categories = ( await getAllCategories()).map((category) => category.toLowerCase());
+    return categories.map((category) => ({
+        params: {category},
+        props: {category}
+    }));
+}) satisfies GetStaticPaths;
+
+const {category} = Astro.props
+
+const posts = await getCollection("blog", ({data}) =>
+    data.categories.map(data=>data.toLowerCase()).includes(category)
+)
+---
+
+<ArticleList>
+<div class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto">
+    {posts.map((post) => (
+      <CardBlog {...post.data} slug={post.slug} />
+    ))}
+  </div>
+</ArticleList>

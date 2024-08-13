@@ -1,0 +1,37 @@
+<style 
+is:global>
+	/* Global Styles */
+:root {
+    color-scheme: light dark;
+	--color-primary: #f0feff;
+	--color-dark-primary: #050a30;
+	--color-dark-secondary: #f4f6fc;
+	--color-dark-accent1: #233dff;;
+	--color-dark-accent2: #c10fff;
+	--color-light-secondary:  #05445e; 
+	--color-light-accent1: #75e6da;
+	--color-light-accent2: #147e93;
+}
+
+/* Default light theme styles */
+html {
+	background-color: var(--color-primary);
+	color: var(--color-light-secondary);
+}
+
+/* Dark theme styles */
+html.dark {
+    background-color: var(--color-dark-primary);; /* Dark background color */
+    color: #f4f6fc; /* Dark text color */
+}
+.button {
+  background-color: var(--color-light-accent1);
+  color: var(--color-primary);
+}
+
+.button.dark-mode {
+  background-color: var(--color-dark-accent1);
+  color: var(--color-dark-primary);
+}
+
+</style>

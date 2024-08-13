@@ -1,0 +1,115 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import HeroPage from '../../components/HeroPage.astro'
+import TxtLImgR from "../../components/txtL-imgR.astro"
+import Card from "../../components/Card.astro"
+import "../../animations.css"
+import FlowWork from "../../components/FlowWork.astro"
+import PriceCard from "../../components/PriceCard.astro"
+import CardRequisitos from "../../components/CardRequisitos.astro"
+import HorizontalCardLefth from "../../components/HorizontalCardLefth.astro"
+import HorizontalCardRigth from "../../components/HorizontalCardRigth.astro"
+
+import marketing from "../../lib/data/Marketing.json"
+import {type MetaDataServices} from "../../lib/type/MetadataServices"
+
+
+
+const {infoServicePage} = marketing as unknown as MetaDataServices
+
+
+---
+
+<Layout title={infoServicePage.pageMeta.title} description={infoServicePage.pageMeta.description} keywords={infoServicePage.pageMeta.keywords} >
+    <main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+       <HeroPage title={infoServicePage.name} urlImg="/img/heropage/marketing.webp" />
+        <section class="mb-8">
+            <TxtLImgR title="Descripción del Servicio"
+            img="/img/contenPages/Marketing.webp"
+            altS="landig-page"
+            >
+            <p class="mb-4 animate-fade-in">Imagina un entorno digital donde tu negocio no solo se presenta, sino que brilla y destaca en cada rincón del mercado. Este entorno es el que nosotros creamos a través de estrategias de marketing digital efectivas y personalizadas.</p>
+
+            <h3 class="mb-4 animate-fade-in">¿Qué es el Marketing Digital?</h3>
+            
+            <p class="mb-4 animate-fade-in">El marketing digital es la clave para conectar con tu audiencia en un mundo cada vez más digital. Se trata de utilizar estrategias y herramientas en línea para promover tu marca, atraer clientes potenciales y convertirlos en seguidores leales. Desde campañas en redes sociales hasta estrategias de SEO y publicidad pagada, el marketing digital abarca una gama de tácticas diseñadas para maximizar tu presencia en línea y alcanzar tus objetivos de negocio.</p>
+            
+            <p class="mb-4 animate-fade-in">En Desarrollo Digital, nos especializamos en crear y ejecutar estrategias de marketing digital que están alineadas con los objetivos y valores de tu empresa. Trabajamos contigo para entender tu audiencia, identificar oportunidades y diseñar campañas efectivas que no solo generen visibilidad, sino que también impulsen el crecimiento y la conversión. Nuestro enfoque integral asegura que cada aspecto de tu presencia digital trabaje en sinergia para obtener los mejores resultados.</p>
+            
+            <p class="mb-4 animate-fade-in">En un panorama digital competitivo, es esencial contar con una estrategia de marketing que no solo te diferencie, sino que también resuene con tus clientes. Nuestro equipo se encarga de optimizar cada aspecto de tu presencia en línea para que puedas enfocarte en lo que haces mejor: gestionar y hacer crecer tu negocio.</p>
+            
+            <div class="flex items-center justify-center mt-16">
+                <Card 
+                    title="¿Para Quién es Nuestro Servicio de Marketing Digital?" 
+                    body="Nuestro servicio de marketing digital está diseñado para empresas de todos tamaños que buscan destacar en el entorno digital. Desde pequeñas startups hasta grandes corporaciones, ofrecemos soluciones personalizadas que abarcan desde la estrategia de contenido hasta la gestión de campañas publicitarias. Con Desarrollo Digital, tu estrategia de marketing será una poderosa herramienta para alcanzar tus metas comerciales y construir relaciones duraderas con tus clientes." 
+                />
+            </div>
+            
+        </TxtLImgR>
+            
+        </section>
+        <section class="mb-8 ">
+            <h2 class="text-4xl text-center font-libre my-8">Información importante</h2>
+            <h3 class="text-3xl text-center font-libre my-8">Requisitos</h3>
+            <div class="flex flex-col gap-2">
+              {infoServicePage.requerimientos.map((requerimiento) => {
+                  
+                  return requerimiento.imagePosition === 'right' ? (
+                    <HorizontalCardRigth 
+                    
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  ) : (
+                    <HorizontalCardLefth 
+                     
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  );
+                })}
+                
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    Si no cumples con alguno de estos requisitos, no te preocupes. En Desarrollo Digital, podemos encargarnos de todo con alguno de nuestros planes personalizados. 
+                </p>
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    ¡Contáctanos para conocer más sobre cómo podemos apoyarte en cada paso del camino!
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2 class="text-4xl text-center font-libre my-8">Flujo de Trabajo</h2>
+             <FlowWork pasos={infoServicePage.pasos} />
+        </section>
+
+       
+<section class="mt-8">
+  
+       
+</section>
+    
+        <section class="text-center mt-10">
+            <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar?</h3>
+            <p class="mb-6">¡Hablemos sobre tu proyecto y cómo podemos ayudarte a alcanzar tus objetivos de marketing!</p>
+        </section>
+
+        <section class="flex flex-col md:flex-row justify-around">
+            {
+              infoServicePage.products.map((producto) => (
+                <div class="p-2">
+                <PriceCard 
+                  nombre={producto.name} 
+                  costo={producto.cost.toString()} 
+                  servicios={producto.features.map((feature) => ({
+                    descripcion: feature.description,
+                    activo: feature.active
+                  }))}
+                />
+                </div>
+              ))
+            }
+          </section>
+    </main>
+</Layout>

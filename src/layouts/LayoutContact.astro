@@ -1,0 +1,70 @@
+---
+import Menu from '../components/Menu.astro';
+import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+import GlobalStyle from '../components/GlobalStyle.astro';
+import DarkmodeScript from '../components/DarkmodeScript.astro';
+
+interface Props {
+	title: string;
+	description:string;
+	keywords: string;
+	image?: string;
+	robot: string
+
+}
+
+const { title, description, keywords, image='/img/seo/Impulsando tus sueños.webp', robot  } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="robots" content="noindex, follow" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<!-- <meta property="twitter:url" content={Astro.url} /> -->
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+
+
+<script is:inline  src="https://www.google.com/recaptcha/api.js?render=6Ld80xcqAAAAAHUioMO0WgKBxE8kZMcPhSHND65p"/>
+ 
+<DarkmodeScript/>
+
+<ViewTransitions/>
+</head>
+  <body>
+	  <Menu/>
+	  
+	  <slot />
+	  <Footer/>
+	  <script data-astro-rerun src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+  </body>
+</html>
+
+
+<GlobalStyle/>

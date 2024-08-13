@@ -1,0 +1,129 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import HeroPage from '../../components/HeroPage.astro'
+import TxtLImgR from "../../components/txtL-imgR.astro"
+import Card from "../../components/Card.astro"
+import "../../animations.css"
+import FlowWork from "../../components/FlowWork.astro"
+import PriceCard from "../../components/PriceCard.astro"
+import CardRequisitos from "../../components/CardRequisitos.astro"
+import HorizontalCardLefth from "../../components/HorizontalCardLefth.astro"
+import HorizontalCardRigth from "../../components/HorizontalCardRigth.astro"
+
+import ecommerce from "../../lib/data/Ecommerce.json"
+import {type MetaDataServices} from "../../lib/type/MetadataServices"
+
+
+
+const {infoServicePage} = ecommerce as unknown as MetaDataServices
+
+
+---
+
+<Layout title={infoServicePage.pageMeta.title} description={infoServicePage.pageMeta.description} keywords={infoServicePage.pageMeta.keywords} >
+    <main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+       <HeroPage title={infoServicePage.name} urlImg="/img/heropage/e-commerce.webp" />
+        <section class="mb-8">
+            <TxtLImgR title="Descripción del Servicio"
+            img="/img/contenPages/VerticalEcom.webp"
+            altS="E-commerce"
+            >
+
+            <p class="mb-4 animate-fade-in">
+                Imagina un portal digital que no solo representa tu negocio, sino que lo transforma y lo lleva a nuevas alturas. Este portal se llama E-commerce.
+              </p>
+              
+              <h3 class="mb-4 animate-fade-in">¿Qué es un E-commerce?</h3>
+              
+              <p class="mb-4 animate-fade-in">
+                Un e-commerce es más que una tienda en línea; es una plataforma completa que permite a tu negocio vender productos o servicios a clientes en todo el mundo. A diferencia de las tiendas físicas, un e-commerce ofrece la posibilidad de operar 24/7, facilitando la compra para tus clientes en cualquier momento y desde cualquier lugar.
+              </p>
+              
+              <p class="mb-4 animate-fade-in">
+                En Desarrollo Digital, nos especializamos en crear soluciones de e-commerce a medida que no solo facilitan las transacciones en línea, sino que también optimizan la experiencia del usuario. Desde la integración de pasarelas de pago seguras hasta el diseño de una interfaz intuitiva y atractiva, trabajamos para que tu tienda en línea no solo sea funcional, sino también efectiva en convertir visitantes en compradores frecuentes.
+              </p>
+              
+              <p class="mb-4 animate-fade-in">
+                En un mercado digital competitivo, tu tienda en línea debe destacar y ofrecer una experiencia de compra fluida y agradable. Nuestra misión es asegurar que tu e-commerce no solo sea una herramienta de ventas eficiente, sino también una plataforma que impulse el crecimiento de tu negocio y fortalezca tu presencia en el mercado.
+              </p>
+              
+              <div class="flex items-center justify-center mt-16">
+                <Card
+                  title="¿Para Quién es Nuestro Servicio de E-commerce?"
+                  body="Nuestro servicio de e-commerce está diseñado para empresas de todos los tamaños que desean llevar su negocio al entorno digital. Desde emprendedores que inician su primera tienda en línea hasta empresas consolidadas que buscan actualizar o expandir su presencia digital, ofrecemos soluciones personalizadas para satisfacer tus necesidades específicas. En Desarrollo Digital, tu tienda en línea será una plataforma poderosa y eficiente, capaz de atraer y convertir clientes de manera efectiva."
+                />
+              </div>
+              
+        
+        </TxtLImgR>
+            
+        </section>
+
+
+        <section class="mb-8 ">
+            <h2 class="text-4xl text-center font-libre my-8">Información importante</h2>
+            <h3 class="text-3xl text-center font-libre my-8">Requisitos</h3>
+            <div class="flex flex-col gap-2">
+              {infoServicePage.requerimientos.map((requerimiento) => {
+                  
+                  return requerimiento.imagePosition === 'right' ? (
+                    <HorizontalCardRigth 
+                    
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  ) : (
+                    <HorizontalCardLefth 
+                     
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  );
+                })}
+                
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    Si no cumples con alguno de estos requisitos, no te preocupes. En Desarrollo Digital, podemos encargarnos de todo con alguno de nuestros planes personalizados. 
+                </p>
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    ¡Contáctanos para conocer más sobre cómo podemos apoyarte en cada paso del camino!
+                </p>
+            </div>
+    
+            
+        </section>
+        <section>
+            <h2 class="text-4xl text-center font-libre my-8">Flujo de Trabajo</h2>
+             <FlowWork pasos={infoServicePage.pasos} />
+        </section>
+
+       
+<section class="mt-8">
+  
+       
+</section>
+    
+        <section class="text-center mt-10">
+            <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar?</h3>
+            <p class="mb-6">¡Hablemos sobre tu proyecto y cómo podemos ayudarte a alcanzar tus objetivos de marketing!</p>
+        </section>
+
+        <section class="flex flex-col md:flex-row justify-around">
+            {
+              infoServicePage.products.map((producto) => (
+                <div class="p-2">
+                <PriceCard 
+                  nombre={producto.name} 
+                  costo={producto.cost.toString()} 
+                  servicios={producto.features.map((feature) => ({
+                    descripcion: feature.description,
+                    activo: feature.active
+                  }))}
+                />
+                </div>
+              ))
+            }
+          </section>
+    </main>
+</Layout>

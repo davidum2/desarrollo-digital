@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import HeroPage from '../../components/HeroPage.astro'
+import TxtLImgR from "../../components/txtL-imgR.astro"
+import Card from "../../components/Card.astro"
+import "../../animations.css"
+import FlowWork from "../../components/FlowWork.astro"
+import PriceCard from "../../components/PriceCard.astro"
+import CardRequisitos from "../../components/CardRequisitos.astro"
+import HorizontalCardLefth from "../../components/HorizontalCardLefth.astro"
+import HorizontalCardRigth from "../../components/HorizontalCardRigth.astro"
+
+import mantenimiento from "../../lib/data/Mantenimiento.json"
+import {type MetaDataServices} from "../../lib/type/MetadataServices"
+
+
+
+const {infoServicePage} = mantenimiento as unknown as MetaDataServices
+
+
+---
+
+<Layout title={infoServicePage.pageMeta.title} description={infoServicePage.pageMeta.description} keywords={infoServicePage.pageMeta.keywords} >
+    <main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+       <HeroPage title={infoServicePage.name} urlImg="/img/heropage/mantenimiento.webp" />
+        <section class="mb-8">
+            <TxtLImgR title="Descripción del Servicio"
+            img="/img/contenPages/Mantenimiento.webp"
+            altS="landig-page"
+            >
+
+            <p class="mb-4 animate-fade-in">Imagina un portal digital que no solo representa tu negocio, sino que se mantiene actualizado, seguro y optimizado para ofrecer la mejor experiencia a tus usuarios. Este portal es la base de nuestra oferta de servicios de mantenimiento web.</p>
+
+            <h3 class="mb-4 animate-fade-in">¿Qué es el Mantenimiento Web?</h3>
+            
+            <p class="mb-4 animate-fade-in">El mantenimiento web es un proceso continuo que asegura que tu sitio web permanezca funcional, actualizado y libre de problemas técnicos. Este servicio incluye la monitorización constante, la aplicación de actualizaciones, la corrección de errores, la mejora del rendimiento y la garantía de seguridad para proteger tu sitio contra amenazas.</p>
+            
+            <p class="mb-4 animate-fade-in">En Desarrollo Digital, entendemos que un sitio web requiere atención constante para mantener su rendimiento óptimo. Nuestro servicio de mantenimiento no solo se enfoca en resolver problemas cuando surgen, sino en prevenirlos mediante actualizaciones regulares y prácticas proactivas. Nos aseguramos de que tu sitio web siga funcionando a la perfección y se mantenga al día con las últimas tecnologías y estándares.</p>
+            
+            <p class="mb-4 animate-fade-in">Con un mantenimiento adecuado, tu sitio web será un activo confiable y valioso que continúa sirviendo a tus clientes de manera efectiva. Nuestro objetivo es que puedas centrarte en tu negocio, sabiendo que tu presencia en línea está en manos seguras.</p>
+            
+            <div class="flex items-center justify-center mt-16">
+                <Card 
+                    title="¿Para Quién es Nuestro Servicio de Mantenimiento Web?" 
+                    body="Nuestro servicio de mantenimiento web está dirigido a empresas y organizaciones que buscan asegurar la longevidad y eficiencia de su sitio web. Desde pequeñas empresas hasta grandes corporaciones, ofrecemos soporte técnico continuo para mantener tu sitio web en condiciones óptimas. Con Desarrollo Digital, tendrás la tranquilidad de saber que tu sitio web está en buenas manos, permitiéndote concentrarte en hacer crecer tu negocio mientras nosotros nos encargamos de los detalles técnicos." 
+                />
+            </div>
+            
+        
+        
+        </TxtLImgR>
+            
+        </section>
+
+
+        <section class="mb-8 ">
+            <h2 class="text-4xl text-center font-libre my-8">Información importante</h2>
+            <h3 class="text-3xl text-center font-libre my-8">Requisitos</h3>
+            <div class="flex flex-col gap-2">
+              {infoServicePage.requerimientos.map((requerimiento) => {
+                  
+                  return requerimiento.imagePosition === 'right' ? (
+                    <HorizontalCardRigth 
+                    
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  ) : (
+                    <HorizontalCardLefth 
+                     
+                      title={requerimiento.title}
+                      description={requerimiento.description}
+                      img={requerimiento.img}
+                    />
+                  );
+                })}
+                
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    Si no cumples con alguno de estos requisitos, no te preocupes. En Desarrollo Digital, podemos encargarnos de todo con alguno de nuestros planes personalizados. 
+                </p>
+                <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                    ¡Contáctanos para conocer más sobre cómo podemos apoyarte en cada paso del camino!
+                </p>
+            </div>
+        </section>
+        <section>
+            <h2 class="text-4xl text-center font-libre my-8">Flujo de Trabajo</h2>
+             <FlowWork pasos={infoServicePage.pasos} />
+        </section>
+
+       
+<section class="mt-8">
+  
+       
+</section>
+    
+        <section class="text-center mt-10">
+            <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar?</h3>
+            <p class="mb-6">¡Hablemos sobre tu proyecto y cómo podemos ayudarte a alcanzar tus objetivos de marketing!</p>
+        </section>
+
+        <section class="flex flex-col md:flex-row justify-around">
+            {
+              infoServicePage.products.map((producto) => (
+                <div class="p-2">
+                <PriceCard 
+                  nombre={producto.name} 
+                  costo={producto.cost.toString()} 
+                  servicios={producto.features.map((feature) => ({
+                    descripcion: feature.description,
+                    activo: feature.active
+                  }))}
+                />
+                </div>
+              ))
+            }
+          </section>
+    </main>
+</Layout>

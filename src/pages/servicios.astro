@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+const servicios ={
+
+    landigpage: {
+        name:'Landing Page',
+        img:'/img/contenPages/VerticalLandingPage.webp',
+        link:'/servicios/landingpage'
+    },
+    marketing: {
+        name:'Marketing',
+        img:'/img/heropage/marketing.webp',
+        link:'/servicios/marketing'
+    },
+    websites: {
+        name:'Sitios Web',
+        img:'/img/heropage/website.webp',
+        link:'/servicios/website'
+    },
+    consultoria:{
+        name:'Consultoria',
+        img:'/img/contenPages/VerticalConsult.webp',
+        link:'/servicios/consultoria'
+    },
+    ecommerce:{
+        name:'Negocio Digital',
+        img:'/img/heropage/e-commerce.webp',
+        link:'/servicios/ecommerce'
+    },
+    mantenimiento:{
+        name:'Mantenimeinto',
+        img:'/img/heropage/mantenimiento.webp',
+        link:'/servicios/mantenimiento'
+    }
+
+}
+
+const pageMeta = {
+    title: "Servicios de Desarrollo Digital | Diseño Web, E-Commerce, Consultoría y Más",
+    description: "Explora todos los servicios que ofrece Desarrollo Digital, desde la construcción de sitios web y e-commerce hasta consultoría web y mantenimiento mensual. Descubre cómo podemos ayudarte a alcanzar tus objetivos digitales con soluciones personalizadas y profesionales.",
+    keywords: "Servicios de Desarrollo Digital, Diseño Web, E-Commerce, Consultoría Web, Mantenimiento Web, Optimización SEO, Desarrollo Web, Servicios Digitales"
+  }
+---
+
+<Layout title={pageMeta.title} description={pageMeta.description} keywords={pageMeta.keywords}
+>
+    
+<main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <h1 class="font-libre text-6xl mb-8">Nuestos servicios</h1>
+<div class="md:h-[70vh] grid grid-cols-3 grid-rows-4 gap-4">
+   
+        <div class="relative  rounded-lg group overflow-hidden col-start-1 col-end-2 row-start-1 row-end-3">
+            <a href=`${servicios.landigpage.link}`>
+              <img class="w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.landigpage.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.landigpage.name}
+              </h2>
+            </a>
+          </div>
+          
+   
+        <div class="relative  rounded-lg group overflow-hidden col-start-1 col-end-3 row-start-3 row-end-4">
+            <a href=`${servicios.websites.link}`>
+              <img class=" w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.websites.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.websites.name}
+              </h2>
+            </a>
+        </div>
+        <div class="relative  rounded-lg group overflow-hidden col-start-2 col-end-4 row-start-1 row-end-2">
+            <a href=`${servicios.marketing.link}`>
+              <img class=" w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.marketing.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.marketing.name}
+              </h2>
+            </a>
+          </div>
+          
+        <div class="relative  rounded-lg group overflow-hidden col-start-2 col-end-3 row-start-2 row-end-3">
+            <a href=`${servicios.ecommerce.link}`>
+              <img class=" w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.ecommerce.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.ecommerce.name}
+              </h2>
+            </a>
+          </div>
+        <div class="relative  rounded-lg group overflow-hidden col-start-3 col-end-4 row-start-2 row-end-4">
+            <a href=`${servicios.consultoria.link}`>
+              <img class="w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.consultoria.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.consultoria.name}
+              </h2>
+            </a>
+          </div>
+        <div class="relative  rounded-lg group overflow-hidden col-start-1 col-end-4 row-start-4 row-end-5">
+            <a href=`${servicios.mantenimiento.link}`>
+              <img class="w-full object-cover h-full transition-transform duration-300 group-hover:scale-105" src=`${servicios.mantenimiento.img}` alt="Landing Page">
+              <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
+              <h2 class="absolute bottom-0 text-4xl font-libre text-white">
+                {servicios.mantenimiento.name}
+              </h2>
+            </a>
+          </div>
+          
+   
+          
+
+</div>
+</main>
+</Layout>

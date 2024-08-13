@@ -1,0 +1,325 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Calidad from "../components/icons/calidad.astro";
+import Mision from "../components/icons/mision.astro";
+import Sembrando from "../components/icons/sembrando.astro";
+import Valores from "../components/icons/valores.astro";
+import Vision from "../components/icons/vision.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import "../../src/animations.css";
+
+const title = "Desarrollo Digital - Creación de Páginas Web y Desarrollo Web Profesional";
+const description =
+  "Desarrollo Digital ofrece servicios profesionales de creación de páginas web, desarrollo web, SEO y marketing digital para impulsar tu negocio. Contáctanos para más información.";
+const keywords =
+  "Desarrollo Web, Consultoría Web, WordPress, JS, JavaScript, Astro JS, Diseño Web, Optimización Web, Servicios Digitales, Transformación Digital";
+---
+
+<Layout title={title} description={description} keywords={keywords} robot="index, follow">
+  <main  class="relative  w-full min-h-screen overflow-auto snap-y snap-mandatory">
+    <div class="snap-start relative">
+      <div class="md:hidden absolute top-0 h-screen opacity-35">
+        <img src="/img/contenPages/principal.png" class="w-full h-full object-cover " alt="">
+      </div>
+      <section
+  id="hero"
+  class="relative max-w-6xl m-auto h-screen min-h-screen flex justify-center items-center py-8 text-center "
+  
+>
+      
+        <div class="relative container flex px-2 justify-evenly w-screen">
+          <div class="md:w-3/5 text-start">
+
+            <h1 class="text-sm">
+              Creación de Páginas Web
+            </h1>
+
+            <h2 class="md:text-6xl text-4xl font-libre font-bold mb-4">
+              No te conformes con lo ordinario.
+            </h2>
+            
+            <p class="text-lg font-lato mb-6 animate-fade-in">
+              <span
+                >En <span class="inline font-serif font-bold text-2xl">Desarrollo Digital</span
+                >, cada sitio web es una obra maestra, creada con precisión y
+                perfección para transmitirle tu calidad a tus clientes. Descubre
+                la diferencia de un diseño de calidad superior.</span
+              >
+            </p>
+
+            <div class="relative pb-3 show-with-delay">
+              <a
+                href="/servicios"
+                class="relative bg-light-accent1  transition-all  dark:bg-dark-accent1 hover:dark:bg-dark-accent2  hover:bg-light-accent2 font-bold p-3 px-6 rounded-lg inline-block border-button"
+              >
+                Comienza Hoy
+              </a>
+            </div>
+          </div>
+          <div class="sm:block hidden">
+            <Image
+              class="aspect-video"
+              height={500}
+              width={500}
+              src="/img/hero-img2.webp"
+              alt="desarrollo digital hero"
+            />
+          </div>
+          <div id="banner-info"></div>
+        </div>
+      </section>
+      <div class="snap-start">
+        <section
+          id="importancia-online"
+          class="py-16 bg-gradient-to-r min-h-screen from-light-accent1 to-light-accent2 dark:from-dark-accent1 dark:to-dark-accent2"
+        >
+          <div class="container mx-auto px-4 text-center">
+           
+            <h2 class="text-4xl font-libre font-bold mb-8">
+              Transforma tu Negocio con una Presencia Online Impactante
+            </h2>
+            <div class="animate-fade-in grid grid-cols-1 md:grid-cols-2 gap-12">
+              <!-- Importancia de la Presencia Online -->
+              <div class="flex flex-col items-center">
+                <div
+                  class="bg-slate-200 p-8 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                >
+                  <h3 class="text-2xl font-semibold text-light-accent2 dark:text-dark-accent1 mb-4">
+                    Conecta con tus Clientes
+                  </h3>
+                  <div class="flex items-center justify-center py-4">
+                    <Image width={100} height={100} src="/img/avatar/conexion.png"  alt="Conectar Clientes">
+                  </div>
+                  <p class="text-gray-700">
+                    Tener una presencia online sólida permite a tus clientes
+                    encontrarte fácilmente y establecer una conexión directa
+                    contigo. Esto no solo mejora la comunicación, sino que
+                    también fortalece la lealtad del cliente.
+                  </p>
+                  <div>
+                    <a href="/servicios/website" class="text-light-accent2 dark:text-dark-accent1">Ver mas...</a>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Facilidad para Escalar el Negocio -->
+              <div class="flex flex-col items-center">
+                <div
+                  class="bg-slate-200 p-8 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                >
+                  <h3 class="text-2xl font-semibold text-light-accent2 dark:text-dark-accent2 mb-4">
+                    Escalabilidad sin Límites
+                  </h3>
+                  <div class="flex items-center justify-center py-4">
+                    <Image width={100} height={100} src="/img/avatar/escalabilidad.png" alt="Conectar Clientes">
+                  </div>
+                  <p class="text-gray-700">
+                    Un sitio web bien diseñado te permite escalar tu negocio de
+                    manera eficiente. Puedes llegar a una audiencia global,
+                    ampliar tu oferta de productos y servicios, y gestionar tu
+                    crecimiento sin complicaciones.
+                  </p>
+                  <div>
+                    <a href="/servicios/website" class="text-light-accent2 dark:text-dark-accent1">Ver mas...</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-12">
+              <h3 class="text-3xl font-semibold mb-6">
+                Las Ventajas de una Presencia Online
+              </h3>
+              <ul class="list-disc list-inside text-left mx-auto w-fit">
+                <li class="text-lg mb-2">
+                  Aumento de la visibilidad y alcance global
+                </li>
+                <li class="text-lg mb-2">
+                  Mejora en la interacción y satisfacción del cliente
+                </li>
+                <li class="text-lg mb-2">
+                  Facilidad para implementar estrategias de marketing digital
+                </li>
+                <li class="text-lg mb-2">
+                  Disponibilidad 24/7 para tus clientes
+                </li>
+                <li class="text-lg mb-2">
+                  Recopilación y análisis de datos para tomar decisiones
+                  informadas
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-center items-center">
+            <div class="mt-12 w-fit  bg-light-primary text-light-accent2 dark:text-dark-accent1 py-3 px-6 rounded-lg shadow-lg font-semibold text-lg hover:bg-gray-100 transition duration-300 ">
+              <a
+                href="/contacto"
+                class=""
+                >¡Empieza Hoy y Transforma tu Negocio!</a
+              >
+            </div>
+          </div>
+          </div>
+        </section>
+      </div>
+      <div class="snap-start">
+        <section id="sobre-nosotros" class="min-h-screen">
+          <div class="container max-w-[1460px] m-auto">
+            <h2 class="text-5xl text-center font-libre font-bold my-8">
+              Sobre Nosotros
+            </h2>
+            <p class="text-lg mb-4 px-8">
+              Tu éxito es nuestra misión. En Desarrollo Digital, tratamos cada
+              proyecto con la dedicación y el cuidado que mereces. Desde el
+              primer boceto hasta el lanzamiento, estamos a tu lado en cada paso
+              del camino.
+            </p>
+
+            <div
+              class="hidden max-w-7xl m-auto md:flex md:flex-row flex-col justify-center items-center my-8"
+            >
+              <div class="sm:w-1/2 mb-4 text-xl flex justify-center m-auto">
+                <p class="px-8">
+                  En Desarrollo Digital, estamos dedicados a transformar ideas
+                  en realidad digital. Con un enfoque en la creación de
+                  experiencias web significativas y accesibles, ayudamos a
+                  emprendedores y pequeñas empresas a establecer una presencia
+                  online que no solo atrae, sino que también cautiva a su
+                  audiencia. Nuestro equipo está comprometido con la innovación
+                  y la excelencia, utilizando tecnologías modernas y un diseño
+                  centrado en el usuario para impulsar el éxito de nuestros
+                  clientes. Descubre cómo podemos hacer crecer tu negocio en el
+                  mundo digital.
+                </p>
+              </div>
+              <Image
+                width={450}
+                height={450}
+                src="/img/sobre nosotros.webp"
+                alt="Sobre nosotros"
+              />
+            </div>
+            <h2 class="text-center font-libre text-5xl my-8">
+              Nuestros Pilares
+            </h2>
+            <div
+              class="max-w-7xl m-auto md:flex-row flex flex-col mb-4 gap-4 items-center justify-center"
+            >
+              <Card
+                title="Mision"
+                body="Ayudar a emprendedores a establecer una presencia en línea efectiva y atractiva, utilizando tecnologías modernas y prácticas de diseño centradas en el usuario."
+              >
+                <Mision size="50" />
+              </Card>
+              <Card
+                title="Visión"
+                body="Ser la empresa líder en el desarrollo de sitios web para emprendimientos iniciales, proporcionando soluciones accesibles y de alta calidad."
+              >
+                <Vision color="#000" size="50" />
+              </Card>
+              <Card
+                title="Innovación"
+                body="Nuestra empresa se dedica a integrar las tecnologías más avanzadas y las últimas tendencias de diseño en cada proyecto, ofreciendo soluciones creativas y únicas que destacan en el mercado digital."
+              >
+                <Sembrando color="un color" size="50" />
+              </Card>
+              <Card
+                title="Calidad"
+                body="Nos comprometemos a proporcionar servicios de desarrollo web que cumplen con los más altos estándares de excelencia, asegurando que cada sitio web sea funcional y estéticamente superior."
+              >
+                <Calidad size="50" />
+              </Card>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="snap-start">
+        <section id="servicios-destacados" class="py-12 min-h-screen">
+          <div class="container flex flex-col mx-auto px-4">
+            <h2 class="text-6xl font-libre font-semibold text-center my-8">
+              Nuestros Servicios Destacados
+            </h2>
+
+            <h3 class="text-3xl text-center font-libre font-bold my-8">
+              Transforma tu Idea en Realidad Digital
+            </h3>
+            <p class="text-lg mb-8">
+              Descubre cómo nuestros servicios de desarrollo de landing pages,
+              sitios web y e-commerce pueden potenciar tu presencia online.
+              Desde diseños atractivos hasta funcionalidades avanzadas, estamos
+              aquí para convertir tu visión en una experiencia digital
+              excepcional. ¡Empieza hoy mismo y lleva tu negocio al siguiente
+              nivel con Desarrollo Digital!
+            </p>
+
+            <div
+              class="flex md:flex-row flex-col justify-center items-center lg:justify-between gap-8"
+            >
+              <ServiceCard
+                title="Desarrollo de Landing Pages"
+                body="Diseñamos landing pages efectivas que capturan la atención de tus visitantes y los convierten en clientes. Utilizamos técnicas de diseño y marketing digital para crear páginas optimizadas para la conversión."
+                link="/servicios/landingpage"
+                img="/img/landing coffe.webp"
+                alt="Landing Pages Service"
+                transition:animate={'slide'}
+              >
+              <a href="/servicios/landingpage" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center   rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1  transition-all  dark:bg-dark-accent1 hover:dark:bg-dark-accent2  hover:bg-light-accent2">
+                Conozca más
+                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a></ServiceCard>
+
+
+
+              <ServiceCard
+                title="Desarrollo de Sitios Web"
+                body="Creamos sitios web personalizados que reflejan la identidad de tu marca y atraen a tus clientes. Utilizamos las últimas tecnologías para garantizar un rendimiento óptimo y una experiencia de usuario excepcional."
+                link="/servicios/website"
+                img="/img/Flor de Dragon.webp"
+                alt="Sitio Web Service"
+                >
+                <a href="/servicios/website" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center   rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1  transition-all  dark:bg-dark-accent1 hover:dark:bg-dark-accent2  hover:bg-light-accent2">
+                  Conozca más
+                   <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a></ServiceCard>
+              <ServiceCard
+                title="Desarrollo de E-commerce"
+                body="Desarrollamos tiendas en línea seguras y funcionales, integradas con plataformas de comercio electrónico líderes para que puedas vender tus productos y servicios de manera eficiente. Te ayudamos a gestionar tu tienda y a optimizar las ventas."
+                link="/servicios/ecommerce"
+                img="/img/store.webp"
+                alt="Sitio Web Service"
+                >
+                <a href="/servicios/ecommerce" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center   rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1  transition-all  dark:bg-dark-accent1 hover:dark:bg-dark-accent2  hover:bg-light-accent2">
+                  Conozca más
+                   <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a></ServiceCard>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta-final">
+          <div class="text-center my-8">
+            <h2 class="text-2xl font-bold mb-4">
+              ¿Listo para llevar tu presencia en línea al siguiente nivel?
+            </h2>
+            <p class="text-lg mb-6">
+              Descubre cómo podemos transformar tu visión en una realidad
+              digital.
+            </p>
+            <a
+              href="#contacto"
+              class="bg-light-accent2 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full inline-block"
+              >¡Contáctanos hoy mismo para una consulta gratuita!</a
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+  </main></Layout
+>
+|

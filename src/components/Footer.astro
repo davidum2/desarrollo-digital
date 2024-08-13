@@ -1,0 +1,119 @@
+---
+import Logo from "./icons/logo.astro"
+import Email from "./icons/e-mail.astro"
+import EMail from "./icons/e-mail.astro"
+import Whats from "./icons/whats.astro"
+import Face from "./icons/facebook.astro"
+import Mapa from "./icons/mapa.astro"
+import Instagram from "./icons/instagram.astro"
+import Linkedin from "./icons/Linkedin.astro"
+import X from "./icons/x.astro"
+import Yt from "./icons/yt.astro"
+
+---
+  
+  <footer class="bg-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Columna 1: Logo y descripción -->
+        <div class="col-span-1">
+          <div class="flex items-center mb-4">
+            <Logo size="200"/>
+          </div>
+          <p class="text-sm">Tu socio en la creación de presencia digital efectiva.</p>
+        </div>
+
+        <!-- Columna 2: Enlaces rápidos -->
+        <div class="col-span-1">
+          <h3 class="text-lg font-bold mb-4">Enlaces rápidos</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-sm hover:text-gray-400">Inicio</a></li>
+            <li><a href="/servicios" class="text-sm hover:text-gray-400">Servicios</a></li>
+            <li><a href="/trabajos" class="text-sm hover:text-gray-400">Nuestro Trabajo</a></li>
+            <li><a href="/contacto" class="text-sm hover:text-gray-400">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Información de contacto -->
+        <div class="col-span-1">
+          <h3 class="text-lg font-bold mb-4">Contacto</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <a href="mailto:contacto@desarrollo-digital.com?subject=Consulta%20sobre%20servicios&body=Hola,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios." class="flex">
+                <EMail size="25"/>
+              <span class="text-sm ml-2">contacto@desarrollo-digital.com</span>
+              </a>
+              
+              
+            </li>
+            <li class="flex items-center">
+              <a href="https://wa.me/526142720221?text=Hola,%20me%20gustaría%20saber%20más%20sobre%20sus%20servicios." class="flex" target="_blank">             
+             <Whats size="25"/>
+              <span class="text-sm ml-2">+52 (672) 272-0221</span>
+            </a>
+            </li>
+            <li class="flex items-center">
+             <Mapa size="25"/>
+              <span class="text-sm ml-2"> Chihuahua, México</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Redes sociales -->
+        <div class="col-span-1">
+          <h3 class="text-lg font-bold mb-4">Redes Sociales</h3>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/DigitalDesa/" class="text-sm hover:text-gray-400">
+            <Face size="25"/>
+            </a>
+            <a href="https://www.instagram.com/digital_desarrollo/" class="text-sm hover:text-gray-400">
+            <Instagram size="25"/>
+            </a>
+            <a href="www.linkedin.com/in/Digital-Desa" class="text-sm hover:text-gray-400">
+            <Linkedin size="25"/>
+            </a>
+            <a href="https://x.com/Digital_Desa" class="text-sm hover:text-gray-400">
+            <X size="25"/>
+            </a>
+            <a href="https://www.youtube.com/@Desarrollo-Digital-i8h" class="text-sm hover:text-gray-400">
+            <Yt size="40"/>
+            </a>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Derechos de autor y política de privacidad -->
+    <div class="mt-4 py-4 text-center text-sm bg-gray-900 text-white">
+      <p>&copy; 2024 Desarrollo Digital, algunos derechos reservados. | <a href="/politica-privacidad" class="underline">Política de privacidad</a></p>
+    </div>
+  </footer>
+
+
+
+
+<style scoped>
+  .footer-wrapper {
+    background-color: #1a202c;
+  }
+  .footer-wrapper a {
+    color: white;
+  }
+  .footer-wrapper ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .footer-wrapper h3 {
+    color: white;
+  }
+  .footer-wrapper svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+  }
+  .footer-wrapper .flex {
+    align-items: center;
+  }
+</style>
+

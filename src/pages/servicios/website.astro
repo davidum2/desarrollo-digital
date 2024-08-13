@@ -1,0 +1,113 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import HeroPage from '../../components/HeroPage.astro'
+import TxtLImgR from "../../components/txtL-imgR.astro"
+import Card from "../../components/Card.astro"
+import "../../animations.css"
+import FlowWork from "../../components/FlowWork.astro"
+import PriceCard from "../../components/PriceCard.astro"
+import CardRequisitos from "../../components/CardRequisitos.astro"
+import HorizontalCardLefth from "../../components/HorizontalCardLefth.astro"
+import HorizontalCardRigth from "../../components/HorizontalCardRigth.astro"
+
+import sitioWeb from "../../lib/data/SitiosWeb.json"
+import {type MetaDataServices} from "../../lib/type/MetadataServices"
+
+
+
+const {infoServicePage} = sitioWeb as unknown as MetaDataServices
+
+
+---
+
+<Layout title={infoServicePage.pageMeta.title} description={infoServicePage.pageMeta.description} keywords={infoServicePage.pageMeta.keywords} >
+    <main class="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+       <HeroPage title={infoServicePage.name} urlImg="/img/heropage/website.webp" />
+        <section class="mb-8">
+            <TxtLImgR title="Descripción del Servicio"
+            img="/img/contenPages/VerticalWebSite.webp"
+            altS="landig-page"
+            >
+
+            <p class="mb-4 animate-fade-in">Imagina un portal digital que no solo representa tu negocio, sino que lo transforma y lo lleva a nuevas alturas. Este portal existe y se llama Sitio Web.</p>
+            <h3 class="mb-4 animate-fade-in">¿Qué es un Sitio Web?</h3>
+            <p class="mb-4 animate-fade-in">Un sitio web es más que una simple colección de páginas en Internet; es la base digital de tu marca, la primera impresión que muchos clientes tendrán de tu negocio. A diferencia de las plataformas convencionales, un sitio web bien diseñado combina estética, funcionalidad y estrategia para atraer, retener y convertir visitantes en clientes leales.</p>
+            <p class="mb-4 animate-fade-in">En Desarrollo Digital, vamos más allá de la creación de sitios web tradicionales. Nos especializamos en la construcción de experiencias digitales únicas y memorables que no solo capturan la esencia de tu marca, sino que también impulsan su crecimiento. Utilizamos las últimas tecnologías y técnicas de diseño para asegurar que cada sitio web no solo sea visualmente impresionante, sino también altamente efectivo en la conversión de visitantes en clientes comprometidos.</p>
+            <p class="mb-4 animate-fade-in">En un mundo donde la competencia está a solo un clic de distancia, tu sitio web debe ser un faro que destaque, guíe y convierta. Un sitio web bien diseñado es la clave para cualquier estrategia de marketing digital exitosa y el pilar sobre el cual se construyen las relaciones duraderas con los clientes.</p>
+            
+            <div class="flex items-center justify-center mt-16">
+                <Card title="¿Para Quién es Nuestro Servicio de Creación de Sitios Web?"
+                body="Nuestro servicio de creación de sitios web está dirigido a visionarios, desde emprendedores audaces hasta pequeñas y medianas empresas ambiciosas, así como a cualquier organización que busque destacar en el vasto mundo digital. Ya sea que estés construyendo una marca desde cero, revitalizando tu presencia en línea o creando una plataforma para tus clientes, nuestros sitios web están diseñados para superar tus expectativas y alcanzar tus objetivos específicos.\nCon Desarrollo Digital, tu sitio web no solo será una presencia en línea, sino una fuerza impulsora que convertirá visitantes en seguidores leales y clientes comprometidos."/>
+            </div>
+        
+        
+        </TxtLImgR>
+            
+        </section>
+
+
+        <section class="mb-8 ">
+            <h2 class="text-4xl text-center font-libre my-8">Información importante</h2>
+            <h3 class="text-3xl text-center font-libre my-8">Requisitos</h3>
+              <div class="flex flex-col gap-2">
+                {infoServicePage.requerimientos.map((requerimiento) => {
+                    
+                    return requerimiento.imagePosition === 'right' ? (
+                      <HorizontalCardRigth 
+                      
+                        title={requerimiento.title}
+                        description={requerimiento.description}
+                        img={requerimiento.img}
+                      />
+                    ) : (
+                      <HorizontalCardLefth 
+                       
+                        title={requerimiento.title}
+                        description={requerimiento.description}
+                        img={requerimiento.img}
+                      />
+                    );
+                  })}
+                  
+                  <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                      Si no cumples con alguno de estos requisitos, no te preocupes. En Desarrollo Digital, podemos encargarnos de todo con alguno de nuestros planes personalizados. 
+                  </p>
+                  <p class="my-4 text-center md:text-start font-normal text-gray-500 dark:text-gray-400">
+                      ¡Contáctanos para conocer más sobre cómo podemos apoyarte en cada paso del camino!
+                  </p>
+              </div>
+        </section>
+        <section>
+            <h2 class="text-4xl text-center font-libre my-8">Flujo de Trabajo</h2>
+             <FlowWork pasos={infoServicePage.pasos} />
+        </section>
+
+       
+<section class="mt-8">
+  
+       
+</section>
+    
+        <section class="text-center mt-10">
+            <h3 class="text-2xl font-semibold mb-4">¿Listo para comenzar?</h3>
+            <p class="mb-6">¡Hablemos sobre tu proyecto y cómo podemos ayudarte a alcanzar tus objetivos de marketing!</p>
+        </section>
+
+        <section class="flex flex-col md:flex-row justify-around">
+            {
+              infoServicePage.products.map((producto) => (
+                <div class="p-2">
+                <PriceCard 
+                  nombre={producto.name} 
+                  costo={producto.cost.toString()} 
+                  servicios={producto.features.map((feature) => ({
+                    descripcion: feature.description,
+                    activo: feature.active
+                  }))}
+                />
+                </div>
+              ))
+            }
+          </section>
+    </main>
+</Layout>

@@ -1,0 +1,129 @@
+{
+  "infoServicePage": {
+    "name": "Landing Page",
+    "pageMeta": {
+    "title": "Servicios de Landing Page | Desarrollo Digital",
+    "description": "Ofrecemos servicios de creación de Landing Pages atractivas y efectivas. Contacta con nosotros a través de WhatsApp, correo electrónico o teléfono para más información.",
+    "keywords": "Landing Page, Desarrollo Digital, Marketing Digital, Optimización SEO, Diseño Web, Contacto"
+  },
+
+    "products": [
+      {
+        "name": "Landing Básica",
+        "cost": "1,500.00 MXN",
+        "features": [
+          { "description": "Tres secciones", "active": true },
+          { "description": "Formulario de contacto", "active": true },
+          { "description": "Optimización SEO básica", "active": true },
+          { "description": "Diseño responsivo", "active": true },
+          { "description": "Integración con redes sociales", "active": true },
+          { "description": "Certificado SSL", "active": false },
+          { "description": "Dominio personalizado", "active": false },
+          { "description": "Servicio de hosting por un mes", "active": false },
+          { "description": "Servicio de mantenimiento por un mes", "active": false },
+          { "description": "Integración con Google Analytics", "active": false },
+          { "description": "Pruebas A/B", "active": false }
+        ]
+      },
+      {
+        "name": "Landing Pro",
+        "cost": "3,300.00 MXN",
+        "features": [
+          { "description": "Tres secciones", "active": true },
+          { "description": "Formulario de contacto", "active": true },
+          { "description": "Optimización SEO básica", "active": true },
+          { "description": "Diseño responsivo", "active": true },
+          { "description": "Integración con redes sociales", "active": true },
+          { "description": "Certificado SSL", "active": true },
+          { "description": "Dominio personalizado", "active": true },
+          { "description": "Servicio de hosting por un mes", "active": true },
+          { "description": "Servicio de mantenimiento por un mes", "active": true },
+          { "description": "Integración con Google Analytics", "active": false },
+          { "description": "Pruebas A/B", "active": false }
+        ]
+      },
+      {
+        "name": "Landing Advance",
+        "cost": "5,000.00 MXN",
+        "features": [
+          { "description": "Cinco secciones", "active": true },
+          { "description": "Formulario de contacto", "active": true },
+          { "description": "Optimización SEO básica", "active": true },
+          { "description": "Diseño responsivo", "active": true },
+          { "description": "Integración con redes sociales", "active": true },
+          { "description": "Certificado SSL", "active": true },
+          { "description": "Dominio personalizado", "active": true },
+          { "description": "Servicio de hosting por un año", "active": true },
+          { "description": "Servicio de mantenimiento por un año", "active": true },
+          { "description": "Integración con Google Analytics", "active": true },
+          { "description": "Pruebas A/B", "active": true }
+        ]
+      }
+    ],
+    
+    
+    "pasos": [
+      {
+        "subtitulo": "Inicio del Proyecto",
+        "titulo": "Firma del Contrato",
+        "descripcion": "Este primer paso incluye la firma del contrato y la recopilación de todos los documentos necesarios para iniciar el proyecto. Establecemos los objetivos, el alcance y las expectativas del cliente."
+      },
+      {
+        "subtitulo": "Planificación",
+        "titulo": "Definición y Análisis",
+        "descripcion": "En esta fase, realizamos un análisis detallado del objetivo de la landing page. Definimos la audiencia objetivo, recopilamos contenido relevante (textos, imágenes, videos, etc.) y establecemos un plan de acción para el desarrollo."
+      },
+      {
+        "subtitulo": "Ejecución",
+        "titulo": "Diseño y Desarrollo",
+        "descripcion": "Durante la ejecución, nuestro equipo de diseño y desarrollo trabaja en conjunto para crear una landing page atractiva y funcional. Utilizamos herramientas modernas y prácticas de diseño centradas en el usuario para asegurar la mejor experiencia posible."
+      },
+      {
+        "subtitulo": "Cierre del Proyecto",
+        "titulo": "Entrega y Revisión",
+        "descripcion": "Finalmente, entregamos la landing page terminada y realizamos una revisión exhaustiva con el cliente. Nos aseguramos de que todo esté funcionando correctamente y hacemos ajustes según sea necesario. Cerramos el proyecto con satisfacción del cliente."
+      }
+    ],
+    
+      "requerimientos": [
+        {
+          "title": "Manual de Identidad Corporativa (Brand Book)",
+          "description": "Este documento esencial define la personalidad visual y verbal de tu marca. Incluye directrices sobre logotipos, colores, tipografías y tono de voz para asegurar una presentación coherente y profesional en todos los medios.",
+           "img": "/img/requisitos/BrandBook.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Información detallada sobre el objetivo de la Landing Page",
+          "description": "Es crucial entender qué deseas lograr con tu landing page. ¿Quieres captar leads, vender un producto, promocionar un evento? Detallar estos objetivos nos permite diseñar una página que cumpla exactamente con tus expectativas.",
+           "img": "/img/requisitos/Objetivo.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Contenido relevante (textos, imágenes, videos, etc.) para incluir en la página",
+          "description": "El contenido es el corazón de tu landing page. Proporcionar textos, imágenes y videos específicos garantiza que la página sea informativa y atractiva, aumentando las posibilidades de conversión.",
+           "img": "/img/requisitos/Contenido.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Definición clara de la audiencia objetivo",
+          "description": "Conocer a tu audiencia es fundamental para crear una landing page efectiva. Definir claramente quiénes son tus usuarios ideales nos ayuda a adaptar el diseño y el mensaje para captar su atención y satisfacer sus necesidades.",
+           "img": "/img/requisitos/Audiencia.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Dominio web de la empresa",
+          "description": "El dominio es la dirección de tu sitio en internet, como www.tuempresa.com. Necesitamos esta información para enlazar la landing page y asegurar que los visitantes puedan encontrarla fácilmente.",
+           "img": "/img/requisitos/Domino.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Servicio de hosting",
+          "description": "El hosting es el servicio que permite que tu landing page esté accesible en internet. Necesitamos saber dónde estará alojada la página para gestionar su publicación y mantenimiento correctamente.",
+           "img": "/img/requisitos/Hosting.webp",
+          "imagePosition": "left"
+        }
+      ]
+    
+    
+  }
+}

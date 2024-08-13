@@ -1,0 +1,144 @@
+{
+    "infoServicePage": {
+      "name": "Servicios de E-commerce",
+      "pageMeta": {
+        "title": "Servicios de E-commerce | Desarrollo Digital",
+        "description": "Transforma tu negocio con nuestros servicios de e-commerce personalizados y optimizados. Contacta con nosotros a través de WhatsApp, correo electrónico o teléfono para más información.",
+        "keywords": "E-commerce, Desarrollo Digital, Tiendas en Línea, Optimización SEO, Marketing Digital, Contacto"
+      },
+      "products": [
+        {
+          "name": "E-commerce Básico",
+          "cost": "8,000.00 MXN",
+          "features": [
+            { "description": "Hasta 10 productos", "active": true },
+            { "description": "Diseño responsivo", "active": true },
+            { "description": "Integración con pasarelas de pago", "active": true },
+            { "description": "Optimización SEO básica", "active": true },
+            { "description": "Certificado SSL", "active": true },
+            { "description": "Integración con redes sociales", "active": true },
+            { "description": "Dominio personalizado", "active": true },
+            { "description": "Servicio de hosting por un mes", "active": false },
+            { "description": "Servicio de mantenimiento por un mes", "active": false },
+            { "description": "Análisis básico de métricas", "active": false },
+            { "description": "Soporte técnico básico", "active": false }
+          ]
+        },
+        {
+          "name": "E-commerce Pro",
+          "cost": "15,000.00 MXN",
+          "features": [
+            { "description": "Hasta 50 productos", "active": true },
+            { "description": "Diseño responsivo personalizado", "active": true },
+            { "description": "Integración avanzada con pasarelas de pago", "active": true },
+            { "description": "Optimización SEO avanzada", "active": true },
+            { "description": "Certificado SSL", "active": true },
+            { "description": "Integración con redes sociales y marketing", "active": true },
+            { "description": "Dominio personalizado", "active": true },
+            { "description": "Servicio de hosting por tres meses", "active": true },
+            { "description": "Servicio de mantenimiento por tres meses", "active": true },
+            { "description": "Análisis detallado de métricas", "active": true },
+            { "description": "Soporte técnico prioritario", "active": true },
+            { "description": "Pruebas A/B", "active": false }
+          ]
+        },
+        {
+          "name": "E-commerce Avanzado",
+          "cost": "25,000.00 MXN",
+          "features": [
+            { "description": "Productos ilimitados", "active": true },
+            { "description": "Diseño responsivo y UI/UX avanzado", "active": true },
+            { "description": "Integración completa con múltiples pasarelas de pago", "active": true },
+            { "description": "SEO avanzado y análisis de competencia", "active": true },
+            { "description": "Certificado SSL", "active": true },
+            { "description": "Integración completa con redes sociales y campañas de marketing", "active": true },
+            { "description": "Dominio personalizado", "active": true },
+            { "description": "Servicio de hosting por un año", "active": true },
+            { "description": "Servicio de mantenimiento por un año", "active": true },
+            { "description": "Análisis avanzado de métricas y reporting", "active": true },
+            { "description": "Soporte técnico premium 24/7", "active": true },
+            { "description": "Pruebas A/B y optimización continua", "active": true },
+            { "description": "Integración con herramientas de CRM", "active": true }
+          ]
+        }
+      ],
+      "pasos": [
+        {
+          "subtitulo": "Inicio del Proyecto",
+          "titulo": "Firma del Contrato",
+          "descripcion": "En este primer paso, firmamos el contrato y recopilamos todos los documentos necesarios para iniciar el proyecto. Establecemos los objetivos, el alcance y las expectativas del cliente, asegurando una base sólida para el desarrollo del e-commerce."
+        },
+        {
+          "subtitulo": "Planificación",
+          "titulo": "Definición y Estrategia",
+          "descripcion": "Realizamos un análisis detallado de los objetivos de e-commerce. Definimos la audiencia objetivo, investigamos a la competencia y establecemos un plan de acción estratégico para el desarrollo de la tienda en línea, alineando cada elemento con los objetivos del cliente."
+        },
+        {
+          "subtitulo": "Diseño y Desarrollo",
+          "titulo": "Prototipado y Programación",
+          "descripcion": "Creamos prototipos y diseños gráficos del e-commerce. Nuestro equipo de desarrollo transforma los diseños en una tienda en línea funcional utilizando las últimas tecnologías web, implementando todas las funcionalidades necesarias."
+        },
+        {
+          "subtitulo": "Pruebas y Optimización",
+          "titulo": "Verificación y SEO",
+          "descripcion": "Realizamos pruebas exhaustivas para asegurar que el e-commerce funcione correctamente en todos los navegadores y dispositivos. Optimizamos la tienda para motores de búsqueda y configuramos herramientas de análisis."
+        },
+        {
+          "subtitulo": "Cierre del Proyecto",
+          "titulo": "Entrega y Revisión Final",
+          "descripcion": "Entregamos la tienda en línea terminada y realizamos una revisión exhaustiva con el cliente. Nos aseguramos de que todo esté funcionando correctamente y hacemos ajustes según sea necesario. Proporcionamos una capacitación básica sobre cómo administrar el e-commerce."
+        }
+      ],
+      "requerimientos": [
+    {
+      "title": "Manual de Identidad Corporativa (Brand Book)",
+      "description": "Este documento esencial define la personalidad visual y verbal de tu marca. Incluye directrices sobre logotipos, colores, tipografías y tono de voz para asegurar una presentación coherente y profesional en todos los medios.",
+      "img": "/img/requisitos/BrandBook.webp",
+      "imagePosition": "left"
+    },
+    {
+      "title": "Información detallada sobre los productos y categorías",
+      "description": "Proporciona detalles sobre los productos que vas a vender, incluyendo descripciones, precios, y categorías. Esto nos ayuda a estructurar tu tienda online de manera eficiente y a garantizar una experiencia de usuario fluida.",
+      "img": "/img/requisitos/Productos.webp",
+      "imagePosition": "right"
+    },
+    {
+      "title": "Contenido relevante (textos, imágenes, videos, etc.) para incluir en la tienda",
+      "description": "El contenido es crucial para atraer y convertir a los visitantes en clientes. Proporcionar textos, imágenes y videos específicos ayuda a que la tienda online sea informativa y atractiva, mejorando las posibilidades de venta.",
+      "img": "/img/requisitos/Contenido.webp",
+      "imagePosition": "left"
+    },
+    {
+      "title": "Definición clara de la audiencia objetivo",
+      "description": "Conocer a tu audiencia es clave para diseñar una tienda online efectiva. Definir claramente quiénes son tus clientes ideales nos permite adaptar el diseño y el mensaje para captar su atención y satisfacer sus necesidades.",
+      "img": "/img/requisitos/Audiencia.webp",
+      "imagePosition": "right"
+    },
+    {
+      "title": "Dominio web de la tienda",
+      "description": "El dominio es la dirección de tu tienda online en internet, como www.tutienda.com. Necesitamos esta información para enlazar la tienda y asegurar que los clientes puedan encontrarla fácilmente.",
+      "img": "/img/requisitos/Domino.webp",
+      "imagePosition": "left"
+    },
+    {
+      "title": "Servicio de hosting",
+      "description": "El hosting es el servicio que permite que tu tienda online esté accesible en internet. Necesitamos saber dónde estará alojada la tienda para gestionar su publicación y mantenimiento correctamente.",
+      "img": "/img/requisitos/Hosting.webp",
+      "imagePosition": "right"
+    },
+    {
+      "title": "Estructura de navegación y carrito de compras",
+      "description": "Una estructura clara y un carrito de compras bien definido son esenciales para una buena experiencia de usuario. Proporcionar esta información nos ayuda a crear una tienda online funcional y fácil de usar.",
+      "img": "/img/requisitos/Carrito de compras.webp",
+      "imagePosition": "left"
+    },
+    {
+      "title": "Detalles de funcionalidad adicional",
+      "description": "Si necesitas funcionalidades específicas como opciones de pago, integración con sistemas de gestión de inventario, o herramientas de marketing, es importante detallarlas para que podamos incorporarlas en el desarrollo de la tienda.",
+      "img": "/img/requisitos/Funcionalidad.webp",
+      "imagePosition": "right"
+    }
+  ]
+    }
+  }
+  

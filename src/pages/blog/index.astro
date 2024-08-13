@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content"
+import CardBlog
+ from "../../components/CardBlog.astro"
+import ArticleList from "../../layouts/ArticleList.astro"
+const posts = (await getCollection('blog')).sort(
+  (a,b)=> b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const rpost = (await getCollection('blogPostRich'))
+
+---
+
+
+<ArticleList>
+    <section>
+
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <CardBlog {...post.data} slug={post.slug} />
+        ))}
+      </div>
+  </section>
+</ArticleList>  

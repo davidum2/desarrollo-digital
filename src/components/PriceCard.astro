@@ -1,0 +1,87 @@
+---
+import EMail from './icons/e-mail.astro'
+import Whats from './icons/whats.astro'
+interface Props {
+    nombre:string
+    costo:string
+    recurrencia?:string
+    servicios:{
+        descripcion:string
+        activo:boolean
+    }[]
+}
+
+
+const {nombre, costo, recurrencia, servicios} = Astro.props
+
+
+const containsPro = (name: string): boolean => {
+    return name.toLowerCase().includes('pro');
+  };
+
+const esPro = containsPro(nombre);
+
+---
+
+
+<div class="relative w-full max-w-sm p-4 overflow-hidden bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    {esPro && (
+        <div class="absolute top-14 -right-3 ht-8  w-48 h-14 transform rotate-45 translate-x-10 -translate-y-10 bg-yellow-500 flex items-center justify-center">
+        <p class="text-white font-bold">¡Recomendado!</p>
+        </div>
+    )}
+    <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{nombre}</h5>
+    <p class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">A partir de:</p>
+    <div class="flex items-baseline text-gray-900 dark:text-white">
+    <span class="text-3xl font-semibold">$ </span>
+    <span class="text-[1.5em] font-extrabold tracking-tight">{costo}</span>
+    <span class="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400">{recurrencia}</span>
+    </div>
+    <ul role="list" class="space-y-5 my-7">
+    {
+        servicios.map((servicio)=>(
+        <li class:list={[
+            "flex",
+            {
+               " line-through decoration-gray-500" : !servicio.activo
+            }
+        ]}
+        >
+        <svg class:list={[
+            "flex-shrink-0 w-4 h-4",
+            {
+                "text-blue-700 dark:text-blue-500": servicio.activo,
+                "text-gray-400 dark:text-gray-500": !servicio.activo
+            }
+        ]}
+         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+        </svg>
+        <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">{servicio.descripcion}</span>
+        </li>
+
+        )
+
+        )
+    }
+
+<p class="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">*El costo del servicio puede variar en función de las necesidades del proyecto</p>
+
+<div class="flex flex-col justify-center items-center">
+
+    <a href='/contacto' class="w-full flex mb-4 justify-center  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+     <EMail size='40'/>   
+     <p class="px-2">Escribenos
+        </p>   
+        
+    </a>
+    <a href={`https://wa.me/526142720221?text=Puedes%20darme%20más%20información%20sobre%20${nombre}`} target="_blank" rel="noopener noreferrer" class="flex text-light-primary items-center justify-center w-full bg-[#248a1e] hover:bg-[#248a1e]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+        <Whats size="40"/>
+        <p class="px-2"> 
+            Contactanos para mas información
+        </p>
+        
+    </a>  
+</div>
+
+  

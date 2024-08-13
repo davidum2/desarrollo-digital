@@ -1,0 +1,147 @@
+{
+  "infoServicePage": {
+    "name": "Construcción de Sitios Web",
+    "pageMeta": {
+      "title": "Servicios de Construcción de Sitios Web | Desarrollo Digital",
+      "description": "Ofrecemos servicios completos de construcción de sitios web personalizados y optimizados. Contacta con nosotros a través de WhatsApp, correo electrónico o teléfono para más información.",
+      "keywords": "Construcción de Sitios Web, Desarrollo Digital, Diseño Web, Optimización SEO, Desarrollo Web, Contacto"
+    },
+    
+      "requerimientos": [
+        {
+          "title": "Manual de Identidad Corporativa (Brand Book)",
+          "description": "Este documento esencial define la personalidad visual y verbal de tu marca. Incluye directrices sobre logotipos, colores, tipografías y tono de voz para asegurar una presentación coherente y profesional en todos los medios.",
+          "img": "/img/requisitos/BrandBook.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Información detallada sobre el objetivo del sitio web",
+          "description": "Es crucial entender qué deseas lograr con tu sitio web. ¿Quieres captar leads, vender productos, promocionar servicios? Detallar estos objetivos nos permite diseñar un sitio que cumpla exactamente con tus expectativas.",
+          "img": "/img/requisitos/Objetivo.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Contenido relevante (textos, imágenes, videos, etc.) para incluir en el sitio web",
+          "description": "El contenido es el corazón de tu sitio web. Proporcionar textos, imágenes y videos específicos garantiza que el sitio sea informativo y atractivo, aumentando las posibilidades de conversión.",
+          "img": "/img/requisitos/Contenido.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Definición clara de la audiencia objetivo",
+          "description": "Conocer a tu audiencia es fundamental para crear un sitio web efectivo. Definir claramente quiénes son tus usuarios ideales nos ayuda a adaptar el diseño y el mensaje para captar su atención y satisfacer sus necesidades.",
+          "img": "/img/requisitos/Audiencia.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Dominio web de la empresa",
+          "description": "El dominio es la dirección de tu sitio en internet, como www.tuempresa.com. Necesitamos esta información para enlazar el sitio web y asegurar que los visitantes puedan encontrarlo fácilmente.",
+          "img": "/img/requisitos/Domino.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Servicio de hosting",
+          "description": "El hosting es el servicio que permite que tu sitio web esté accesible en internet. Necesitamos saber dónde estará alojado el sitio para gestionar su publicación y mantenimiento correctamente.",
+          "img": "/img/requisitos/Hosting.webp",
+          "imagePosition": "right"
+        },
+        {
+          "title": "Estructura del sitio y mapa de navegación",
+          "description": "Una estructura clara y un mapa de navegación bien definido son esenciales para la usabilidad del sitio. Proporcionar esta información nos ayuda a crear una experiencia de usuario fluida y lógica.",
+          "img": "/img/requisitos/Navegacion.webp",
+          "imagePosition": "left"
+        },
+        {
+          "title": "Detalles de funcionalidad adicional",
+          "description": "Si necesitas funciones específicas como formularios avanzados, integración con redes sociales, o sistemas de gestión de contenidos, es importante detallarlas para que podamos incorporarlas en el desarrollo del sitio.",
+          "img": "/img/requisitos/Funcionalidad.webp",
+          "imagePosition": "right"
+        }
+      ],
+        
+    "products": [
+    {
+      "name": "Web Básica",
+      "cost": "5,000.00 MXN",
+      "features": [
+        { "description": "Hasta cinco secciones", "active": true },
+        { "description": "Formulario de contacto", "active": true },
+        { "description": "Optimización SEO básica", "active": true },
+        { "description": "Diseño responsivo", "active": true },
+        { "description": "Integración con redes sociales", "active": true },
+        { "description": "Certificado SSL", "active": false },
+        { "description": "Dominio personalizado", "active": false },
+        { "description": "Servicio de hosting por un mes", "active": false },
+        { "description": "Servicio de mantenimiento por un mes", "active": false },
+        { "description": "Integración con Google Analytics", "active": false },
+        { "description": "Blog básico", "active": false },
+        { "description": "Integración con herramientas de marketing", "active": false }
+      ]
+    },
+    {
+      "name": "Web Pro",
+      "cost": "10,000.00 MXN",
+      "features": [
+        { "description": "Hasta diez secciones", "active": true },
+        { "description": "Formulario de contacto", "active": true },
+        { "description": "Optimización SEO avanzada", "active": true },
+        { "description": "Diseño responsivo", "active": true },
+        { "description": "Integración con redes sociales", "active": true },
+        { "description": "Certificado SSL", "active": true },
+        { "description": "Dominio personalizado", "active": true },
+        { "description": "Servicio de hosting por un mes", "active": true },
+        { "description": "Servicio de mantenimiento por un mes", "active": true },
+        { "description": "Integración con Google Analytics", "active": true },
+        { "description": "Blog avanzado", "active": false },
+        { "description": "Integración con herramientas de marketing", "active": false },
+        { "description": "Pruebas A/B", "active": false }
+      ]
+    },
+    {
+      "name": "Web Avanzada",
+      "cost": "20,000.00 MXN",
+      "features": [
+        { "description": "Hasta veinte secciones", "active": true },
+        { "description": "Formulario de contacto", "active": true },
+        { "description": "Optimización SEO avanzada", "active": true },
+        { "description": "Diseño responsivo", "active": true },
+        { "description": "Integración con redes sociales", "active": true },
+        { "description": "Certificado SSL", "active": true },
+        { "description": "Dominio personalizado", "active": true },
+        { "description": "Servicio de hosting por un año", "active": true },
+        { "description": "Servicio de mantenimiento por un año", "active": true },
+        { "description": "Integración con Google Analytics", "active": true },
+        { "description": "Blog avanzado", "active": true },
+        { "description": "Integración con herramientas de marketing", "active": true },
+        { "description": "Pruebas A/B", "active": true }
+      ]
+    }
+  ],
+    "pasos": [
+      {
+        "subtitulo": "Inicio del Proyecto",
+        "titulo": "Firma del Contrato",
+        "descripcion": "En este primer paso, firmamos el contrato y recopilamos todos los documentos necesarios para iniciar el proyecto. Establecemos los objetivos, el alcance y las expectativas del cliente, asegurando una base sólida para el desarrollo del sitio web."
+      },
+      {
+        "subtitulo": "Planificación",
+        "titulo": "Definición y Análisis",
+        "descripcion": "Realizamos un análisis detallado del objetivo del sitio web. Definimos la audiencia objetivo, recopilamos contenido relevante y establecemos un plan de acción estratégico para el desarrollo, asegurando que cada elemento del sitio esté alineado con los objetivos del cliente."
+      },
+      {
+        "subtitulo": "Diseño y Desarrollo",
+        "titulo": "Prototipado y Programación",
+        "descripcion": "Creamos prototipos y diseños gráficos del sitio web. Nuestro equipo de desarrollo transforma los diseños en un sitio web funcional utilizando las últimas tecnologías web, implementando todas las funcionalidades necesarias."
+      },
+      {
+        "subtitulo": "Pruebas y Optimización",
+        "titulo": "Verificación y SEO",
+        "descripcion": "Realizamos pruebas exhaustivas para asegurar que el sitio web funcione correctamente en todos los navegadores y dispositivos. Optimizamos el sitio para motores de búsqueda y configuramos herramientas de análisis."
+      },
+      {
+        "subtitulo": "Cierre del Proyecto",
+        "titulo": "Entrega y Revisión Final",
+        "descripcion": "Entregamos el sitio web terminado y realizamos una revisión exhaustiva con el cliente. Nos aseguramos de que todo esté funcionando correctamente y hacemos ajustes según sea necesario. Proporcionamos una capacitación básica sobre cómo administrar el sitio."
+      }
+    ]
+  }
+}

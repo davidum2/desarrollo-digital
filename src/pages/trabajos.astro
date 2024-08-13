@@ -1,0 +1,389 @@
+---
+import HeroPage from "../components/HeroPage.astro";
+import Canva from "../components/icons/canva.astro";
+import Css from "../components/icons/css.astro";
+import Elementor from "../components/icons/elementor.astro";
+import Html from "../components/icons/html.astro";
+import Javascript from "../components/icons/javascript.astro";
+import Php from "../components/icons/php.astro";
+import Wordpress from "../components/icons/wordpress.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+const pageMeta = {
+    title: "Nuestros Trabajos | Desarrollo Digital - Proyectos de Web y Diseño",
+    description: "Descubre los proyectos exitosos de Desarrollo Digital, mostramos ejemplos de cómo hemos ayudado a nuestros clientes a mejorar su presencia en línea con soluciones de diseño web y estrategias digitales personalizadas. Explora nuestro portafolio para ver cómo nuestras soluciones pueden transformar tu negocio.",
+    keywords: "Nuestros Trabajos, Proyectos de Desarrollo Digital, Ejemplos de Diseño Web, Casos de Éxito, Portafolio de Web Design, Transformación Digital, Servicios de Diseño Web, Desarrollo Web Personalizado, Estudios de Caso Digitales, Soluciones de Diseño para Empresas"
+  }
+---
+
+<Layout title={pageMeta.title} description={pageMeta.description} keywords={pageMeta.keywords}>
+  <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <HeroPage
+      title="Nuestros Trabajos"
+      urlImg="/img/heropage/consulta.webp"
+    />
+    <section id="nuestros-trabajos-landing-page" class="mb-8">
+      <h2 class="text-3xl text-center font-libre mb-12">
+        Landing Page para Empresa de Menús Digitales
+      </h2>
+      <div class="w-full flex md:flex-row flex-col-reverse">
+       
+        <div class="w-full md:w-2/3">
+          <div class="container mx-auto md:px-4">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
+              <div class="p-1 md:p-6">
+                
+                <p class="mb-4 mt-8 md:m-0">
+                  Desarrollo Digital ha creado una landing page personalizada
+                  para una empresa que ofrece servicios de menús digitales. Esta
+                  solución permitió a la empresa destacar sus servicios y atraer
+                  a nuevos clientes de manera efectiva.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Caso de Uso</h4>
+                <p class="mb-4">
+                  La empresa necesitaba una landing page atractiva y funcional
+                  para promocionar sus servicios de menús digitales a
+                  restaurantes y cafeterías. Requerían una solución que fuera
+                  visualmente atractiva, fácil de navegar y que proporcionara
+                  toda la información necesaria sobre sus servicios.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Necesidad Resuelta</h4>
+                <p class="mb-4">
+                  Nuestra landing page resolvió esta necesidad al proporcionar
+                  una plataforma donde la empresa puede mostrar sus servicios,
+                  características y beneficios de manera clara y concisa.
+                  Incluye secciones detalladas sobre cómo funciona el servicio,
+                  testimonios de clientes satisfechos y un formulario de
+                  contacto para facilitar la comunicación.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Contenido de Valor</h4>
+                <ul class="list-disc pl-5 mb-4">
+                  <li>
+                    Diseño moderno y profesional que refleja la marca de la
+                    empresa.
+                  </li>
+                  <li>
+                    Secciones claras y bien organizadas para facilitar la
+                    navegación.
+                  </li>
+                  <li>
+                    Testimonios de clientes que agregan credibilidad y
+                    confianza.
+                  </li>
+                  <li>Formulario de contacto optimizado para captar leads.</li>
+                  <li>
+                    Integración de Google Maps para mostrar la ubicación de la
+                    empresa.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-medium mb-2">Resultados</h4>
+                <p>
+                  Desde la implementación de la landing page, la empresa ha
+                  visto un aumento significativo en las consultas y conversiones
+                  de clientes potenciales. La página ha recibido comentarios
+                  positivos por su diseño atractivo y su facilidad de uso,
+                  ayudando a la empresa a destacarse en el mercado de menús
+                  digitales.
+                </p>
+              </div>
+              <div class="flex justify-center items-center my-4">
+                <a
+                  href="https://menu.desarrollo-digital.com/"
+                  target="_blank"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1 transition-all dark:bg-dark-accent1 hover:dark:bg-dark-accent2 hover:bg-light-accent2"
+                >
+                  Visitar el sitio.
+                  <svg
+                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/3 w-full">
+          <ServiceCard
+            title="Landing Page para un sitio que crea menus digitales"
+            body="Una landing page es una página única diseñada para convertir visitantes en leads o clientes."
+            link="https://menu.desarrollo-digital.com/"
+            img="/img/ejemplos/landing .webp"
+            alt="Ejemplo Landing Page"
+            target=`target="_blank"`
+          >
+            <div class="flex justify-evenly">
+              <Canva size="20" />
+              <Javascript size="20" />
+              <Html size="20" />
+              <Css size="20" />
+            </div>
+          </ServiceCard>
+        </div>
+      </div>
+    </section>
+    <section id="nuestros-trabajos-sitio-web" class="my-8">
+      <h2 class="text-3xl text-center font-libre mb-12">
+        Sitio Web para Flor de Dragón
+      </h2>
+      <div class="w-full flex md:flex-row flex-col">
+        <div class="w-full md:w-1/3">
+          <ServiceCard
+            title="Sitio Web de Flor de Dragón"
+            body="Un sitio web es el lugar ideal para mostrar profesionalismo para tu negocio y alcanzar publicos mucho mas amplios."
+            link="https://flordedragonterapias.com/"
+            img="/img/ejemplos/flor de dragon.webp"
+            alt="Ejemplo de Sitio Web Service"
+            target=`target="_blank"`
+          >
+            <div class="flex justify-evenly">
+              <Wordpress size="20" />
+              <Elementor size="20" />
+              <div class="w-fit bg-black rounded-full p-[2px]">
+                <Php size="20" />
+              </div>
+              <Javascript size="20" />
+              <Html size="20" />
+              <Css size="20" />
+            </div>
+          </ServiceCard>
+        </div>
+        <div class="w-full md:w-2/3 mt-8 md:m-0">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
+              <div class="md:p-6">
+                
+                <p class="mb-4 ">
+                  Desarrollo Digital ha creado un sitio web integral para Flor
+                  de Dragón, una empresa dedicada a ofrecer masajes y terapias
+                  corporales. Este sitio web ayuda a la empresa a llegar a
+                  nuevos clientes y a proporcionar información detallada sobre
+                  sus servicios.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Caso de Uso</h4>
+                <p class="mb-4">
+                  Flor de Dragón necesitaba un sitio web que no solo fuera
+                  atractivo y fácil de usar, sino que también ofreciera una
+                  plataforma para que los clientes pudieran aprender más sobre
+                  sus servicios.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Necesidad Resuelta</h4>
+                <p class="mb-4">
+                  Nuestra solución proporcionó a Flor de Dragón un sitio web que
+                  cumplía con todas estas necesidades. El sitio incluye una
+                  descripción detallada de cada servicio, una galería de
+                  imágenes relajantes.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Contenido de Valor</h4>
+                <ul class="list-disc pl-5 mb-4">
+                  <li>
+                    Diseño limpio y profesional que transmite una sensación de
+                    calma y bienestar.
+                  </li>
+                  <li>
+                    Secciones claras y bien organizadas para cada tipo de
+                    servicio ofrecido.
+                  </li>
+                  <li>
+                    Galería de imágenes que muestran el ambiente y las terapias.
+                  </li>
+                  <li>
+                    Testimonios de clientes que aportan confianza y
+                    credibilidad.
+                  </li>
+                  <li>
+                    Información de contacto accesible y Google Maps integrado
+                    para la localización de la empresa.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-medium mb-2">Resultados</h4>
+                <p>
+                  Desde el lanzamiento del sitio web, Flor de Dragón ha
+                  experimentado un aumento en las reservas en línea y ha
+                  recibido comentarios positivos sobre la facilidad de uso del
+                  sitio. Los clientes han apreciado la claridad de la
+                  información.
+                </p>
+              </div>
+
+              <div class="flex justify-center items-center my-4">
+                <a
+                  href="https://flordedragonterapias.com/"
+                  target="_blank"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1 transition-all dark:bg-dark-accent1 hover:dark:bg-dark-accent2 hover:bg-light-accent2"
+                >
+                  Visitar el sitio.
+                  <svg
+                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="nuestros-trabajos-sitio-web-2" class="my-8">
+      <h2 class="text-3xl text-center font-libre mb-12">
+        Sitio Web para Psicología y Bienestar Alejandra Fierro
+      </h2>
+      <div class="w-full flex md:flex-row flex-col-reverse">
+        <div class="w-ful md:w-2/3 mt-8 md:m-0">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
+              <div class="md:p-6 p-0">
+                
+                <p class="mb-4">
+                  Desarrollo Digital ha creado un sitio web integral para
+                  Psicología y Bienestar Alejandra Fierro, una empresa dedicada
+                  a ofrecer servicios de psicología y bienestar. Este sitio web
+                  ayuda a la empresa a llegar a nuevos clientes y a proporcionar
+                  información detallada sobre sus servicios.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Caso de Uso</h4>
+                <p class="mb-4">
+                  Psicología y Bienestar Alejandra Fierro necesitaba un sitio
+                  web que no solo fuera atractivo y fácil de usar, sino que
+                  también ofreciera una plataforma para que los clientes
+                  pudieran aprender más sobre sus servicios y contactar
+                  fácilmente con la psicóloga para solicitar información
+                  adicional.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Necesidad Resuelta</h4>
+                <p class="mb-4">
+                  Nuestra solución proporcionó a Psicología y Bienestar
+                  Alejandra Fierro un sitio web que cumplía con todas estas
+                  necesidades. El sitio incluye una descripción detallada de
+                  cada servicio, una sección sobre la psicóloga, y un formulario
+                  de contacto fácil de usar.
+                </p>
+
+                <h4 class="text-xl font-medium mb-2">Contenido de Valor</h4>
+                <ul class="list-disc pl-5 mb-4">
+                  <li>
+                    Diseño limpio y profesional que transmite una sensación de
+                    confianza y bienestar.
+                  </li>
+                  <li>
+                    Secciones claras y bien organizadas para cada tipo de
+                    servicio ofrecido.
+                  </li>
+                  <li>
+                    Información detallada sobre la psicóloga y su experiencia.
+                  </li>
+                  <li>
+                    Formulario de contacto accesible para facilitar la
+                    comunicación.
+                  </li>
+                  <li>
+                    Blog integrado para compartir artículos y consejos sobre
+                    psicología y bienestar.
+                  </li>
+                  <li>
+                    Información de contacto accesible y Google Maps integrado
+                    para la localización de la empresa.
+                  </li>
+                </ul>
+
+                <h4 class="text-xl font-medium mb-2">Resultados</h4>
+                <p>
+                  Desde el lanzamiento del sitio web, Psicología y Bienestar
+                  Alejandra Fierro ha experimentado un aumento en las consultas
+                  a través del formulario de contacto y ha recibido comentarios
+                  positivos sobre la claridad y accesibilidad de la información
+                  en el sitio.
+                </p>
+              </div>
+
+              <div class="flex justify-center items-center my-4">
+                <a
+                  href="https://psicologiaybienestaralejandrafierro.com/"
+                  target="_blank"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 bg-light-accent1 transition-all dark:bg-dark-accent1 hover:dark:bg-dark-accent2 hover:bg-light-accent2"
+                >
+                  Visitar el sitio.
+                  <svg
+                    class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3">
+          <ServiceCard
+            title="Sitio Web de Psicologa Alejandra Fierro"
+            body="Un sitio web es esencial para demostrar la seriedad de tu negocio y expandir significativamente tu alcance a nuevos públicos."
+            link="https://psicologiaybienestaralejandrafierro.com/"
+            img="/img/ejemplos/psicologa.webp"
+            alt="Sitio Web Service"
+            target=`target="_blank"`
+          >
+            <div class="flex justify-evenly">
+              <Wordpress size="20" />
+              <Elementor size="20" />
+              <div class="w-fit bg-black rounded-full p-[2px]">
+                <Php size="20" />
+              </div>
+              <Javascript size="20" />
+              <Html size="20" />
+              <Css size="20" />
+            </div>
+          </ServiceCard>
+        </div>
+      </div>
+    </section>
+    <section id="cta" class="py-16 bg-light-secondary rounded-lg text-light-primary dark:bg-dark-secondary dark:text-dark-primary">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold mb-4">¿Listo para transformar tu presencia en línea?</h2>
+          <p class="text-lg mb-8">Contáctanos hoy y descubre cómo Desarrollo Digital puede ayudarte a alcanzar tus objetivos digitales con nuestros servicios personalizados de desarrollo web y consultoría.</p>
+          <a href="/contacto" class="inline-block bg-light-primary dark:bg-dark-primary text-light-secondary dark:text-dark-secondary font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">Contáctanos</a>
+        </div>
+      </section>
+      
+
+  </main>
+</Layout>

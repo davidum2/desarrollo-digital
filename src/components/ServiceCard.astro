@@ -1,0 +1,28 @@
+---
+interface Props {
+	title: string;
+	body: string;
+    img:string;
+	alt?: string;
+    link: string;
+    target? : string;
+}
+
+const {title, body, img, alt, link, target } = Astro.props;
+---
+
+<div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:shadow-white">
+    <div class="overflow-hidden">
+    <a href={link} {target}>
+        <img class="rounded-t-lg transform transition-transform duration-300 hover:scale-105" src={img} alt={alt} />
+
+    </a>
+</div>
+    <div class="p-5">
+        <a href={link}  {target}>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{body}</p>
+        <slot/>
+    </div>
+</div>

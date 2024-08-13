@@ -1,0 +1,136 @@
+{
+    "infoServicePage": {
+      "name": "Servicios de Marketing Digital",
+      "pageMeta": {
+        "title": "Servicios de Marketing Digital | Desarrollo Digital",
+        "description": "Impulsa tu negocio con nuestros servicios completos de marketing digital. Contacta con nosotros a través de WhatsApp, correo electrónico o teléfono para más información.",
+        "keywords": "Marketing Digital, Desarrollo Digital, Publicidad Online, SEO, Redes Sociales, Contacto"
+      },
+      "products": [
+        {
+          "name": "Marketing Básico",
+          "cost": "5,000.00 MXN",
+          "features": [
+            { "description": "Gestión de redes sociales", "active": true },
+            { "description": "Creación de contenido", "active": true },
+            { "description": "Optimización SEO básica", "active": true },
+            { "description": "Campañas de email marketing", "active": true },
+            { "description": "Análisis de métricas", "active": true },
+            { "description": "Consultoría mensual", "active": false },
+            { "description": "Publicidad pagada (PPC)", "active": false },
+            { "description": "Informe mensual de rendimiento", "active": false },
+            { "description": "Integración con Google Analytics", "active": false },
+            { "description": "Diseño gráfico básico", "active": false }
+          ]
+        },
+        {
+          "name": "Marketing Pro",
+          "cost": "10,000.00 MXN",
+          "features": [
+            { "description": "Gestión de redes sociales avanzadas", "active": true },
+            { "description": "Creación de contenido multimedia", "active": true },
+            { "description": "Optimización SEO avanzada", "active": true },
+            { "description": "Campañas de email marketing segmentadas", "active": true },
+            { "description": "Análisis y reporting detallado", "active": true },
+            { "description": "Consultoría quincenal", "active": true },
+            { "description": "Publicidad pagada (PPC)", "active": true },
+            { "description": "Informe quincenal de rendimiento", "active": true },
+            { "description": "Integración con Google Analytics", "active": true },
+            { "description": "Diseño gráfico avanzado", "active": false }
+          ]
+        },
+        {
+          "name": "Marketing Avanzado",
+          "cost": "20,000.00 MXN",
+          "features": [
+            { "description": "Gestión completa de redes sociales", "active": true },
+            { "description": "Producción de contenido profesional", "active": true },
+            { "description": "SEO avanzado con análisis de competencia", "active": true },
+            { "description": "Campañas de email marketing automatizadas", "active": true },
+            { "description": "Análisis avanzado y reporting personalizado", "active": true },
+            { "description": "Consultoría semanal", "active": true },
+            { "description": "Publicidad pagada (PPC) con retargeting", "active": true },
+            { "description": "Informe semanal de rendimiento", "active": true },
+            { "description": "Integración avanzada con Google Analytics y otras herramientas", "active": true },
+            { "description": "Diseño gráfico profesional", "active": true },
+            { "description": "Pruebas A/B para optimización de campañas", "active": true }
+          ]
+        }
+      ],
+      "pasos": [
+        {
+          "subtitulo": "Inicio del Proyecto",
+          "titulo": "Firma del Contrato",
+          "descripcion": "En este primer paso, firmamos el contrato y recopilamos todos los documentos necesarios para iniciar el proyecto. Establecemos los objetivos, el alcance y las expectativas del cliente, asegurando una base sólida para la campaña de marketing."
+        },
+        {
+          "subtitulo": "Planificación",
+          "titulo": "Definición y Estrategia",
+          "descripcion": "Realizamos un análisis detallado de los objetivos de marketing. Definimos la audiencia objetivo, investigamos a la competencia y establecemos un plan de acción estratégico para las campañas, alineando cada elemento con los objetivos del cliente."
+        },
+        {
+          "subtitulo": "Ejecución",
+          "titulo": "Implementación y Gestión",
+          "descripcion": "Nuestro equipo de expertos en marketing digital implementa las estrategias definidas, gestionando todas las campañas publicitarias, la creación de contenido y la optimización SEO. Utilizamos herramientas modernas para asegurar el mejor rendimiento posible."
+        },
+        {
+          "subtitulo": "Optimización y Análisis",
+          "titulo": "Monitoreo y Ajustes",
+          "descripcion": "Monitoreamos continuamente el rendimiento de las campañas y realizamos ajustes basados en los datos obtenidos. Optimizamos las estrategias para maximizar los resultados y asegurar el éxito de las campañas."
+        },
+        {
+          "subtitulo": "Cierre del Proyecto",
+          "titulo": "Informe y Revisión Final",
+          "descripcion": "Entregamos un informe detallado del rendimiento de las campañas y realizamos una revisión exhaustiva con el cliente. Ajustamos las estrategias según sea necesario y proporcionamos recomendaciones para futuras campañas."
+        }
+      ],
+      
+        "requerimientos": [
+          {
+            "title": "Manual de Identidad Corporativa (Brand Book)",
+            "description": "Este documento esencial define la personalidad visual y verbal de tu marca. Incluye directrices sobre logotipos, colores, tipografías y tono de voz para asegurar una presentación coherente y profesional en todos los medios.",
+            "img": "/img/requisitos/BrandBook.webp",
+            "imagePosition": "left"
+          },
+          {
+            "title": "Objetivos de la campaña de marketing",
+            "description": "Definir los objetivos de la campaña es crucial para diseñar una estrategia efectiva. ¿Quieres aumentar la visibilidad, captar clientes potenciales, o promover un producto específico? Clarificar estos objetivos ayuda a personalizar la estrategia de marketing.",
+            "img": "/img/requisitos/Objetivo.webp",
+            "imagePosition": "right"
+          },
+          {
+            "title": "Audiencia objetivo y segmentación",
+            "description": "Conocer a tu audiencia objetivo es fundamental para una campaña exitosa. Define claramente quiénes son tus clientes ideales, sus intereses y comportamientos para adaptar el mensaje y los canales de marketing.",
+            "img": "/img/requisitos/Audiencia.webp",
+            "imagePosition": "left"
+          },
+          {
+            "title": "Contenido para la campaña (textos, imágenes, videos, etc.)",
+            "description": "El contenido es clave para captar la atención y generar engagement. Proporciona textos, imágenes y videos específicos que reflejen el mensaje de la campaña y resuenen con tu audiencia.",
+            "img": "/img/requisitos/Contenido.webp",
+            "imagePosition": "right"
+          },
+          {
+            "title": "Plan de medios y calendario de publicaciones",
+            "description": "Un plan de medios y un calendario de publicaciones aseguran que la campaña se ejecute de manera organizada y eficiente. Incluye los canales de marketing a utilizar y las fechas clave para la publicación de contenido.",
+            "img": "/img/requisitos/Calendario.webp",
+            "imagePosition": "left"
+          },
+          {
+            "title": "Presupuesto y asignación de recursos",
+            "description": "Definir el presupuesto y asignar recursos es esencial para una gestión efectiva de la campaña. Esto incluye la distribución del presupuesto en diferentes canales y tácticas de marketing.",
+            "img": "/img/requisitos/Presupuesto.webp",
+            "imagePosition": "right"
+          },
+          {
+            "title": "Métricas y objetivos de rendimiento",
+            "description": "Establecer métricas y objetivos de rendimiento permite medir el éxito de la campaña. Define qué indicadores usarás para evaluar el impacto y ajustar la estrategia en función de los resultados.",
+            "img": "/img/requisitos/metricas.webp",
+            "imagePosition": "left"
+          }
+        ]
+      
+      
+    }
+  }
+  

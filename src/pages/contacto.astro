@@ -1,0 +1,47 @@
+---
+
+import Mail from "../components/icons/mail.astro"
+import Whats from "../components/icons/whats.astro"
+import Layout from "../layouts/Layout.astro"
+import LayoutContact from "../layouts/LayoutContact.astro"
+---
+
+<LayoutContact title="Contacto" description="Formulario de Contacto" keywords="">
+
+    <main class="md:p-16  ">
+        <form class="max-w-sm mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+      id="contactForm" method="POST" action="../send_email.php">
+    <h2 class="text-2xl font-bold mb-6 text-center">Contáctanos por correo</h2>
+    
+    <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+    <input required type="text" id="nombre" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tu nombre">
+
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electrónico</label>
+    <div class="relative mb-4">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <Mail/>
+        </div>
+        <input required type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="tu@correo.com">
+    </div>
+
+    <label for="mensaje" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mensaje</label>
+    <textarea required id="mensaje" name="message" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escribe tu mensaje aquí"></textarea>
+    <input type="hidden" id="recaptchaResponse" name="recaptcha_response">
+    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">Enviar</button>
+</form>
+<div class="max-w-sm mx-auto my-6 flex justify-center items-center">
+  <a href="" class="flex text-light-primary items-center justify-center w-full bg-[#248a1e] hover:bg-[#248a1e]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+    <Whats size="40"/>
+    Escribenos por Whatsapp
+  </a>
+</div>
+
+        <script data-astro-rerun is:inline>
+            grecaptcha.ready(function() {
+              grecaptcha.execute('6Ld80xcqAAAAAHUioMO0WgKBxE8kZMcPhSHND65p', {action: 'submit'}).then(function(token) {
+                document.getElementById('recaptchaResponse').value = token;
+              });
+            });
+          </script>
+    </main>
+</LayoutContact>

@@ -24,14 +24,14 @@ interface OrganizationSchema {
     "@context": string;
     "@type": string;
     mainEntity: Array<{
-      "@type": string;
-      name: string;
-      acceptedAnswer: {
         "@type": string;
-        text: string;
-      };
+        name: string;
+        acceptedAnswer: {
+            "@type": string;
+            text: string;
+        };
     }>;
-  }
+}
   
   // Tipo para los datos de un producto
   interface ProductSchema {
@@ -101,20 +101,20 @@ interface OrganizationSchema {
   }
   
   // Función para generar datos estructurados de tipo "FAQPage"
-  export function generateFAQSchema(questions: FAQ[]): FAQSchema {
+  export function generateFAQSchema(faqs: Array<{ question: string, answer: string }>): FAQSchema {
     return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: questions.map(question => ({
-        "@type": "Question",
-        name: question.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: question.answer
-        }
-      }))
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map(faq => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer
+            }
+        }))
     };
-  }
+}
   
   // Función para generar datos estructurados de tipo "Product"
   export function generateProductSchema(

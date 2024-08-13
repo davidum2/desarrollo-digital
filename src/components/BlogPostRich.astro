@@ -1,0 +1,56 @@
+---
+import { type CollectionEntry } from "astro:content"
+import { getEntry, getEntries } from 'astro:content';
+import Layout from "../layouts/LayoutBlogRich.astro"
+import type { CollectionConfig } from "astro:content"
+import FormatterDate from './FormatterDate.astro'
+import CardBlogRich from "./CardBlogRich.astro";
+import { Image } from "astro:assets";
+import CategorySelector from "./CategorySelector.astro";
+import SearchInput from "./SearchInput.astro";
+import LastPostCard from "./LastPostCard.astro";
+type Props = CollectionEntry<'blogPostRich'>["data"]
+
+
+
+const data = Astro.props
+const relations = await getEntries(data.relatedPosts);
+const keyword = data.keywords.join(', ') 
+
+---
+
+<Layout author={data.author} datePublished={data.pubDate.toISOString()} title={data.title} description={data.description} keywords={keyword} faqs={data.faqs} image={data.image.url}>
+	<div transition:name={data.title} class="flex flex-col md:flex-row max-w-6xl  m-auto mt-8 relative ">
+		<div class="felx px-8 w-full md:w-2/3 " >
+			<Image class="rounded-lg" src={data.image.url} alt={data.image.alt} height={520} width={1020}/>
+			<div class="felx text-sm">
+				<span class="flex gap-4 my-4">
+					<p >{data.author}</p>
+					<FormatterDate date={data.pubDate}  />
+				</span>
+			</div>	
+			<div class="prose mb-4">
+				<slot />
+			</div>	
+		</div>
+		<div class="flex  px-3 w-full md:w-1/3">
+			<div class="md:sticky top-12 w-full h-fit">
+				<!-- <SearchInput/> -->
+				<h5>
+				Puedes consultar nuestros ultimas noticias
+				</h5>
+				<LastPostCard/>
+				<CategorySelector/>
+			</div>
+		</div>
+	</div>
+<div class="flex max-w-6xl flex-col m-auto my-10">
+	<h2 class="font-libre text-center text-3xl mb-8">También te puede gustar:</h2>
+	<div class="flex gap-4 md:flex-row flex-col m-auto px-2">
+	{relations.map(relation => (
+		<CardBlogRich {...relation.data} slug={relation.slug} />
+	  ))}
+	  </div>
+</div>
+
+</Layout>

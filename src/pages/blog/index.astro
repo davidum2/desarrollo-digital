@@ -1,23 +1,29 @@
 ---
 import { getCollection } from "astro:content"
-import CardBlog
- from "../../components/CardBlog.astro"
+import CardBlog from "../../components/CardBlog.astro"
+import CardBlogRich from "../../components/CardBlogRich.astro"
 import ArticleList from "../../layouts/ArticleList.astro"
 const posts = (await getCollection('blog')).sort(
   (a,b)=> b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-const rpost = (await getCollection('blogPostRich'))
+const postsRich = (await getCollection('blogPostRich')).sort(
+(a,b)=> b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 
 ---
 
 
 <ArticleList>
-    <section>
-
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <CardBlog {...post.data} slug={post.slug} />
-        ))}
-      </div>
-  </section>
+  <h1 class="font-libre text-3xl text-center">Nuestros Post más recientes</h1>
+  <div
+    class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
+  >
+    {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.slug} />)}
+  </div>
+  <h2 class="font-libre text-2xl text-center my-6">
+    Otros temas dentro de la categoria
+  </h2>
+  <div
+    class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
+  >
+    {posts.map((post) => <CardBlog {...post.data} slug={post.slug} />)}
+  </div>
 </ArticleList>  

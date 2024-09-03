@@ -10,14 +10,72 @@ import Vision from "../components/icons/vision.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import "../../src/animations.css";
 
-const title = "Desarrollo Digital - Creación de Páginas Web y Desarrollo Web Profesional";
+const title = "Creación de Páginas Web y Desarrollo Web Profesional";
 const description =
-  "Desarrollo Digital ofrece servicios profesionales de creación de páginas web, desarrollo web, SEO y marketing digital para impulsar tu negocio. Contáctanos para más información.";
+  "Servicios profesionales de creación de páginas web, SEO y marketing digital para impulsar tu negocio.";
 const keywords =
   "Desarrollo Web, Consultoría Web, WordPress, JS, JavaScript, Astro JS, Diseño Web, Optimización Web, Servicios Digitales, Transformación Digital";
+
+
+
+const organizationSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Desarrollo Digital",
+  "url": "https://desarrollo-digital.com/",
+  "logo": "https://desarrollo-digital.com/public/img/seo/Impulsando tus sueños.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+52-614-272-0221",
+    "contactType": "Customer Service",
+    "areaServed": "MX",
+    "availableLanguage": "Spanish"
+  },
+  "sameAs": [
+    "https://www.facebook.com/DigitalDesa",
+  ]
+});
+
+const webSiteSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Desarrollo Digital",
+  "url": "https://desarrollo-digital.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://desarrollo-digital.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+});
+
+const servicesSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Desarrollo Web y Consultoría Digital",
+  "provider": {
+    "@type": "Organization",
+    "name": "Desarrollo Digital",
+    "url": "https://desarrollo-digital.com/"
+  },
+  "description": "Ofrecemos servicios de creación de páginas web, consultoría digital, marketing en redes sociales y branding para emprendedores y pequeñas empresas."
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
-<Layout title={title} description={description} keywords={keywords} robot="index, follow">
+<Layout title={title} description={description} keywords={keywords} robot="index, follow"
+          schema1={organizationSchema} schema2={servicesSchema} schema3={webSiteSchema}>
   <main  class="relative  w-full min-h-screen overflow-auto snap-y snap-mandatory">
     <div class="snap-start relative">
       <div class="md:hidden absolute top-0 h-screen opacity-35">

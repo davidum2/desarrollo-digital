@@ -4,50 +4,82 @@ import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 import GlobalStyle from '../components/GlobalStyle.astro';
 import DarkmodeScript from '../components/DarkmodeScript.astro';
-
 interface Props {
-	title: string;
-	description:string;
-	keywords: string;
-	image?: string;
-	robot: string
+  title: string;
+  description: string;
+  keywords: string;
+  image?: string;
+  robot: string;
+  schema1?: string;
+  schema2?: string;
+  schema3?: string;
+  schema4?: string;
+  schema5?: string;
 
 }
 
-const { title, description, keywords, image='/img/seo/Impulsando tus sueños.webp', robot  } = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  image = '/img/seo/Impulsando tus sueños.webp',
+  robot,
+  schema1,
+  schema2,
+  schema3,
+  schema4,
+  schema5
+
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+
+
+
+
+
+
+
+
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
-<meta name="keywords" content={keywords} />
-<meta name="robots" content={robot} />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content={robot} />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<!-- <meta property="twitter:url" content={Astro.url} /> -->
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+     <!-- JSON-LD Schemas -->
+     {schema1 && <script type="application/ld+json" set:html={schema1}/>}
+     {schema2 && <script type="application/ld+json" set:html={schema2}/>}
+     {schema3 && <script type="application/ld+json" set:html={schema3}/>}
+     {schema4 && <script type="application/ld+json" set:html={schema4}/>}
+     {schema5 && <script type="application/ld+json" set:html={schema5}/>}
 
 <!-- favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -57,8 +89,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+
+
+<!--aqui la meta -->
+
+
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ2R3LGQBW"></script>
+
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-DQ2R3LGQBW"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

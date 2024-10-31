@@ -1,0 +1,10 @@
+---
+interface Props {
+    url:string
+    txt:string
+}
+
+const {url, txt} = Astro.props
+---
+
+<a href={url} rel="noopener noreferrer" target="_blank" class="font-bold text-light-accent2 dark:text-dark-accent1"  >{txt}</a>

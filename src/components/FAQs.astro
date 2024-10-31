@@ -1,19 +1,49 @@
 ---
 interface Props {
-    faqs:{   
-        question:string,
-        answer:string
-    }[]
-    
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
 }
+
 const { faqs } = Astro.props;
 ---
 
-<div class="faqs">
-  {faqs.map((faq) => (
-    <div class="border">
-      <h3 class="faq-que bg-light-accent2 text-white">{faq.question}</h3>
-      <p class="faq-answer">{faq.answer}</p>
+<div class="faqs space-y-4">
+  {faqs.map((faq, index) => (
+    <div class="faq-item  overflow-hidden" id={`faq-${index}`}>
+      <h3 class="faq-question border-b-2 border-light-accent2 dark:border-dark-accent1 m-0 p-4 flex items-center justify-between cursor-pointer" data-index={index}>
+        {faq.question}
+        <svg class="transition-transform transform w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </h3>
+      <p class="faq-answer hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out p-4">
+        {faq.answer}
+      </p>
     </div>
   ))}
 </div>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll('.faq-question').forEach((element) => {
+      element.addEventListener('click', () => {
+        const index = element.getAttribute('data-index');
+        const parent = document.getElementById(`faq-${index}`);
+        const answer = parent.querySelector('.faq-answer');
+        const icon = element.querySelector('svg');
+
+        if (answer) {
+          answer.classList.toggle('hidden');
+          answer.classList.toggle('max-h-0');
+          answer.classList.toggle('max-h-[1000px]');
+        }
+
+        if (icon) {
+          icon.classList.toggle('rotate-180');
+        }
+      });
+    });
+  });
+</script>

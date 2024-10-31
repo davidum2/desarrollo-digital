@@ -9,6 +9,7 @@ import { Image } from "astro:assets";
 import CategorySelector from "./CategorySelector.astro";
 import SearchInput from "./SearchInput.astro";
 import LastPostCard from "./LastPostCard.astro";
+
 type Props = CollectionEntry<'blogPostRich'>["data"]
 
 
@@ -20,8 +21,16 @@ const keyword = data.keywords.join(', ')
 ---
 
 <Layout author={data.author} datePublished={data.pubDate.toISOString()} title={data.title} description={data.description} keywords={keyword} faqs={data.faqs} image={data.image.url}>
+	
+	
 	<div transition:name={data.title} class="flex flex-col md:flex-row max-w-6xl  m-auto mt-8 relative ">
 		<div class="felx px-8 w-full md:w-2/3 " >
+			<a class="mb-2 border  border-light-accent2 dark:border-dark-accent1 rounded-2xl w-fit flex items-start justify-start  p-2 space-x-2" href="/blog">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 dark:text-gray-300">
+					<path d="M15 18l-6-6 6-6"/>
+				</svg>
+				<span class="pe-4">Regresar</span>
+			</a>
 			<Image class="rounded-lg" src={data.image.url} alt={data.image.alt} height={520} width={1020}/>
 			<div class="felx text-sm">
 				<span class="flex gap-4 my-4">
@@ -29,7 +38,7 @@ const keyword = data.keywords.join(', ')
 					<FormatterDate date={data.pubDate}  />
 				</span>
 			</div>	
-			<div class="prose mb-4">
+			<div class=" prose  mb-4">
 				<slot />
 			</div>	
 		</div>

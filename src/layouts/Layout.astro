@@ -5,13 +5,18 @@ import { ViewTransitions } from 'astro:transitions';
 import GlobalStyle from '../components/GlobalStyle.astro';
 import DarkmodeScript from '../components/DarkmodeScript.astro';
 import PixelMeta from '../components/PixelMeta.astro';
-
 interface Props {
   title: string;
   description: string;
   keywords: string;
   image?: string;
   robot: string;
+  schema1?: string;
+  schema2?: string;
+  schema3?: string;
+  schema4?: string;
+  schema5?: string;
+
 }
 
 const {
@@ -20,9 +25,24 @@ const {
   keywords,
   image = '/img/seo/Impulsando tus sueños.webp',
   robot,
+  schema1,
+  schema2,
+  schema3,
+  schema4,
+  schema5
+
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+
+
+
+
+
+
+
+
 ---
 
 <!doctype html>
@@ -50,20 +70,50 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <!-- <meta property="twitter:url" content={Astro.url} /> -->
+    <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <PixelMeta />
+     <!-- JSON-LD Schemas -->
+     {schema1 && <script type="application/ld+json" set:html={schema1}/>}
+     {schema2 && <script type="application/ld+json" set:html={schema2}/>}
+     {schema3 && <script type="application/ld+json" set:html={schema3}/>}
+     {schema4 && <script type="application/ld+json" set:html={schema4}/>}
+     {schema5 && <script type="application/ld+json" set:html={schema5}/>}
 
-    <DarkmodeScript />
-    <ViewTransitions />
-  </head>
-  <body>
-    <Menu />
-    <slot />
-    <Footer />
-  </body>
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<!--aqui la meta -->
+
+<PixelMeta/>
+
+<!-- Google tag (gtag.js) -->
+
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-DQ2R3LGQBW"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQ2R3LGQBW');
+</script>
+
+<DarkmodeScript/>
+<ViewTransitions/>
+</head>
+	<body>
+		<Menu/>
+		<slot />
+		<Footer/>
+	</body>
 </html>
-<GlobalStyle />
+<GlobalStyle/>

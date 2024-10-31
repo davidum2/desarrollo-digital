@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 import GlobalStyle from '../components/GlobalStyle.astro';
 import DarkmodeScript from '../components/DarkmodeScript.astro';
+import PixelMeta from '../components/PixelMeta.astro';
 interface Props {
   title: string;
   description: string;
@@ -93,6 +94,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!--aqui la meta -->
 
+<PixelMeta/>
 
 <!-- Google tag (gtag.js) -->
 

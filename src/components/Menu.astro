@@ -31,10 +31,10 @@ import Logo from "./icons/logo.astro";
 
     <!-- Toggle Switch for Dark Mode -->
     <div class="flex items-center px-4">
-      
+
       <label for="themeToggle" class="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" id="themeToggle" class="sr-only peer" />
-       
+
         <div class="w-11 h-6 flex items-center justify-between bg-gray-200 rounded-full peer-focus:ring-1 peer-focus:ring-blue-300 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
           <div class="ml-1 dark:text-light-primary">
             <Light size="19"/>
@@ -44,7 +44,7 @@ import Logo from "./icons/logo.astro";
           </div>
           </svg>
         </div>
-        
+
       </label>
     </div>
     <!-- hamburger -->
@@ -84,6 +84,12 @@ import Logo from "./icons/logo.astro";
             class="block hover:text-light-primary dark:hover:text-dark-primary"
             >Inicio</a
           >
+        </li>
+        <li>
+          <a
+            href="/consultor"
+            class="block hover:text-light-primary dark:hover:text-dark-primary"
+            >Consultor</a>
         </li>
         <li>
           <a
@@ -197,7 +203,7 @@ import Logo from "./icons/logo.astro";
   document.addEventListener("astro:page-load", () => {
     const themeToggle = document.getElementById(
       "themeToggle"
-    ) 
+    )
 
     // Función para aplicar el tema oscuro
     const enableDarkMode = () => {
@@ -239,15 +245,15 @@ import Logo from "./icons/logo.astro";
     const menuButton = document.getElementById('h-btn') ;
     const navMenu = document.getElementById('navbar-hamburger');
     const dropdownToggle = document.getElementById("dropdown") ;
-    
+
     menuButton.addEventListener("click", function(){
-      navMenu.classList.toggle('hidden')  
+      navMenu.classList.toggle('hidden')
     })
-    
-    
-    
-    
-    
+
+
+
+
+
     const dropdownMenu = document.getElementById(
       "dropdownNavbar"
     )
@@ -257,7 +263,7 @@ import Logo from "./icons/logo.astro";
       dropdownMenu.classList.toggle("block");
       dropdownMenu.classList.toggle("opacity-0");
       dropdownMenu.classList.toggle("opacity-100");
-      
+
       dropdownMenu.classList.toggle("md:absolute");
       dropdownMenu.classList.toggle("md:top-11");
     });
@@ -269,7 +275,7 @@ import Logo from "./icons/logo.astro";
     const listItem = document.querySelectorAll("#landing-header li");
     const menuBackDrop = document.querySelector(
       "#menu-backdrop"
-    ) 
+    )
 
     listItem.forEach((item) => {
       item.addEventListener("mouseenter", () => {

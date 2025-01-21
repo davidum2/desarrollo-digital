@@ -1,0 +1,25 @@
+---
+import Mail from '../components/icons/mail.astro';
+import Whats from '../components/icons/whats.astro';
+import Layout from '../layouts/Layout.astro';
+import LayoutContact from '../layouts/LayoutContact.astro';
+---
+
+<LayoutContact
+  robot="foloww, index"
+  title="Contacto"
+  description="Formulario de Contacto"
+  keywords=""
+>
+  <script data-astro-rerun is:inline>
+    grecaptcha.ready(function () {
+      grecaptcha
+        .execute('6Ld80xcqAAAAAHUioMO0WgKBxE8kZMcPhSHND65p', {
+          action: 'submit',
+        })
+        .then(function (token) {
+          document.getElementById('recaptchaResponse').value = token;
+        });
+    });
+  </script>
+</LayoutContact>

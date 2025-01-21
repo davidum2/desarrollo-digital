@@ -1,0 +1,18 @@
+
+<template>
+  <div class="form-section" style:display={show ? 'block' : 'none'}>
+    <slot />
+  </div>
+</template>
+
+<script>
+  export interface Props {
+    show: boolean;
+  }
+</script>
+
+<style>
+  .form-section {
+    margin: 20px 0;
+  }
+</style>

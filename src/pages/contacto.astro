@@ -6,13 +6,13 @@ import Layout from "../layouts/Layout.astro"
 import LayoutContact from "../layouts/LayoutContact.astro"
 ---
 
-<LayoutContact title="Contacto" description="Formulario de Contacto" keywords="">
+<LayoutContact robot="foloww, index" title="Contacto" description="Formulario de Contacto" keywords="">
 
     <main class="md:p-16  ">
         <form class="max-w-sm mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md"
       id="contactForm" method="POST" action="../send_email.php">
     <h2 class="text-2xl font-bold mb-6 text-center">Contáctanos por correo</h2>
-    
+
     <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
     <input required type="text" id="nombre" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tu nombre">
 

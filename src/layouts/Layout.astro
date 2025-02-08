@@ -16,7 +16,6 @@ interface Props {
   schema3?: string;
   schema4?: string;
   schema5?: string;
-
 }
 
 const {
@@ -29,13 +28,10 @@ const {
   schema2,
   schema3,
   schema4,
-  schema5
-
+  schema5,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-
 ---
 
 <!doctype html>
@@ -68,45 +64,49 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-     <!-- JSON-LD Schemas -->
-     {schema1 && <script type="application/ld+json" set:html={schema1}/>}
-     {schema2 && <script type="application/ld+json" set:html={schema2}/>}
-     {schema3 && <script type="application/ld+json" set:html={schema3}/>}
-     {schema4 && <script type="application/ld+json" set:html={schema4}/>}
-     {schema5 && <script type="application/ld+json" set:html={schema5}/>}
+    <!-- JSON-LD Schemas -->
+    {schema1 && <script type="application/ld+json" set:html={schema1} />}
+    {schema2 && <script type="application/ld+json" set:html={schema2} />}
+    {schema3 && <script type="application/ld+json" set:html={schema3} />}
+    {schema4 && <script type="application/ld+json" set:html={schema4} />}
+    {schema5 && <script type="application/ld+json" set:html={schema5} />}
 
-<!-- favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
+    <!--aqui la meta -->
 
-<!--aqui la meta -->
+    <PixelMeta/>
 
-<PixelMeta/>
+    <!-- Google tag (gtag.js) -->
 
-<!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DQ2R3LGQBW"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-DQ2R3LGQBW"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      gtag('config', 'G-DQ2R3LGQBW');
+    </script>
 
-  gtag('config', 'G-DQ2R3LGQBW');
-</script>
-
-<DarkmodeScript/>
-<ViewTransitions/>
-</head>
-	<body>
-		<Menu/>
-		<slot />
-		<Footer/>
-	</body>
+    <DarkmodeScript />
+    <ViewTransitions />
+  </head>
+  <body>
+    <Menu />
+    <slot />
+    <Footer />
+  </body>
 </html>
-<GlobalStyle/>
+<GlobalStyle />

@@ -1,170 +1,550 @@
 ---
-import FormSection from '../components/FormSection.astro';
-import NavigationButtons from '../components/NavigationButtons.astro';
-import ProgressBar from '../components/ProgressBar.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Consultoria"
-  description="Consultoria en desarrollo digital"
-  keywords=""
-  image=""
-  robot="index,follow"
+  title="Formulario de consulta"
+  description="Formulario para obtener un roadmap de tu emprendimiento"
+  keywords="Formulario, desarrollo, emprendimeinto "
+  robot="follow"
 >
-  <script>
-    let currentSection = 0;
-    const sections = 4; // Número total de secciones
-
-    function nextSection() {
-      if (currentSection < sections - 1) {
-        currentSection++;
-      } else {
-        // Aquí se puede manejar el envío del formulario
-        submitForm();
-      }
+  <style>
+    .pasos {
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateX(20px);
+      display: none;
     }
 
-    function previousSection() {
-      if (currentSection > 0) {
-        currentSection--;
-      }
+    .pasos.active {
+      opacity: 1;
+      transform: translateX(0);
+      display: block;
     }
 
-    async function submitForm() {
-      // Lógica para enviar el formulario a la API
-      const response = await fetch('https://api.example.com/submit', {
-        method: 'POST',
-        body: JSON.stringify({
-          /* datos del formulario */
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        window.location.href = '/result'; // Redirigir a la página de resultados
-      } else {
-        // Manejar error
-        console.error('Error al enviar el formulario');
-      }
+    .input-error {
+      border-color: #ef4444;
     }
-  </script>
 
-  <div class="bg-gray-100 flex justify-center items-center min-h-screen">
-    <div class="w-full max-w-lg bg-white rounded-lg shadow-lg p-6">
-      <!-- Barra de progreso -->
-      <div class="relative mb-6">
-        <div class="w-full h-2 bg-gray-200 rounded-full">
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  </style>
+
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <form
+      id="consultForm"
+      class="bg-white rounded-xl shadow-lg w-full max-w-2xl p-6 md:p-8"
+    >
+      <!--Progreso -->
+      <div class="mb-8 flex justify-between items-center">
+        <div class="step-indicator flex-1 h-2 bg-gray-200 rounded-full mx-2">
           <div
-            class="absolute top-0 left-0 h-2 bg-blue-500 rounded-full transition-all duration-300"
-            style="width: 25%;"
-            id="progress-bar"
+            class="h-full bg-blue-600 rounded-full transition-all duration-300"
+            style="width: 20%"
           >
           </div>
         </div>
-        <div class="flex justify-between text-sm text-gray-500 mt-2">
-          <span>Paso 1</span>
-          <span>Paso 2</span>
-          <span>Paso 3</span>
-          <span>Paso 4</span>
+      </div>
+
+      <!-- Paso 1: Claves del éxito -->
+      <div class="pasos active" data-step="1">
+        <h1 class="text-3xl text-center font-bold text-gray-800 mb-4">
+          Tu camino hacia el éxito
+        </h1>
+        <h2 class="text-xl font-semibold text-center text-gray-700 mb-6">
+          Claves de un Negocio Exitoso (Sin Jerga Complicada)
+        </h2>
+        <div class="space-y-4 text-gray-600">
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Tener algo valioso que ofrecer: Que resuelva un problema o satisfaga
+            una necesidad
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Saber a quién se lo ofreces: Conocer bien a tus clientes ideales
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Ser diferente o mejor: Destacar de la competencia con una propuesta única
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Tener una meta clara: Saber a dónde quieres llegar
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Ser constante: No rendirse ante los obstáculos
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+            Adaptarse: Cambiar si algo no funciona y buscar mejorar
+          </p>
         </div>
       </div>
 
-      <!-- Formulario -->
-      <form class="relative">
-        <!-- Sección 1 -->
-        <input type="radio" name="step" id="step1" class="hidden" checked />
-        <div class="step-content">
-          <label for="name" class="block text-gray-700 font-medium mb-2"
-            >Nombre:</label
-          >
-          <input
-            type="text"
-            id="name"
-            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Ingresa tu nombre"
-          />
-          <button
-            type="button"
-            class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-            onclick="nextStep(2)">Siguiente</button
-          >
+      <!-- Paso 2: Preguntas Guiadas -->
+      <div class="pasos" data-step="2">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          Formulario de Preguntas Guiadas
+        </h2>
+        <div class="space-y-8">
+          <!-- Pregunta 1 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              ¿Qué problema resuelve tu negocio? (Propuesta de valor)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              Piensa en qué necesidad satisfaces o qué problema le quitas a tus
+              clientes. No te enfoques en lo que vendes, sino en el beneficio
+              que les das.
+            </label>
+            <textarea
+              data-validate="required"
+              name="propuestaValor"
+              placeholder="Ej: No vendes 'café', vendes 'una pausa en el día'"
+              class="w-full px-4 py-3 rounded-lg border-2 text-white border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all resize-none"
+              rows="3"></textarea>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              ¿A quién le quieres vender? (Público objetivo)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              Describe a tu cliente ideal, ¿quiénes son esas personas que más se
+              beneficiarían de tu producto o servicio?
+            </label>
+            <textarea
+              data-validate="required"
+              name="publicoObjetivo"
+              placeholder="Ej: Mujeres entre 25 y 60 años que les gsuta una vida saludable'"
+              class="w-full px-4 py-3 rounded-lg border-2 text-white border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all resize-none"
+              rows="3"></textarea>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
         </div>
+      </div>
 
-        <!-- Sección 2 -->
-        <input type="radio" name="step" id="step2" class="hidden" />
-        <div class="step-content hidden">
-          <label for="email" class="block text-gray-700 font-medium mb-2"
-            >Correo electrónico:</label
-          >
-          <input
-            type="email"
-            id="email"
-            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Ingresa tu correo"
-          />
-          <button
-            type="button"
-            class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-            onclick="nextStep(3)">Siguiente</button
-          >
+      <!-- Paso 3: Cliente ideal y Necesidad actual -->
+      <div class="pasos" data-step="3">
+        <div class="space-y-8">
+          <!-- Pregunta 3 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              Si pudieras tener un cliente ideal, ¿cómo sería? (Cliente ideal)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              Piensa en ese cliente que ama lo que vendes, que te compra seguido
+              y que te recomienda a sus amigos.
+            </label>
+            <textarea
+              data-validate="required"
+              name="clienteIdeal"
+              placeholder="Ej: Personas que valoren la calidad sobre el precio"
+              class="w-full px-4 py-3 rounded-lg border-2 text-white border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all resize-none"
+              rows="3"></textarea>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
+
+          <!-- Pregunta 4 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              ¿Cómo está tu negocio ahorita? (Necesidad actual)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              ¿Ya tienes un local, vendes por redes sociales o apenas estás
+              empezando con una idea?
+            </label>
+            <textarea
+              data-validate="required"
+              name="necesidadActual"
+              placeholder="Ej: No tienes página web, quieres empezar a vender por internet"
+              class="w-full px-4 py-3 rounded-lg border-2 text-white border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+            ></textarea>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
         </div>
+      </div>
 
-        <!-- Sección 3 -->
-        <input type="radio" name="step" id="step3" class="hidden" />
-        <div class="step-content hidden">
-          <label for="phone" class="block text-gray-700 font-medium mb-2"
-            >Teléfono:</label
-          >
-          <input
-            type="tel"
-            id="phone"
-            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Ingresa tu teléfono"
-          />
-          <button
-            type="button"
-            class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-            onclick="nextStep(4)">Siguiente</button
-          >
+      <!-- Paso 4: Presupuesto y Metas -->
+      <div class="pasos" data-step="4">
+        <div class="space-y-8">
+          <!-- Pregunta 5 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              ¿Cuánto quieres invertir en tu negocio para llegar a tus metas?
+              (Presupuesto)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              No se trata de "cuánto dinero tienes", sino de cuánto estás
+              dispuesto a invertir para impulsar tu negocio.
+            </label>
+            <div class="relative">
+              <div class="flex">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                >
+                  <span id="currency-symbol">$</span>
+                </div>
+                <input
+                  name="presupuesto"
+                  data-validate="required"
+                  type="number"
+                  class="w-full pl-10 px-4 py-3 rounded-lg border-2 text-white border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                  placeholder="0.00"
+                  inputmode="numeric"
+                  pattern="^\d{1,3}(,\d{3})*(\.\d{2})?$"
+                />
+              </div>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                <select
+                  id="currency-select"
+                  name="moneda"
+                  class="border border-gray-300 text-white rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all"
+                >
+                  <option value="MXN">MXN</option>
+                  <option value="USD" selected>USD</option>
+                </select>
+              </div>
+            </div>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
+
+          <!-- Pregunta 6 -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">
+              ¿Qué quieres lograr con tu negocio en internet? (Metas SMART)
+            </h3>
+            <label class="block text-gray-600 mb-2">
+              Tus metas deben ser específicas, medibles, alcanzables, realistas
+              y con un tiempo definido.
+            </label>
+            <textarea
+              data-validate="required"
+              name="metas"
+              placeholder="Ej: Quiero aumentar mis ventas un 20% en los próximos 3 meses"
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all resize-none text-white"
+              rows="3"></textarea>
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
         </div>
+      </div>
 
-        <!-- Sección 4 -->
-        <input type="radio" name="step" id="step4" class="hidden" />
-        <div class="step-content hidden">
-          <label for="message" class="block text-gray-700 font-medium mb-2"
-            >Mensaje:</label
-          >
-          <textarea
-            id="message"
-            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Ingresa tu mensaje"></textarea>
-          <button
-            type="submit"
-            class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
-            >Enviar</button
-          >
+      <!-- Paso 5: Contacto -->
+      <div class="pasos" data-step="5">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          Tu información de contacto
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">
+              ¿Cómo quieres que te gusta que te llamen (tu nombre)?
+            </label>
+            <input
+              data-validate="required"
+              name="nombreCliente"
+              type="text"
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-white"
+            />
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">
+              Nombre de tu producto o servicio
+            </label>
+            <input
+              data-validate="required"
+              name="marca"
+              type="text"
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-white"
+            />
+            <span class="error-message hidden">Este campo es requerido</span>
+          </div>
+
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">
+              Correo electrónico
+            </label>
+            <input
+              data-validate="email"
+              name="correo"
+              type="email"
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+            />
+            <span class="error-message hidden">Ingresa un correo válido</span>
+          </div>
+
+          <div data-validate="required">
+            <label class="block text-gray-700 text-sm font-medium mb-2">
+              Teléfono (WhatsApp)
+            </label>
+            <div class="flex">
+              <!-- Select con banderas, ladas y países -->
+              <select
+                name="lada"
+                class="w-32 border border-gray-300 rounded-l-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all border-r-0 text-white"
+              >
+                <option value="+54">🇦🇷 (+54)</option>
+                <option value="+591">🇧🇴 (+591)</option>
+                <option value="+56">🇨🇱 (+56)</option>
+                <option value="+57">🇨🇴 (+57)</option>
+                <option value="+506">🇨🇷 (+506)</option>
+                <option value="+53">🇨🇺 (+53)</option>
+                <option value="+593">🇪🇨 (+593)</option>
+                <option value="+503">🇸🇻 (+503)</option>
+                <option value="+34">🇪🇸 (+34)</option>
+                <option value="+1">🇺🇸 (+1)</option>
+                <option value="+240">🇬🇶 (+240)</option>
+                <option value="+502">🇬🇹 (+502)</option>
+                <option value="+504">🇭🇳 (+504)</option>
+                <option value="+52" selected>🇲🇽 (+52)</option>
+                <option value="+505">🇳🇮 (+505)</option>
+                <option value="+507">🇵🇦 (+507)</option>
+                <option value="+595">🇵🇾 (+595)</option>
+                <option value="+51">🇵🇪 (+51)</option>
+                <option value="+1-809">🇩🇴 (+1-809)</option>
+                <option value="+598">🇺🇾 (+598)</option>
+                <option value="+58">🇻🇪 (+58)</option>
+              </select>
+
+              <!-- Campo de entrada para el número de teléfono -->
+              <input
+                data-validate="required"
+                name="telefono"
+                type="tel"
+                placeholder="Ej: 1234567890"
+                class="w-full border border-gray-300 rounded-r-md px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all border-l-0"
+              />
+            </div>
+          </div>
+          <span class="error-message hidden">Este campo es requerido</span>
+
+          <!-- Términos y Condiciones y Política de Privacidad -->
+          <div class="mt-4">
+            <label class="inline-flex items-center">
+              <input
+                type="checkbox"
+                name="acceptTerms"
+                required
+                class="form-checkbox h-5 w-5 text-blue-600"
+              />
+              <span class="ml-2 text-gray-700 text-sm">
+                Acepto la
+                <a
+                  href="/politica-privacidad"
+                  target="_blank"
+                  class="text-blue-500 underline"
+                >
+                  Política de Privacidad
+                </a>
+                y los
+                <a
+                  href="/terminosYcondiciones"
+                  target="_blank"
+                  class="text-blue-500 underline"
+                >
+                  Términos y Condiciones
+                </a>.
+              </span>
+            </label>
+            <!-- Opcional: Puedes agregar un span para mensajes de error, si lo validas con JS -->
+            <span class="error-message hidden"
+              >Debes aceptar los términos y condiciones</span
+            >
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
 
-    <script is:inline>
-      function nextStep(step) {
-        const steps = document.querySelectorAll('input[name="step"]');
-        steps[step - 1].checked = true;
+      <!-- Navegación -->
+      <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between">
+        <button
+          type="button"
+          class="btn-prev w-full md:w-auto px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors hidden"
+        >
+          Anterior
+        </button>
+        <button
+          type="button"
+          class="btn-next w-full md:w-auto px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Siguiente
+        </button>
+        <button
+          type="submit"
+          class="btn-submit w-full md:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors hidden"
+        >
+          Enviar solicitud
+        </button>
+      </div>
+    </form>
 
-        // Actualizar la barra de progreso
-        const progressBar = document.getElementById('progress-bar');
-        progressBar.style.width = `${(step / steps.length) * 100}%`;
+    <script type="module">
+      class MultiStepForm {
+        constructor() {
+          this.form = document.getElementById('consultForm');
+          this.steps = Array.from(document.querySelectorAll('.pasos'));
+          this.currentStep = 0;
+          this.progress = document.querySelector('.step-indicator > div');
 
-        // Mostrar/ocultar contenido de las secciones
-        const sections = document.querySelectorAll('.step-content');
-        sections.forEach((section, index) => {
-          section.classList.toggle('hidden', index !== step - 1);
-        });
+          this.init();
+        }
+
+        init() {
+          this.setupEventListeners();
+          this.updateUI();
+        }
+
+        setupEventListeners() {
+          document
+            .querySelector('.btn-next')
+            .addEventListener('click', () => this.nextStep());
+          document
+            .querySelector('.btn-prev')
+            .addEventListener('click', () => this.prevStep());
+
+          // Para cada input o textarea, se realiza validación en el evento input
+          this.form.querySelectorAll('input, textarea').forEach((input) => {
+            input.addEventListener('input', () => this.validateField(input));
+          });
+        }
+
+        validateField(field) {
+          // Se busca el span de error dentro del contenedor padre del campo
+          const container = field.parentElement;
+          const errorMessage = container
+            ? container.querySelector('.error-message')
+            : null;
+
+          if (field.dataset.validate === 'required' && !field.value.trim()) {
+            this.showError(field, errorMessage, 'Este campo es requerido');
+            return false;
+          }
+
+          if (
+            field.dataset.validate === 'email' &&
+            !this.isValidEmail(field.value)
+          ) {
+            this.showError(field, errorMessage, 'Ingresa un correo válido');
+            return false;
+          }
+
+          if (errorMessage) {
+            this.clearError(field, errorMessage);
+          }
+          return true;
+        }
+
+        isValidEmail(email) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        showError(field, errorElement, message) {
+          field.classList.add('input-error');
+          if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+          }
+        }
+
+        clearError(field, errorElement) {
+          field.classList.remove('input-error');
+          if (errorElement) {
+            errorElement.classList.add('hidden');
+          }
+        }
+
+        nextStep() {
+          console.log('click');
+          if (!this.validateStep(this.steps[this.currentStep])) return;
+
+          this.steps[this.currentStep].classList.remove('active');
+          this.currentStep++;
+          this.steps[this.currentStep].classList.add('active');
+          this.updateProgress();
+          this.updateUI();
+        }
+
+        prevStep() {
+          this.steps[this.currentStep].classList.remove('active');
+          this.currentStep--;
+          this.steps[this.currentStep].classList.add('active');
+          this.updateProgress();
+          this.updateUI();
+        }
+
+        validateStep(step) {
+          // En este ejemplo, el paso 1 no requiere validación
+          if (parseInt(step.dataset.step) === 1) return true;
+
+          let isValid = true;
+          const fields = step.querySelectorAll('[data-validate]');
+          fields.forEach((field) => {
+            if (!this.validateField(field)) isValid = false;
+          });
+          return isValid;
+        }
+
+        updateProgress() {
+          const progressWidth =
+            ((this.currentStep + 1) / this.steps.length) * 100;
+          this.progress.style.width = `${progressWidth}%`;
+        }
+
+        updateUI() {
+          document
+            .querySelector('.btn-prev')
+            .classList.toggle('hidden', this.currentStep === 0);
+          document
+            .querySelector('.btn-next')
+            .classList.toggle(
+              'hidden',
+              this.currentStep === this.steps.length - 1
+            );
+          document
+            .querySelector('.btn-submit')
+            .classList.toggle(
+              'hidden',
+              this.currentStep !== this.steps.length - 1
+            );
+        }
       }
+
+      const multiStepForm = new MultiStepForm();
+
+      // Listener para el submit utilizando el id correcto "consultForm"
+      const formulario = document.getElementById('consultForm');
+      formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const datosFormulario = new FormData(formulario);
+        console.log(...datosFormulario.entries());
+        fetch(
+          'https://um215.app.n8n.cloud/webhook-test/04611043-2749-4dfb-824d-ac10c9437dc2',
+          {
+            method: 'POST',
+            body: datosFormulario,
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Datos enviados a n8n:', data);
+            alert(
+              '¡Formulario enviado con éxito! Revise su bandeja de corrreo'
+            );
+            formulario.reset();
+          })
+          .catch((error) => {
+            console.error('Error al enviar datos a n8n:', error);
+            alert('Error al enviar el formulario. Inténtalo de nuevo.');
+          });
+      });
     </script>
   </div>
 </Layout>

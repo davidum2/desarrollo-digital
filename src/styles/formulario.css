@@ -1,0 +1,30 @@
+
+  .pasos {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateX(20px);
+    display: none;
+  }
+
+  .pasos.active {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+  }
+
+  .input-error {
+    border-color: #ef4444;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    animation: spin 1s linear infinite;
+  }

@@ -3,493 +3,1580 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Formulario de consulta"
-  description="Formulario para obtener un roadmap de tu emprendimiento"
-  keywords="Formulario, desarrollo, emprendimiento, consultoría, negocio"
-  robot="follow"
+
+  title="Formulario de consulta"
+
+  description="Formulario para obtener un roadmap de tu emprendimiento"
+
+  keywords="Formulario, desarrollo, emprendimiento, consultoría, negocio"
+
+  robot="follow"
 >
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <form
-      id="consultForm"
-      class="bg-white rounded-xl shadow-lg w-full max-w-2xl p-6 md:p-8"
-    >
-            <div class="mb-8">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-sm text-gray-600" id="step-counter"
-            >Paso 1 de 5</span
-          >
-          <span class="text-sm text-gray-600" id="step-percentage">20%</span>
-        </div>
-        <div class="step-indicator flex-1 h-2 bg-gray-200 rounded-full">
-          <div
-            class="h-full bg-light-accent2 dark:bg-dark-accent1 rounded-full transition-all duration-300"
-            style="width: 20%"
-            id="progress-bar"
-          >
-          </div>
-        </div>
-      </div>
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <form
 
-            <div class="pasos active" data-step="1">
-        <h1
-          class="text-3xl text-center font-libre font-bold text-light-secondary dark:text-dark-secondary mb-4"
-        >
-          Tu camino hacia el éxito
-        </h1>
-        <h2
-          class="text-xl font-semibold text-center text-light-secondary dark:text-dark-secondary mb-6"
-        >
-          Claves de un Negocio Exitoso (Sin Jerga Complicada)
-        </h2>
-        <p class="text-light-secondary dark:text-dark-secondary font-lato mb-4 text-center">
-            Antes de empezar a pensar en tu negocio online, repasemos juntos algunos pilares fundamentales para tener éxito:
+
+
+      id="consultForm"
+
+
+
+      class="bg-white rounded-xl shadow-lg w-full max-w-2xl p-6 md:p-8"
+
+
+    >
+      <div class="mb-8">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm text-gray-600" id="step-counter"
+            >Paso 1 de 5</span
+          >
+          <span class="text-sm text-gray-600" id="step-percentage">20%</span>
+        </div>
+        <div class="step-indicator flex-1 h-2 bg-gray-200 rounded-full">
+          <div
+
+
+
+
+
+
+            class="h-full bg-light-accent2 dark:bg-dark-accent1 rounded-full transition-all duration-300"
+
+
+
+
+
+
+            style="width: 20%"
+
+
+
+
+
+
+            id="progress-bar"
+
+
+
+
+
+          >
+          </div>
+        </div>
+      </div>
+
+      <div class="pasos active" data-step="1">
+        <h1
+
+
+
+
+
+          class="text-3xl text-center font-libre font-bold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+        >
+          Tu camino hacia el éxito
+        </h1>
+        <h2
+
+
+
+
+
+          class="text-xl font-semibold text-center text-light-secondary dark:text-dark-secondary mb-6"
+
+
+
+
+        >
+          Claves de un Negocio Exitoso (Sin Jerga Complicada)
+        </h2>
+        <p
+          class="text-light-secondary dark:text-dark-secondary font-lato mb-4 text-center"
+        >
+          Antes de empezar a pensar en tu negocio online, repasemos juntos
+          algunos pilares fundamentales para tener éxito:
         </p>
-        <div
-          class="space-y-4 text-light-secondary dark:text-dark-secondary font-lato"
-        >
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Tener algo valioso que ofrecer: Que resuelva un problema o satisfaga
-            una necesidad
-          </p>
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Saber a quién se lo ofreces: Conocer bien a tus clientes ideales
-          </p>
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Ofrecer algo que te haga especial: Que te distinga de otros negocios similares
-          </p>
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Tener una meta clara: Saber a dónde quieres llegar
-          </p>
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Ser constante: No rendirse ante los obstáculos
-          </p>
-          <p class="flex items-start">
-            <span class="mr-2">•</span>
-            Adaptarse: Cambiar si algo no funciona y buscar mejorar
-          </p>
-        </div>
-      </div>
+        <div
 
-            <div class="pasos" data-step="2">
-        <h2
-          class="text-2xl font-libre font-bold text-light-secondary dark:text-dark-secondary mb-6"
-        >
-          Formulario de Preguntas Guiadas
-        </h2>
-        <div class="space-y-8">
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              ¿Qué problema resuelve tu negocio? (Propuesta de valor)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              Piensa en qué necesidad satisfaces o qué problema le quitas a tus
-              clientes. No te enfoques en lo que vendes, sino en el beneficio
-              que les das.
-            </label>
-            <textarea
-              data-validate="required"
-              name="propuestaValor"
-              placeholder="Ej: No vendes 'café', vendes 'una pausa en el día'"
-              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
-              rows="3"></textarea>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
 
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              ¿A quién le quieres vender? (Público objetivo)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              Describe a tu cliente ideal, ¿quiénes son esas personas que más se
-              beneficiarían de tu producto o servicio?
-            </label>
-            <textarea
-              data-validate="required"
-              name="publicoObjetivo"
-              placeholder="Ej: Mujeres entre 25 y 60 años que les gusta una vida saludable"
-              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
-              rows="3"></textarea>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
-        </div>
-      </div>
 
-            <div class="pasos" data-step="3">
-        <div class="space-y-8">
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              Si pudieras tener un cliente ideal, ¿cómo sería? (Cliente ideal)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              Piensa en ese cliente que ama lo que vendes, que te compra seguido
-              y que te recomienda a sus amigos.
-            </label>
-            <textarea
-              data-validate="required"
-              name="clienteIdeal"
-              placeholder="Ej: Personas que valoren la calidad sobre el precio"
-              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
-              rows="3"></textarea>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
 
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              ¿Cómo está tu negocio ahorita? (Necesidad actual)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              ¿Ya tienes un local, vendes por redes sociales, tienes página web o apenas estás
-              empezando con una idea?
-            </label>
-            <textarea
-              data-validate="required"
-              name="necesidadActual"
-              placeholder="Ej: No tienes página web, quieres empezar a vender por internet. Ej: Tengo un local físico, pero quiero llegar a más clientes online"
-              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
-              rows="3"></textarea>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
-        </div>
-      </div>
 
-            <div class="pasos" data-step="4">
-        <div class="space-y-8">
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              ¿Cuánto quieres invertir en tu negocio para llegar a tus metas?
-              (Presupuesto)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              No se trata de "cuánto dinero tienes", sino de cuánto estás
-              dispuesto a invertir para impulsar tu negocio.
-            </label>
-            <div class="relative">
-              <div class="flex">
-                <div
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                >
-                  <span
-                    id="currency-symbol"
-                    class="text-light-secondary dark:text-dark-secondary"
-                    >$</span
-                  >
-                </div>
-                <input
-                  name="presupuesto"
-                  data-validate="required"
-                  type="number"
-                  class="w-full pl-10 px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all font-lato"
-                  placeholder="0.00"
-                  inputmode="numeric"
-                  min="0"
-                  step="0.01"
-                />
-              </div>
-              <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                <select
-                  id="currency-select"
-                  name="moneda"
-                  class="border border-gray-300 text-light-secondary dark:text-dark-secondary rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all font-lato"
-                >
-                  <option value="MXN">MXN</option>
-                  <option value="USD" selected>USD</option>
-                </select>
-              </div>
-            </div>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
+          class="space-y-4 text-light-secondary dark:text-dark-secondary font-lato"
 
-                    <div>
-            <h3
-              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
-            >
-              ¿Qué quieres lograr con tu negocio en internet? (Metas SMART)
-            </h3>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
-            >
-              Tus metas deben ser específicas, medibles, alcanzables, realistas
-              y con un tiempo definido.
-            </label>
-            <textarea
-              data-validate="required"
-              name="metas"
-              placeholder="Ej: Quiero aumentar mis ventas un 20% en los próximos 3 meses"
-              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none text-light-secondary dark:text-dark-secondary font-lato"
-              rows="3"></textarea>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
-        </div>
-      </div>
 
-            <div class="pasos" data-step="5">
-        <h2
-          class="text-2xl font-libre font-bold text-light-secondary dark:text-dark-secondary mb-6"
-        >
-          Tu información de contacto
-        </h2>
-        <div class="space-y-6">
-          <div>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
-            >
-              ¿Cómo quieres que te llamen? (Tu nombre)
-            </label>
-            <input
-              data-validate="required"
-              name="nombreCliente"
-              type="text"
-              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
-              placeholder="Tu nombre"
-            />
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
 
-          <div>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
-            >
-              Nombre de tu negocio o marca
-            </label>
-            <input
-              data-validate="required"
-              name="marca"
-              type="text"
-              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
-              placeholder="Nombre de tu negocio o marca"
-            />
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
 
-          <div>
-            <label
-              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
-            >
-              Correo electrónico
-            </label>
-            <input
-              data-validate="email"
-              name="correo"
-              type="email"
-              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
-              placeholder="ejemplo@correo.com"
-            />
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Ingresa un correo válido</span
-            >
-          </div>
+        >
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Tener algo valioso que ofrecer: Que resuelva un problema
+            o satisfaga             una necesidad
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Saber a quién se lo ofreces: Conocer bien a tus clientes
+            ideales
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Ofrecer algo que te haga especial: Que te distinga de otros
+            negocios similares
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Tener una meta clara: Saber a dónde quieres llegar
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Ser constante: No rendirse ante los obstáculos
+          </p>
+          <p class="flex items-start">
+            <span class="mr-2">•</span>
+                        Adaptarse: Cambiar si algo no funciona y buscar mejorar
+          </p>
+        </div>
+      </div>
 
-          <div data-validate="required">
-            <label
-              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
-            >
-              Teléfono (WhatsApp) (con código de país)
-            </label>
-            <div class="flex">
-                            <select
-                name="lada"
-                class="w-32 border border-gray-300 rounded-l-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all border-r-0 text-light-secondary dark:text-dark-secondary font-lato"
-              >
-                <option value="+54">🇦🇷 (+54)</option>
-                <option value="+591">🇧🇴 (+591)</option>
-                <option value="+56">🇨🇱 (+56)</option>
-                <option value="+57">🇨🇴 (+57)</option>
-                <option value="+506">🇨🇷 (+506)</option>
-                <option value="+53">🇨🇺 (+53)</option>
-                <option value="+593">🇪🇨 (+593)</option>
-                <option value="+503">🇸🇻 (+503)</option>
-                <option value="+34">🇪🇸 (+34)</option>
-                <option value="+1">🇺🇸 (+1)</option>
-                <option value="+240">🇬🇶 (+240)</option>
-                <option value="+502">🇬🇹 (+502)</option>
-                <option value="+504">🇭🇳 (+504)</option>
-                <option value="+52" selected>🇲🇽 (+52)</option>
-                <option value="+505">🇳🇮 (+505)</option>
-                <option value="+507">🇵🇦 (+507)</option>
-                <option value="+595">🇵🇾 (+595)</option>
-                <option value="+51">🇵🇪 (+51)</option>
-                <option value="+1-809">🇩🇴 (+1-809)</option>
-                <option value="+598">🇺🇾 (+598)</option>
-                <option value="+58">🇻🇪 (+58)</option>
-              </select>
+      <div class="pasos" data-step="2">
+        <h2
 
-                            <input
-                data-validate="required|phone"
-                name="telefono"
-                type="tel"
-                placeholder="Ej: 1234567890"
-                class="w-full border border-gray-300 rounded-r-md px-4 py-3 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all border-l-0 text-light-secondary dark:text-dark-secondary font-lato"
-              />
-            </div>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Este campo es requerido</span
-            >
-          </div>
 
-                    <div class="mt-4">
-            <label class="inline-flex items-center">
-              <input
-                type="checkbox"
-                name="acceptTerms"
-                data-validate="required"
-                class="form-checkbox h-5 w-5 text-light-accent2 dark:text-dark-accent1"
-              />
-              <span
-                class="ml-2 text-light-secondary dark:text-dark-secondary text-sm font-lato"
-              >
-                Acepto la
-                <a
-                  href="/politica-privacidad"
-                  target="_blank"
-                  class="text-light-accent2 dark:text-dark-accent1 underline"
-                >
-                  Política de Privacidad
-                </a>
-                y los
-                <a
-                  href="/terminosYcondiciones"
-                  target="_blank"
-                  class="text-light-accent2 dark:text-dark-accent1 underline"
-                >
-                  Términos y Condiciones
-                </a>.
-              </span>
-            </label>
-            <span class="error-message hidden text-red-500 text-sm mt-1"
-              >Debes aceptar los términos y condiciones</span
-            >
-          </div>
-        </div>
-      </div>
 
-            <div id="notification" class="hidden mt-4 p-4 rounded-lg text-center">
-        <p id="notification-message" class="font-lato"></p>
-      </div>
 
-            <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between">
-        <button
-          type="button"
-          class="btn-prev w-full md:w-auto px-6 py-3 bg-gray-200 text-light-secondary dark:text-dark-secondary rounded-lg hover:bg-gray-300 transition-colors hidden font-lato"
-        >
-          <span>Anterior</span>
-        </button>
-        <button
-          type="button"
-          class="btn-next w-full md:w-auto px-6 py-3 bg-light-accent2 dark:bg-dark-accent1 text-white rounded-lg hover:bg-light-secondary dark:hover:bg-dark-accent2 transition-colors font-lato"
-        >
-          <span>Siguiente</span>
-        </button>
-        <button
-          type="submit"
-          class="btn-submit w-full md:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors hidden font-lato"
-        >
-          <span>Enviar solicitud</span>
-          <svg
-            id="loading-spinner"
-            class="hidden ml-2 w-5 h-5 spinner inline-block"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              class="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              stroke-width="4"></circle>
-            <path
-              class="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </form>
-  </div>
+
+          class="text-2xl font-libre font-bold text-light-secondary dark:text-dark-secondary mb-6"
+
+
+
+
+        >
+          Formulario de Preguntas Guiadas
+        </h2>
+        <div class="space-y-8">
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              ¿Qué problema resuelve tu negocio? (Propuesta de valor)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Piensa en qué necesidad satisfaces o qué problema le quitas a tus
+                            clientes. No te enfoques en lo que vendes, sino en
+              el beneficio               que les das.
+            </label>
+            <textarea
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="propuestaValor"
+
+
+
+
+
+
+
+              placeholder="Ej: No vendes 'café', vendes 'una pausa en el día'"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
+
+
+
+
+
+
+
+              rows="3"></textarea>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              ¿A quién le quieres vender? (Público objetivo)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Describe a tu cliente ideal, ¿quiénes son esas personas que más se
+                            beneficiarían de tu producto o servicio?
+            </label>
+            <textarea
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="publicoObjetivo"
+
+
+
+
+
+
+
+              placeholder="Ej: Mujeres entre 25 y 60 años que les gusta una vida saludable"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
+
+
+
+
+
+
+
+              rows="3"></textarea>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="pasos" data-step="3">
+        <div class="space-y-8">
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              Si pudieras tener un cliente ideal, ¿cómo sería? (Cliente ideal)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Piensa en ese cliente que ama lo que vendes, que te compra seguido
+                            y que te recomienda a sus amigos.
+            </label>
+            <textarea
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="clienteIdeal"
+
+
+
+
+
+
+
+              placeholder="Ej: Personas que valoren la calidad sobre el precio"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
+
+
+
+
+
+
+
+              rows="3"></textarea>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              ¿Cómo está tu negocio ahorita? (Necesidad actual)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              ¿Ya tienes un local, vendes por redes sociales, tienes página web
+              o apenas estás               empezando con una idea?
+            </label>
+            <textarea
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="necesidadActual"
+
+
+
+
+
+
+
+              placeholder="Ej: No tienes página web, quieres empezar a vender por internet. Ej: Tengo un local físico, pero quiero llegar a más clientes online"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none font-lato"
+
+
+
+
+
+
+
+              rows="3"></textarea>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="pasos" data-step="4">
+        <div class="space-y-8">
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              ¿Cuánto quieres invertir en tu negocio para llegar a tus metas?  
+                          (Presupuesto)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              No se trata de "cuánto dinero tienes", sino de cuánto estás      
+                      dispuesto a invertir para impulsar tu negocio.
+            </label>
+            <div class="relative">
+              <div class="flex">
+                <div
+
+
+
+
+
+
+
+
+
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+
+
+
+
+
+
+
+
+                >
+                  <span
+
+
+
+
+
+
+
+
+
+
+                    id="currency-symbol"
+
+
+
+
+
+
+
+
+
+
+                    class="text-light-secondary dark:text-dark-secondary"
+
+
+
+
+
+
+
+
+
+                    >$</span
+                  >
+                </div>
+                <input
+
+
+
+
+
+
+
+
+
+                  name="presupuesto"
+
+
+
+
+
+
+
+
+
+                  data-validate="required"
+
+
+
+
+
+
+
+
+
+                  type="number"
+
+
+
+
+
+
+
+
+
+                  class="w-full pl-10 px-4 py-3 rounded-lg border-2 text-light-secondary dark:text-dark-secondary border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all font-lato"
+
+
+
+
+
+
+
+
+
+                  placeholder="0.00"
+
+
+
+
+
+
+
+
+
+                  inputmode="numeric"
+
+
+
+
+
+
+
+
+
+                  min="0"
+
+
+
+
+
+
+
+
+
+                  step="0.01"
+
+
+
+
+
+
+
+
+                />
+              </div>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                <select
+
+
+
+
+
+
+
+
+
+                  id="currency-select"
+
+
+
+
+
+
+
+
+
+                  name="moneda"
+
+
+
+
+
+
+
+
+
+                  class="border border-gray-300 text-light-secondary dark:text-dark-secondary rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all font-lato"
+
+
+
+
+
+
+
+
+                >
+                  <option value="MXN">MXN</option>
+                  <option value="USD" selected>USD</option>
+                </select>
+              </div>
+            </div>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div>
+            <h3
+
+
+
+
+
+
+
+              class="text-xl font-libre font-semibold text-light-secondary dark:text-dark-secondary mb-4"
+
+
+
+
+
+
+            >
+              ¿Qué quieres lograr con tu negocio en internet? (Metas SMART)
+            </h3>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Tus metas deben ser específicas, medibles, alcanzables, realistas
+                            y con un tiempo definido.
+            </label>
+            <textarea
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="metas"
+
+
+
+
+
+
+
+              placeholder="Ej: Quiero aumentar mis ventas un 20% en los próximos 3 meses"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all resize-none text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              rows="3"></textarea>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="pasos" data-step="5">
+        <h2
+
+
+
+
+
+          class="text-2xl font-libre font-bold text-light-secondary dark:text-dark-secondary mb-6"
+
+
+
+
+        >
+          Tu información de contacto
+        </h2>
+        <div class="space-y-6">
+          <div>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
+
+
+
+
+
+
+            >
+              ¿Cómo quieres que te llamen? (Tu nombre)
+            </label>
+            <input
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="nombreCliente"
+
+
+
+
+
+
+
+              type="text"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              placeholder="Tu nombre"
+
+
+
+
+
+
+            />
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Nombre de tu negocio o marca
+            </label>
+            <input
+
+
+
+
+
+
+
+              data-validate="required"
+
+
+
+
+
+
+
+              name="marca"
+
+
+
+
+
+
+
+              type="text"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              placeholder="Nombre de tu negocio o marca"
+
+
+
+
+
+
+            />
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div>
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Correo electrónico
+            </label>
+            <input
+
+
+
+
+
+
+
+              data-validate="email"
+
+
+
+
+
+
+
+              name="correo"
+
+
+
+
+
+
+
+              type="email"
+
+
+
+
+
+
+
+              class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              placeholder="ejemplo@correo.com"
+
+
+
+
+
+
+            />
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Ingresa un correo válido</span
+            >
+          </div>
+
+          <div data-validate="required">
+            <label
+
+
+
+
+
+
+
+              class="block text-light-secondary dark:text-dark-secondary text-sm font-medium mb-2 font-lato"
+
+
+
+
+
+
+            >
+              Teléfono (WhatsApp) (con código de país)
+            </label>
+            <div class="flex">
+              <select
+
+
+
+
+
+
+
+
+                name="lada"
+
+
+
+
+
+
+
+
+                class="w-32 border border-gray-300 rounded-l-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all border-r-0 text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              >
+                <option value="+54">🇦🇷 (+54)</option>
+                <option value="+591">🇧🇴 (+591)</option>
+                <option value="+56">🇨🇱 (+56)</option>
+                <option value="+57">🇨🇴 (+57)</option>
+                <option value="+506">🇨🇷 (+506)</option>
+                <option value="+53">🇨🇺 (+53)</option>
+                <option value="+593">🇪🇨 (+593)</option>
+                <option value="+503">🇸🇻 (+503)</option>
+                <option value="+34">🇪🇸 (+34)</option>
+                <option value="+1">🇺🇸 (+1)</option>
+                <option value="+240">🇬🇶 (+240)</option>
+                <option value="+502">🇬🇹 (+502)</option>
+                <option value="+504">🇭🇳 (+504)</option>
+                <option value="+52" selected>🇲🇽 (+52)</option>
+                <option value="+505">🇳🇮 (+505)</option>
+                <option value="+507">🇵🇦 (+507)</option>
+                <option value="+595">🇵🇾 (+595)</option>
+                <option value="+51">🇵🇪 (+51)</option>
+                <option value="+1-809">🇩🇴 (+1-809)</option>
+                <option value="+598">🇺🇾 (+598)</option>
+                <option value="+58">🇻🇪 (+58)</option>
+              </select>
+
+              <input
+
+
+
+
+
+
+
+
+                data-validate="required|phone"
+
+
+
+
+
+
+
+
+                name="telefono"
+
+
+
+
+
+
+
+
+                type="tel"
+
+
+
+
+
+
+
+
+                placeholder="Ej: 1234567890"
+
+
+
+
+
+
+
+
+                class="w-full border border-gray-300 rounded-r-md px-4 py-3 focus:border-light-accent2 dark:focus:border-dark-accent1 focus:ring-2 focus:ring-light-accent1 dark:focus:ring-dark-accent2 transition-all border-l-0 text-light-secondary dark:text-dark-secondary font-lato"
+
+
+
+
+
+
+
+              />
+            </div>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Este campo es requerido</span
+            >
+          </div>
+
+          <div class="mt-4">
+            <label class="inline-flex items-center">
+              <input
+
+
+
+
+
+
+
+
+                type="checkbox"
+
+
+
+
+
+
+
+
+                name="acceptTerms"
+
+
+
+
+
+
+
+
+                data-validate="required"
+
+
+
+
+
+
+
+
+                class="form-checkbox h-5 w-5 text-light-accent2 dark:text-dark-accent1"
+
+
+
+
+
+
+
+              />
+              <span
+
+
+
+
+
+
+
+
+                class="ml-2 text-light-secondary dark:text-dark-secondary text-sm font-lato"
+
+
+
+
+
+
+
+              >
+                Acepto la                 <a
+
+
+
+
+
+
+
+
+
+                  href="/politica-privacidad"
+
+
+
+
+
+
+
+
+
+                  target="_blank"
+
+
+
+
+
+
+
+
+
+                  class="text-light-accent2 dark:text-dark-accent1 underline"
+
+
+
+
+
+
+
+
+                >
+                  Política de Privacidad
+                </a>
+                                y los                 <a
+
+
+
+
+
+
+
+
+
+                  href="/terminosYcondiciones"
+
+
+
+
+
+
+
+
+
+                  target="_blank"
+
+
+
+
+
+
+
+
+
+                  class="text-light-accent2 dark:text-dark-accent1 underline"
+
+
+
+
+
+
+
+
+                >
+                  Términos y Condiciones
+                </a>.
+              </span>
+            </label>
+            <span class="error-message hidden text-red-500 text-sm mt-1"
+              >Debes aceptar los términos y condiciones</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="notification" class="hidden mt-4 p-4 rounded-lg text-center">
+        <p id="notification-message" class="font-lato"></p>
+      </div>
+
+      <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between">
+        <button
+
+
+
+
+
+          type="button"
+
+
+
+
+
+          class="btn-prev w-full md:w-auto px-6 py-3 bg-gray-200 text-light-secondary dark:text-dark-secondary rounded-lg hover:bg-gray-300 transition-colors hidden font-lato"
+
+
+
+
+        >
+          <span>Anterior</span>
+        </button>
+        <button
+
+
+
+
+
+          type="button"
+
+
+
+
+
+          class="btn-next w-full md:w-auto px-6 py-3 bg-light-accent2 dark:bg-dark-accent1 text-white rounded-lg hover:bg-light-secondary dark:hover:bg-dark-accent2 transition-colors font-lato"
+
+
+
+
+        >
+          <span>Siguiente</span>
+        </button>
+        <button
+
+
+
+
+
+          type="submit"
+
+
+
+
+
+          class="btn-submit w-full md:w-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors hidden font-lato"
+
+
+
+
+        >
+          <span>Enviar solicitud</span>
+          <svg
+
+
+
+
+
+
+            id="loading-spinner"
+
+
+
+
+
+
+            class="hidden ml-2 w-5 h-5 spinner"
+
+
+
+
+
+
+            xmlns="http://www.w3.org/2000/svg"
+
+
+
+
+
+
+            fill="none"
+
+
+
+
+
+
+            viewBox="0 0 24 24"
+
+
+
+
+
+          >
+            <circle
+
+
+
+
+
+
+
+              class="opacity-25"
+
+
+
+
+
+
+
+              cx="12"
+
+
+
+
+
+
+
+              cy="12"
+
+
+
+
+
+
+
+              r="10"
+
+
+
+
+
+
+
+              stroke="currentColor"
+
+
+
+
+
+
+
+              stroke-width="4"></circle>
+            <path
+
+
+
+
+
+
+
+              class="opacity-75"
+
+
+
+
+
+
+
+              fill="currentColor"
+
+
+
+
+
+
+
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+
+
+
+
+
+              ></path>
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
 </Layout>
 
 <style>
-  .pasos {
-    transition: all 0.3s ease-in-out;
-    opacity: 0;
-    transform: translateX(20px);
-    display: none;
-  }
+  .pasos {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateX(20px);
+    display: none;
+  }
+  .pasos.active {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+  }
 
-  .pasos.active {
-    opacity: 1;
-    transform: translateX(0);
-    display: block;
-  }
+  .input-error {
+    border-color: #ef4444;
+  }
 
-  .input-error {
-    border-color: #ef4444;
-  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .spinner {
-    animation: spin 1s linear infinite;
-  }
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
 </style>
 
 <script>
-  // Importa la clase MultiStepForm desde el archivo separado
-  import { MultiStepForm } from '../scripts/formValidation.js';
+  // Importa la clase MultiStepForm desde el archivo separado
+  import { MultiStepForm } from '../scripts/formValidation.js'; // Inicializa el formulario cuando el DOM esté completamente cargado
 
-  // Inicializa el formulario cuando el DOM esté completamente cargado
-  document.addEventListener('DOMContentLoaded', () => {
-    // Crea una nueva instancia del formulario
-    const multiStepForm = new MultiStepForm();
-  });
+  document.addEventListener('DOMContentLoaded', () => {
+    // Crea una nueva instancia del formulario
+    const multiStepForm = new MultiStepForm();
+  });
 </script>

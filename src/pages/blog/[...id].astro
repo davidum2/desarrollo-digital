@@ -1,24 +1,20 @@
 ---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BlogPostRich from '../../components/BlogPostRich.astro';
 
-import type { GetStaticPaths } from "astro";
-
-import { getCollection } from "astro:content";
-import BlogPostRich from "../../components/BlogPostRich.astro";
-
- export const getStaticPaths = (async() => {
-    const posts = await getCollection("blogPostRich")
-    return posts.map(entry =>({
-        params: {id: entry.slug},
-        props: entry}))
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blogPostRich');
+  return posts.map((entry) => ({
+    params: { id: entry.id }, // Cambia slug a id
+    props: entry,
+  }));
 }) satisfies GetStaticPaths;
-const entry = Astro.props
-const {Content} = await entry.render()
 
-
+const entry = Astro.props;
+const { Content } = await render(entry); // Cambia entry.render() a render(entry)
 ---
 
-
 <BlogPostRich {...entry.data}>
-        <Content/ >
+  <Content />
 </BlogPostRich>
-

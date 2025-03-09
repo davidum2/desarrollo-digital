@@ -1,12 +1,16 @@
 ---
-import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
-import { getAllCategories } from "../../../utils/getAllCategories";
-import CardBlog from "../../../components/CardBlog.astro";
-import CardBlogRich from "../../../components/CardBlogRich.astro";
-import ArticleList from "../../../layouts/ArticleList.astro";
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import { getAllCategories } from '../../../utils/getAllCategories';
+import CardBlog from '../../../components/CardBlog.astro';
+import CardBlogRich from '../../../components/CardBlogRich.astro';
+import ArticleList from '../../../layouts/ArticleList.astro';
+import type { BlogPost } from '../../../types';
+import type { BlogPostRich } from '../../../types';
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths = (async (): Promise<
+  { params: { category: string }; props: { category: string } }[]
+> => {
   const categories = (await getAllCategories()).map((category) =>
     category.toLowerCase()
   );
@@ -16,14 +20,17 @@ export const getStaticPaths = (async () => {
   }));
 }) satisfies GetStaticPaths;
 
-const { category } = Astro.props;
+const { category }: { category: string } = Astro.props;
 
-const posts = await getCollection("blog", ({ data }) =>
-  data.categories.map((data) => data.toLowerCase()).includes(category)
+const posts: Array<{ id: string; data: BlogPost }> = await getCollection(
+  'blog',
+  ({ data }) =>
+    data.categories.map((cat) => cat.toLowerCase()).includes(category)
 );
-const postsRich = await getCollection("blogPostRich", ({ data }) =>
-  data.categories.map((data) => data.toLowerCase()).includes(category)
-);
+const postsRich: Array<{ id: string; data: BlogPostRich }> =
+  await getCollection('blogPostRich', ({ data }) =>
+    data.categories.map((cat) => cat.toLowerCase()).includes(category)
+  );
 ---
 
 <ArticleList>
@@ -31,7 +38,7 @@ const postsRich = await getCollection("blogPostRich", ({ data }) =>
   <div
     class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
   >
-    {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.slug} />)}
+    {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.id} />)}
   </div>
   <h2 class="font-libre text-2xl text-center my-6">
     Otros temas dentro de la categoria
@@ -39,6 +46,6 @@ const postsRich = await getCollection("blogPostRich", ({ data }) =>
   <div
     class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
   >
-    {posts.map((post) => <CardBlog {...post.data} slug={post.slug} />)}
+    {posts.map((post) => <CardBlog {...post.data} slug={post.id} />)}
   </div>
 </ArticleList>

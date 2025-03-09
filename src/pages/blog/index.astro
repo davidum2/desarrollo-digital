@@ -1,22 +1,23 @@
 ---
-import { getCollection } from "astro:content"
-import CardBlog from "../../components/CardBlog.astro"
-import CardBlogRich from "../../components/CardBlogRich.astro"
-import ArticleList from "../../layouts/ArticleList.astro"
+import { getCollection } from 'astro:content';
+import CardBlog from '../../components/CardBlog.astro';
+import CardBlogRich from '../../components/CardBlogRich.astro';
+import ArticleList from '../../layouts/ArticleList.astro';
+
 const posts = (await getCollection('blog')).sort(
-  (a,b)=> b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 const postsRich = (await getCollection('blogPostRich')).sort(
-(a,b)=> b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
-
 
 <ArticleList>
   <h1 class="font-libre text-3xl text-center">Nuestros Post más recientes</h1>
   <div
     class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
   >
-    {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.slug} />)}
+    {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.id} />)}
   </div>
   <h2 class="font-libre text-2xl text-center my-6">
     Otros temas dentro de la categoria
@@ -24,6 +25,6 @@ const postsRich = (await getCollection('blogPostRich')).sort(
   <div
     class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
   >
-    {posts.map((post) => <CardBlog {...post.data} slug={post.slug} />)}
+    {posts.map((post) => <CardBlog {...post.data} slug={post.id} />)}
   </div>
-</ArticleList>  
+</ArticleList>

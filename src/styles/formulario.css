@@ -1,30 +1,228 @@
+/* Animaciones y transiciones para pasos */
+.pasos {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(20px);
+  display: none;
+}
 
-  .pasos {
-    transition: all 0.3s ease-in-out;
-    opacity: 0;
-    transform: translateX(20px);
-    display: none;
-  }
+.pasos.active {
+  opacity: 1;
+  transform: translateX(0);
+  display: block;
+}
 
-  .pasos.active {
-    opacity: 1;
-    transform: translateX(0);
-    display: block;
-  }
+/* Estilos de validación */
+.input-error {
+  border-color: #ef4444 !important;
+}
 
-  .input-error {
-    border-color: #ef4444;
-  }
+.input-valid {
+  border-color: #10b981 !important;
+}
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+/* Animación del spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  .spinner {
-    animation: spin 1s linear infinite;
-  }
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Estilos específicos para contadores de caracteres */
+.char-counter {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: right;
+  margin-top: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.char-counter.warning {
+  color: #f59e0b;
+}
+
+.char-counter.error {
+  color: #ef4444;
+}
+
+/* Estilos para el slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: #e2e8f0;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-light-accent2, #147e93);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark input[type='range']::-webkit-slider-thumb {
+  background: var(--color-dark-accent1, #6a97b0);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-light-accent2, #147e93);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dark input[type='range']::-moz-range-thumb {
+  background: var(--color-dark-accent1, #6a97b0);
+}
+
+input[type='range']:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(116, 192, 252, 0.5);
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+
+/* Estilo para el badge de seguridad */
+.badge-secure {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  background-color: #f9fafb;
+  color: #374151;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.dark .badge-secure {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+/* Tooltip para los ejemplos */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dark .tooltip .tooltip-content {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 640px) {
+  input[type='range'] {
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Transiciones suaves para botones y elementos interactivos */
+button,
+input[type='submit'],
+input[type='checkbox'],
+select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Foco mejorado para accesibilidad */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-light-accent1, #75e6da);
+  outline-offset: 2px;
+}
+
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible,
+.dark select:focus-visible,
+.dark a:focus-visible {
+  outline-color: var(--color-dark-accent1, #6a97b0);
+}
+
+/* Mejora visual para botones de ejemplo */
+button[id*='example'] {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-light-accent1, #75e6da);
+  color: var(--color-light-secondary, #05445e);
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dark button[id*='example'] {
+  background-color: var(--color-dark-accent1, #6a97b0);
+  color: white;
+}
+
+button[id*='example']:hover {
+  background-color: var(--color-light-accent2, #147e93);
+  color: white;
+}
+
+.dark button[id*='example']:hover {
+  background-color: var(--color-dark-accent2, #3a4385);
+}

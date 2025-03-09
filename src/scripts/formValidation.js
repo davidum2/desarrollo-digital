@@ -1,12 +1,12 @@
 /**
  * Clase MultiStepForm
- * Gestiona un formulario multi-paso con validación
+ * Gestiona un formulario multi-paso con validación y experiencia de usuario mejorada
  */
 export class MultiStepForm {
   constructor() {
+    // Elementos del DOM
     this.form = document.getElementById('consultForm');
     this.steps = Array.from(document.querySelectorAll('.pasos'));
-    this.currentStep = 0;
     this.progress = document.getElementById('progress-bar');
     this.stepCounter = document.getElementById('step-counter');
     this.stepPercentage = document.getElementById('step-percentage');
@@ -15,15 +15,34 @@ export class MultiStepForm {
     this.loadingSpinner = document.getElementById('loading-spinner');
     this.submitButton = document.querySelector('.btn-submit');
 
+    // Estado del formulario
+    this.currentStep = 0;
+    this.sessionStartTime = new Date();
+
     this.init();
   }
 
+  /**
+   * Inicializa el formulario
+   */
   init() {
+    if (!this.form) {
+      console.error('Formulario no encontrado');
+      return;
+    }
+
     this.setupEventListeners();
+    this.setupExampleButtons();
+    this.setupBudgetSlider();
+    this.setupCharacterCounters();
     this.updateUI();
   }
 
+  /**
+   * Configura todos los event listeners para el formulario
+   */
   setupEventListeners() {
+    // Botones de navegación
     document
       .querySelector('.btn-next')
       ?.addEventListener('click', () => this.nextStep());
@@ -31,34 +50,215 @@ export class MultiStepForm {
       .querySelector('.btn-prev')
       ?.addEventListener('click', () => this.prevStep());
 
-    // Para cada input o textarea, se realiza validación en el evento input
-    this.form.querySelectorAll('input, textarea, select').forEach((input) => {
-      input.addEventListener('input', () => this.validateField(input));
-      input.addEventListener('change', () => this.validateField(input));
+    // Validación de campos
+    this.setupFieldValidation();
 
-      // Validación inicial para campos con valores predeterminados
-      if (input.value) {
-        this.validateField(input);
-      }
-    });
-
-    // Manejar el envío del formulario
+    // Envío del formulario
     this.form.addEventListener('submit', (event) => this.handleSubmit(event));
+
+    // Teclas de navegación
+    document.addEventListener('keydown', (e) =>
+      this.handleKeyboardNavigation(e)
+    );
   }
 
+  /**
+   * Configura la validación en tiempo real para los campos
+   */
+  setupFieldValidation() {
+    this.form.querySelectorAll('input, textarea, select').forEach((input) => {
+      // Validar durante la edición
+      input.addEventListener('input', () => {
+        this.validateField(input);
+        this.updateCharCount(input);
+      });
+
+      // Validar después de cambios (útil para select, checkbox)
+      input.addEventListener('change', () => {
+        this.validateField(input);
+        this.updateCharCount(input);
+      });
+
+      // Para campos con valores predeterminados
+      if (input.value) {
+        this.validateField(input);
+        this.updateCharCount(input);
+      }
+    });
+  }
+
+  /**
+   * Configura botones para insertar ejemplos en campos
+   */
+  setupExampleButtons() {
+    // Ejemplo para el campo SMART
+    const metaExampleBtn = document.getElementById('insert-meta-example');
+    const metasField = document.querySelector('textarea[name="metas"]');
+
+    if (metaExampleBtn && metasField) {
+      metaExampleBtn.addEventListener('click', () => {
+        const example =
+          'Incrementar ventas online en un 20% durante los próximos 3 meses a través de mi tienda en línea';
+        metasField.value = example;
+        this.validateField(metasField);
+        this.updateCharCount(metasField);
+      });
+    }
+
+    // Puedes añadir más ejemplos para otros campos aquí
+    const propuestaExampleBtn = document.getElementById(
+      'insert-propuesta-example'
+    );
+    const propuestaField = document.querySelector(
+      'textarea[name="propuestaValor"]'
+    );
+
+    if (propuestaExampleBtn && propuestaField) {
+      propuestaExampleBtn.addEventListener('click', () => {
+        const example =
+          'Ayudo a pequeños negocios a aumentar su visibilidad en línea para conseguir más clientes';
+        propuestaField.value = example;
+        this.validateField(propuestaField);
+        this.updateCharCount(propuestaField);
+      });
+    }
+  }
+
+  /**
+   * Configura el deslizador de presupuesto
+   */
+  setupBudgetSlider() {
+    const slider = document.getElementById('budget-slider');
+    const budgetInput = document.querySelector('input[name="presupuesto"]');
+    const currencySymbol = document.getElementById('currency-symbol');
+    const currencySelect = document.querySelector('select[name="moneda"]');
+
+    if (slider && budgetInput) {
+      // Slider afecta al input
+      slider.addEventListener('input', () => {
+        budgetInput.value = slider.value;
+        this.validateField(budgetInput);
+      });
+
+      // Input afecta al slider
+      budgetInput.addEventListener('input', () => {
+        const value = parseInt(budgetInput.value) || 0;
+        slider.value = Math.min(parseInt(slider.max), Math.max(0, value));
+      });
+    }
+
+    // Actualiza el símbolo de moneda cuando cambie la selección
+    if (currencySelect && currencySymbol) {
+      currencySelect.addEventListener('change', () => {
+        currencySymbol.textContent =
+          currencySelect.value === 'USD' ? '$' : 'MX$';
+      });
+    }
+  }
+
+  /**
+   * Configura contadores de caracteres para campos de texto
+   */
+  setupCharacterCounters() {
+    this.form.querySelectorAll('textarea').forEach((textarea) => {
+      const container = textarea.closest('div');
+      if (!container) return;
+
+      // Buscar o crear el contador de caracteres
+      let counter = container.querySelector('.char-counter');
+      if (!counter) {
+        counter = document.createElement('div');
+        counter.className =
+          'char-counter text-xs text-gray-500 mt-1 text-right';
+        container.appendChild(counter);
+
+        // Opcional: configurar límite máximo
+        const maxLength = 300;
+        textarea.setAttribute('maxlength', maxLength);
+
+        counter.textContent = `0/${maxLength}`;
+
+        // Actualizar contador en tiempo real
+        textarea.addEventListener('input', () =>
+          this.updateCharCount(textarea)
+        );
+      }
+
+      // Inicializar contador
+      this.updateCharCount(textarea);
+    });
+  }
+
+  /**
+   * Actualiza el contador de caracteres para un campo
+   * @param {HTMLElement} field - Campo de texto
+   */
+  updateCharCount(field) {
+    if (field.tagName !== 'TEXTAREA') return;
+
+    const container = field.closest('div');
+    if (!container) return;
+
+    const counter = container.querySelector('.char-counter');
+    if (!counter) return;
+
+    const maxLength = field.getAttribute('maxlength') || 300;
+    const currentLength = field.value.length;
+    counter.textContent = `${currentLength}/${maxLength}`;
+
+    // Cambiar color cuando se acerca al límite
+    if (currentLength > maxLength * 0.9) {
+      counter.classList.add('text-amber-500');
+    } else {
+      counter.classList.remove('text-amber-500');
+    }
+
+    // Cambiar color cuando excede el límite
+    if (currentLength >= maxLength) {
+      counter.classList.add('text-red-500');
+      counter.classList.remove('text-amber-500');
+    } else {
+      counter.classList.remove('text-red-500');
+    }
+  }
+
+  /**
+   * Maneja la navegación por teclado
+   * @param {KeyboardEvent} e - Evento de teclado
+   */
+  handleKeyboardNavigation(e) {
+    // Enter avanza al siguiente paso cuando no está en textarea o botón enviar
+    if (
+      e.key === 'Enter' &&
+      e.target.tagName !== 'TEXTAREA' &&
+      !e.target.classList.contains('btn-submit')
+    ) {
+      e.preventDefault();
+      if (this.currentStep < this.steps.length - 1) {
+        this.nextStep();
+      } else {
+        this.form.dispatchEvent(new Event('submit'));
+      }
+    }
+  }
+
+  /**
+   * Valida un campo específico
+   * @param {HTMLElement} field - Campo a validar
+   * @returns {boolean} - Si el campo es válido
+   */
   validateField(field) {
     if (!field.dataset.validate) return true;
 
-    // Buscar el contenedor del campo para encontrar el mensaje de error
+    // Buscar el contenedor de mensaje de error
     const container = field.closest('div');
     let errorMessage;
 
-    // Para el checkbox de términos y condiciones
+    // Localizar el elemento de mensaje de error
     if (field.type === 'checkbox') {
       errorMessage =
         field.parentElement?.parentElement?.querySelector('.error-message');
     } else {
-      // Para otros campos, buscar el mensaje de error en el contenedor
       errorMessage = container?.querySelector('.error-message');
     }
 
@@ -66,6 +266,7 @@ export class MultiStepForm {
     let isValid = true;
     let errorText = '';
 
+    // Comprobar cada tipo de validación
     for (const type of validationTypes) {
       if (type === 'required' && !this.isRequired(field)) {
         isValid = false;
@@ -82,6 +283,7 @@ export class MultiStepForm {
       }
     }
 
+    // Mostrar error o limpiar el campo
     if (!isValid) {
       this.showError(field, errorMessage, errorText);
       return false;
@@ -91,6 +293,11 @@ export class MultiStepForm {
     }
   }
 
+  /**
+   * Verifica si un campo cumple la validación de obligatorio
+   * @param {HTMLElement} field - Campo a validar
+   * @returns {boolean} - Si el campo cumple la validación
+   */
   isRequired(field) {
     if (field.type === 'checkbox') {
       return field.checked;
@@ -98,15 +305,32 @@ export class MultiStepForm {
     return field.value.trim() !== '';
   }
 
+  /**
+   * Valida un correo electrónico
+   * @param {string} email - Correo a validar
+   * @returns {boolean} - Si el correo es válido
+   */
   isValidEmail(email) {
+    if (!email) return false;
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  /**
+   * Valida un número de teléfono
+   * @param {string} phone - Número a validar
+   * @returns {boolean} - Si el teléfono es válido
+   */
   isValidPhone(phone) {
-    // Validar que sea un número de teléfono válido (solo dígitos, mínimo 8 caracteres)
+    if (!phone) return false;
     return /^\d{8,15}$/.test(phone);
   }
 
+  /**
+   * Muestra un mensaje de error para un campo
+   * @param {HTMLElement} field - Campo con error
+   * @param {HTMLElement} errorElement - Elemento para mostrar el mensaje
+   * @param {string} message - Mensaje de error
+   */
   showError(field, errorElement, message) {
     field.classList.add('input-error');
     if (errorElement) {
@@ -115,6 +339,11 @@ export class MultiStepForm {
     }
   }
 
+  /**
+   * Limpia los mensajes de error
+   * @param {HTMLElement} field - Campo a limpiar
+   * @param {HTMLElement} errorElement - Elemento de mensaje de error
+   */
   clearError(field, errorElement) {
     field.classList.remove('input-error');
     if (errorElement) {
@@ -122,33 +351,57 @@ export class MultiStepForm {
     }
   }
 
+  /**
+   * Avanza al siguiente paso del formulario
+   */
   nextStep() {
-    console.log('clikado');
     if (!this.validateStep(this.steps[this.currentStep])) return;
 
+    // Ocultar paso actual
     this.steps[this.currentStep].classList.remove('active');
+
+    // Avanzar al siguiente paso
     this.currentStep++;
+
+    // Mostrar nuevo paso
     this.steps[this.currentStep].classList.add('active');
+
+    // Actualizar UI
     this.updateProgress();
     this.updateUI();
 
-    // Scroll al inicio del formulario para mejor experiencia móvil
+    // Scroll al inicio del formulario
     this.form.scrollIntoView({ behavior: 'smooth' });
   }
 
+  /**
+   * Retrocede al paso anterior del formulario
+   */
   prevStep() {
+    // Ocultar paso actual
     this.steps[this.currentStep].classList.remove('active');
+
+    // Retroceder al paso anterior
     this.currentStep--;
+
+    // Mostrar nuevo paso
     this.steps[this.currentStep].classList.add('active');
+
+    // Actualizar UI
     this.updateProgress();
     this.updateUI();
 
-    // Scroll al inicio del formulario para mejor experiencia móvil
+    // Scroll al inicio del formulario
     this.form.scrollIntoView({ behavior: 'smooth' });
   }
 
+  /**
+   * Valida todos los campos de un paso
+   * @param {HTMLElement} step - Paso a validar
+   * @returns {boolean} - Si el paso es válido
+   */
   validateStep(step) {
-    // El paso 1 no requiere validación
+    // El paso 1 no requiere validación (es informativo)
     if (parseInt(step.dataset.step) === 1) return true;
 
     let isValid = true;
@@ -163,49 +416,79 @@ export class MultiStepForm {
     return isValid;
   }
 
+  /**
+   * Actualiza la barra de progreso y los contadores
+   */
   updateProgress() {
     const progressWidth = ((this.currentStep + 1) / this.steps.length) * 100;
+
+    // Actualizar barra de progreso
     this.progress.style.width = `${progressWidth}%`;
+
+    // Actualizar texto de progreso
     this.stepCounter.textContent = `Paso ${this.currentStep + 1} de ${
       this.steps.length
     }`;
     this.stepPercentage.textContent = `${Math.round(progressWidth)}%`;
   }
 
+  /**
+   * Actualiza los elementos de la interfaz según el paso actual
+   */
   updateUI() {
     const prevButton = document.querySelector('.btn-prev');
     const nextButton = document.querySelector('.btn-next');
     const submitButton = document.querySelector('.btn-submit');
 
-    if (prevButton)
+    // Mostrar/ocultar botones según el paso
+    if (prevButton) {
       prevButton.classList.toggle('hidden', this.currentStep === 0);
-    if (nextButton)
+    }
+
+    if (nextButton) {
       nextButton.classList.toggle(
         'hidden',
         this.currentStep === this.steps.length - 1
       );
-    if (submitButton)
+    }
+
+    if (submitButton) {
       submitButton.classList.toggle(
         'hidden',
         this.currentStep !== this.steps.length - 1
       );
+    }
   }
 
+  /**
+   * Muestra una notificación al usuario
+   * @param {string} message - Mensaje a mostrar
+   * @param {boolean} isSuccess - Si es un mensaje de éxito o error
+   */
   showNotification(message, isSuccess) {
+    // Mostrar la notificación
     this.notification.classList.remove('hidden');
+
+    // Limpiar clases existentes
     this.notification.classList.remove(
       'bg-green-100',
       'bg-red-100',
       'text-green-800',
-      'text-red-800'
+      'text-red-800',
+      'bg-light-primary',
+      'bg-dark-primary',
+      'text-light-secondary',
+      'text-dark-secondary'
     );
 
+    // Aplicar estilo según tipo y tema
     if (isSuccess) {
-      this.notification.classList.add('bg-green-100', 'text-green-800');
+      this.notification.classList.add('bg-teal-100', 'text-teal-800');
     } else {
-      this.notification.classList.add('bg-red-100', 'text-red-800');
+      this.notification.classList.add('bg-rose-100', 'text-rose-800');
     }
 
+    // Establecer mensaje
     this.notificationMessage.textContent = message;
 
     // Auto-ocultar después de 5 segundos
@@ -214,6 +497,10 @@ export class MultiStepForm {
     }, 5000);
   }
 
+  /**
+   * Maneja el envío del formulario
+   * @param {Event} event - Evento de envío
+   */
   handleSubmit(event) {
     event.preventDefault();
 
@@ -226,11 +513,23 @@ export class MultiStepForm {
 
     const datosFormulario = new FormData(this.form);
 
+    // Añadir datos adicionales
+    datosFormulario.append('tiempoFormulario', this.getElapsedTime());
+
+    // Enviar a la API
+    this.sendFormData(datosFormulario);
+  }
+
+  /**
+   * Envía los datos del formulario a la API
+   * @param {FormData} formData - Datos del formulario
+   */
+  sendFormData(formData) {
     fetch(
       'https://um215.app.n8n.cloud/webhook-test/04611043-2749-4dfb-824d-ac10c9437dc2',
       {
         method: 'POST',
-        body: datosFormulario,
+        body: formData,
       }
     )
       .then((response) => {
@@ -242,7 +541,7 @@ export class MultiStepForm {
       .then((data) => {
         console.log('Datos enviados a n8n:', data);
         this.showNotification(
-          '¡Formulario enviado con éxito! Revise su bandeja de correo',
+          '¡Formulario enviado con éxito! Revisa tu correo en los próximos minutos',
           true
         );
         this.form.reset();
@@ -264,5 +563,18 @@ export class MultiStepForm {
         this.loadingSpinner.classList.add('hidden');
         this.submitButton.disabled = false;
       });
+  }
+
+  /**
+   * Calcula el tiempo transcurrido desde que se inició el formulario
+   * @returns {string} - Tiempo transcurrido formateado
+   */
+  getElapsedTime() {
+    const now = new Date();
+    const elapsedSeconds = Math.floor((now - this.sessionStartTime) / 1000);
+    const minutes = Math.floor(elapsedSeconds / 60);
+    const seconds = elapsedSeconds % 60;
+
+    return `${minutes}m ${seconds}s`;
   }
 }

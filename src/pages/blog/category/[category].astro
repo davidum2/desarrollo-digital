@@ -8,10 +8,15 @@ import ArticleList from '../../../layouts/ArticleList.astro';
 import type { BlogPost } from '../../../types';
 import type { BlogPostRich } from '../../../types';
 
+// Tipado para las entradas de las colecciones
+type BlogPostEntry = { id: string; data: BlogPost };
+type BlogPostRichEntry = { id: string; data: BlogPostRich };
+
+// Generación de rutas estáticas
 export const getStaticPaths = (async (): Promise<
   { params: { category: string }; props: { category: string } }[]
 > => {
-  const categories = (await getAllCategories()).map((category) =>
+  const categories = (await getAllCategories()).map((category: string) =>
     category.toLowerCase()
   );
   return categories.map((category) => ({
@@ -20,32 +25,44 @@ export const getStaticPaths = (async (): Promise<
   }));
 }) satisfies GetStaticPaths;
 
-const { category }: { category: string } = Astro.props;
+// Props tipados
+interface Props {
+  category: string;
+}
 
-const posts: Array<{ id: string; data: BlogPost }> = await getCollection(
-  'blog',
-  ({ data }) =>
-    data.categories.map((cat) => cat.toLowerCase()).includes(category)
+const { category } = Astro.props as Props;
+
+// Función de filtrado tipada
+const filterByCategory = (
+  data: BlogPost | BlogPostRich,
+  category: string
+): boolean =>
+  data.categories.map((cat: string) => cat.toLowerCase()).includes(category);
+
+// Filtrado de posts por categoría
+const posts: BlogPostEntry[] = await getCollection('blog', ({ data }) =>
+  filterByCategory(data, category)
 );
-const postsRich: Array<{ id: string; data: BlogPostRich }> =
-  await getCollection('blogPostRich', ({ data }) =>
-    data.categories.map((cat) => cat.toLowerCase()).includes(category)
-  );
+const postsRich: BlogPostRichEntry[] = await getCollection(
+  'blogPostRich',
+  ({ data }) => filterByCategory(data, category)
+);
+
+// Clases compartidas para las grillas
+const gridClasses =
+  'grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6';
 ---
 
 <ArticleList>
   <h1 class="font-libre text-3xl text-center">Nuestros Post más recientes</h1>
-  <div
-    class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
-  >
+  <div class={gridClasses}>
     {postsRich.map((post) => <CardBlogRich {...post.data} slug={post.id} />)}
   </div>
+
   <h2 class="font-libre text-2xl text-center my-6">
-    Otros temas dentro de la categoria
+    Otros temas dentro de la categoría
   </h2>
-  <div
-    class="grid place-items-center md:grid-cols-2 lg:grid-cols-3 gap-6 m-auto mb-6"
-  >
+  <div class={gridClasses}>
     {posts.map((post) => <CardBlog {...post.data} slug={post.id} />)}
   </div>
 </ArticleList>

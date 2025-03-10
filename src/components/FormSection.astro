@@ -1,15 +1,14 @@
+---
+interface Props {
+  show: boolean;
+}
 
-<template>
-  <div class="form-section" style:display={show ? 'block' : 'none'}>
-    <slot />
-  </div>
-</template>
+const { show } = Astro.props;
+---
 
-<script>
-  export interface Props {
-    show: boolean;
-  }
-</script>
+<div class="form-section" style={{ display: show ? 'block' : 'none' }}>
+  <slot />
+</div>
 
 <style>
   .form-section {

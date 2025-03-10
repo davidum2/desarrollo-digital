@@ -1,40 +1,41 @@
 ---
-import HeroPage from "../components/HeroPage.astro";
-import Canva from "../components/icons/canva.astro";
-import Css from "../components/icons/css.astro";
-import Elementor from "../components/icons/elementor.astro";
-import Html from "../components/icons/html.astro";
-import Javascript from "../components/icons/javascript.astro";
-import Php from "../components/icons/php.astro";
-import Wordpress from "../components/icons/wordpress.astro";
-import ServiceCard from "../components/ServiceCard.astro";
-import Layout from "../layouts/Layout.astro";
-
+import HeroPage from '../components/HeroPage.astro';
+import Canva from '../components/icons/canva.astro';
+import Css from '../components/icons/css.astro';
+import Elementor from '../components/icons/elementor.astro';
+import Html from '../components/icons/html.astro';
+import Javascript from '../components/icons/javascript.astro';
+import Php from '../components/icons/php.astro';
+import Wordpress from '../components/icons/wordpress.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Layout from '../layouts/Layout.astro';
 
 const pageMeta = {
-    title: "Nuestros Trabajos | Desarrollo Digital - Proyectos de Web y Diseño",
-    description: "Descubre los proyectos exitosos de Desarrollo Digital, mostramos ejemplos de cómo hemos ayudado a nuestros clientes a mejorar su presencia en línea con soluciones de diseño web y estrategias digitales personalizadas. Explora nuestro portafolio para ver cómo nuestras soluciones pueden transformar tu negocio.",
-    keywords: "Nuestros Trabajos, Proyectos de Desarrollo Digital, Ejemplos de Diseño Web, Casos de Éxito, Portafolio de Web Design, Transformación Digital, Servicios de Diseño Web, Desarrollo Web Personalizado, Estudios de Caso Digitales, Soluciones de Diseño para Empresas"
-  }
+  title: 'Nuestros Trabajos | Desarrollo Digital - Proyectos de Web y Diseño',
+  description:
+    'Descubre los proyectos exitosos de Desarrollo Digital, mostramos ejemplos de cómo hemos ayudado a nuestros clientes a mejorar su presencia en línea con soluciones de diseño web y estrategias digitales personalizadas. Explora nuestro portafolio para ver cómo nuestras soluciones pueden transformar tu negocio.',
+  keywords:
+    'Nuestros Trabajos, Proyectos de Desarrollo Digital, Ejemplos de Diseño Web, Casos de Éxito, Portafolio de Web Design, Transformación Digital, Servicios de Diseño Web, Desarrollo Web Personalizado, Estudios de Caso Digitales, Soluciones de Diseño para Empresas',
+};
 ---
 
-<Layout title={pageMeta.title} description={pageMeta.description} keywords={pageMeta.keywords}>
+<Layout
+  title={pageMeta.title}
+  description={pageMeta.description}
+  keywords={pageMeta.keywords}
+  robot="index, follow"
+>
   <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-    <HeroPage
-      title="Nuestros Trabajos"
-      urlImg="/img/heropage/consulta.webp"
-    />
+    <HeroPage title="Nuestros Trabajos" urlImg="/img/heropage/consulta.webp" />
     <section id="nuestros-trabajos-landing-page" class="mb-8">
       <h2 class="text-3xl text-center font-libre mb-12">
         Landing Page para Empresa de Menús Digitales
       </h2>
       <div class="w-full flex md:flex-row flex-col-reverse">
-       
         <div class="w-full md:w-2/3">
           <div class="container mx-auto md:px-4">
             <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
               <div class="p-1 md:p-6">
-                
                 <p class="mb-4 mt-8 md:m-0">
                   Desarrollo Digital ha creado una landing page personalizada
                   para una empresa que ofrece servicios de menús digitales. Esta
@@ -167,8 +168,7 @@ const pageMeta = {
           <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
               <div class="md:p-6">
-                
-                <p class="mb-4 ">
+                <p class="mb-4">
                   Desarrollo Digital ha creado un sitio web integral para Flor
                   de Dragón, una empresa dedicada a ofrecer masajes y terapias
                   corporales. Este sitio web ayuda a la empresa a llegar a
@@ -262,7 +262,6 @@ const pageMeta = {
           <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto rounded-lg shadow-lg overflow-hidden">
               <div class="md:p-6 p-0">
-                
                 <p class="mb-4">
                   Desarrollo Digital ha creado un sitio web integral para
                   Psicología y Bienestar Alejandra Fierro, una empresa dedicada
@@ -376,14 +375,25 @@ const pageMeta = {
         </div>
       </div>
     </section>
-    <section id="cta" class="py-16 bg-light-secondary rounded-lg text-light-primary dark:bg-dark-secondary dark:text-dark-primary">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-3xl font-bold mb-4">¿Listo para transformar tu presencia en línea?</h2>
-          <p class="text-lg mb-8">Contáctanos hoy y descubre cómo Desarrollo Digital puede ayudarte a alcanzar tus objetivos digitales con nuestros servicios personalizados de desarrollo web y consultoría.</p>
-          <a href="/contacto" class="inline-block bg-light-primary dark:bg-dark-primary text-light-secondary dark:text-dark-secondary font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">Contáctanos</a>
-        </div>
-      </section>
-      
-
+    <section
+      id="cta"
+      class="py-16 bg-light-secondary rounded-lg text-light-primary dark:bg-dark-secondary dark:text-dark-primary"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">
+          ¿Listo para transformar tu presencia en línea?
+        </h2>
+        <p class="text-lg mb-8">
+          Contáctanos hoy y descubre cómo Desarrollo Digital puede ayudarte a
+          alcanzar tus objetivos digitales con nuestros servicios personalizados
+          de desarrollo web y consultoría.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-light-primary dark:bg-dark-primary text-light-secondary dark:text-dark-secondary font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300"
+          >Contáctanos</a
+        >
+      </div>
+    </section>
   </main>
 </Layout>

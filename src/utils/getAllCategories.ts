@@ -1,55 +1,54 @@
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
+// Tipado para la entrada de blog (ajustado a lo que usamos en el proyecto)
 interface BlogPost {
-    data: {
-      categories: string[];
-      pubDate: Date;
-      title: string;
-     
-      image:{
-        url: string,
-        alt: string
-      },
+  id: string;
+  data: {
+    categories: string[];
+    pubDate: Date;
+    title: string;
+    image: {
+      url: string;
+      alt: string;
     };
-  }
-
-
-export async function getAllCategories() {
-    const posts = await getCollection("blog")
-    return Array.from(
-        new Set(
-            posts.map(post => post.data.categories)
-            .flat()
-            .sort()
-        )
-    )
-
+  };
 }
 
+// Obtiene todas las categorías únicas de la colección "blog"
+export async function getAllCategories(): Promise<string[]> {
+  const posts = await getCollection('blog');
+  const categories = posts
+    .flatMap((post: BlogPost) => post.data.categories)
+    .sort();
+  return Array.from(new Set(categories));
+}
 
+// Obtiene las 5 categorías más frecuentes de la colección "blog"
+export async function getAllCategoriesFilter(): Promise<string[]> {
+  const posts = await getCollection('blog');
+  const categoryCounts: Record<string, number> = posts.reduce(
+    (acc: Record<string, number>, post: BlogPost) => {
+      post.data.categories.forEach((category: string) => {
+        acc[category] = (acc[category] || 0) + 1;
+      });
+      return acc;
+    },
+    {}
+  );
 
-export async function getAllCategoriesFilter(){
-  const posts = await getCollection("blog");
-  const categoryCounts: Record<string, number> = posts.reduce((acc, post) => {
-    post.data.categories.forEach(category => {
-      acc[category] = (acc[category] || 0) + 1;
-    });
-    return acc;
-  }, {} as Record<string, number>);
-
-
-  const sortedCategories = Object.entries(categoryCounts)
+  return Object.entries(categoryCounts)
     .sort(([, countA], [, countB]) => countB - countA)
-    .slice(0, 5)  
-    .map(([category]) => category);  
-
-  return sortedCategories;
+    .slice(0, 5)
+    .map(([category]) => category);
 }
 
-export async function getLastPost(){
-    const posts = await getCollection("blog");
-    const sortedPosts = posts.sort((a, b) => {
-      return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
-    });
-    return sortedPosts.slice(0, 3);
-  }
+// Obtiene los 3 posts más recientes de la colección "blog"
+export async function getLastPost(): Promise<BlogPost[]> {
+  const posts = await getCollection('blog');
+  return posts
+    .sort(
+      (a: BlogPost, b: BlogPost) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    )
+    .slice(0, 3);
+}

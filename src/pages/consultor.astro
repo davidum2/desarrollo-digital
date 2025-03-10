@@ -561,12 +561,6 @@ import '../styles/formulario.css';
 </Layout>
 
 <script>
-  // Importa la clase MultiStepForm desde el archivo separado
-  import { MultiStepForm } from '../scripts/formValidation.js';
-
-  // Inicializa el formulario cuando el DOM esté completamente cargado
-  document.addEventListener('DOMContentLoaded', () => {
-    // Crea una nueva instancia del formulario
-    const multiStepForm = new MultiStepForm();
-  });
+  // Importamos el script mejorado que maneja la hidratación con ViewTransitions
+  import '../scripts/formConsultor.js';
 </script>

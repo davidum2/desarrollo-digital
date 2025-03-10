@@ -1,7 +1,7 @@
 ---
-import Dark from "./icons/dark.astro";
-import Light from "./icons/light.astro";
-import Logo from "./icons/logo.astro";
+import Dark from './icons/dark.astro';
+import Light from './icons/light.astro';
+import Logo from './icons/logo.astro';
 ---
 
 <div
@@ -21,205 +21,195 @@ import Logo from "./icons/logo.astro";
   class="text-light-primary dark:text-dark-primary sticky top-0 left-0 w-full dark:bg-dark-secondary/80 bg-light-secondary/80 backdrop-blur-sm z-40"
 >
   <div
-    class="max-w-screen-xl flex  flex-wrap items-center justify-between mx-auto"
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto"
   >
-
-  <!-- Logo -->
+    <!-- Logo -->
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <Logo size="150" />
     </a>
 
     <!-- Toggle Switch for Dark Mode -->
     <div class="flex items-center px-4">
-
-      <label for="themeToggle" class="relative inline-flex items-center cursor-pointer">
+      <label
+        for="themeToggle"
+        class="relative inline-flex items-center cursor-pointer"
+      >
         <input type="checkbox" id="themeToggle" class="sr-only peer" />
 
-        <div class="w-11 h-6 flex items-center justify-between bg-gray-200 rounded-full peer-focus:ring-1 peer-focus:ring-blue-300 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+        <div
+          class="w-11 h-6 flex items-center justify-between bg-gray-200 rounded-full peer-focus:ring-1 peer-focus:ring-blue-300 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+        >
           <div class="ml-1 dark:text-light-primary">
-            <Light size="19"/>
+            <Light size="19" />
           </div>
           <div class="mr-1 text-dark-primary">
-            <Dark size="20"/>
+            <Dark size="20" />
           </div>
-          </svg>
         </div>
-
       </label>
     </div>
-    <!-- hamburger -->
-    <button
-      data-collapse-toggle="navbar-hamburger"
-      id="h-btn"
-      type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-      aria-controls="navbar-hamburger"
-      aria-expanded="false"
+  </div>
+  <!-- hamburger -->
+  <button
+    data-collapse-toggle="navbar-hamburger"
+    id="h-btn"
+    type="button"
+    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+    aria-controls="navbar-hamburger"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Open main menu</span>
+    <svg
+      class="w-5 h-5"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 17 14"
     >
-      <span class="sr-only">Open main menu</span>
-      <svg
-        class="w-5 h-5"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 17 14"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M1 1h15M1 7h15M1 13h15"></path>
-      </svg>
-    </button>
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M1 1h15M1 7h15M1 13h15"></path>
+    </svg>
+  </button>
 
-    <!-- menu -->
-    <div class="hidden md:px-1 w-full md:block md:w-auto"  id="navbar-hamburger">
-      <ul
-        class="font-medium flex flex-col items-center md:[&>li>a]:py-0 md:[&>li>a]:px-1 md:[&>li>a]:text-sm lg:[&>li>a]:text-lg md:[&>li]:text-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-1 lg:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 transition-all duration-700"
-      >
-        <li>
-          <a
-            href="/"
-            class="block hover:text-light-primary dark:hover:text-dark-primary"
-            >Inicio</a
+  <!-- menu -->
+  <div class="hidden md:px-1 w-full md:block md:w-auto" id="navbar-hamburger">
+    <ul
+      class="font-medium flex flex-col items-center md:[&>li>a]:py-0 md:[&>li>a]:px-1 md:[&>li>a]:text-sm lg:[&>li>a]:text-lg md:[&>li]:text-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-1 lg:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 transition-all duration-700"
+    >
+      <li>
+        <a
+          href="/"
+          class="block hover:text-light-primary dark:hover:text-dark-primary"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/consultor"
+          class="block hover:text-light-primary dark:hover:text-dark-primary"
+          >Consultor</a
+        >
+      </li>
+      <li>
+        <a
+          href="/about"
+          class="block hover:text-light-primary dark:hover:text-dark-primary"
+          >Sobre Nosotros</a
+        >
+      </li>
+      <li>
+        <button
+          id="dropdown"
+          class="flex md:text-sm lg:text-lg hover:text-light-primary dark:hover:text-dark-primary items-center justify-between w-full py-2 px-3 rounded md md:border-0 md:p-0 md:w-auto dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+        >
+          Servicios
+          <svg
+            class="w-2.5 h-2.5 ms-2.5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
           >
-        </li>
-        <li>
-          <a
-            href="/consultor"
-            class="block hover:text-light-primary dark:hover:text-dark-primary"
-            >Consultor</a>
-        </li>
-        <li>
-          <a
-            href="/about"
-            class="block hover:text-light-primary dark:hover:text-dark-primary"
-            >Sobre Nosotros</a
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"></path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div
+          id="dropdownNavbar"
+          class="bg -z-10 backdrop-blur-2xl hidden font-normal divide-y divide-gray-100 rounded-b-lg shadow w-44"
+        >
+          <ul
+            class="py-2 text-sm dark:bg-dark-secondary/80 bg-light-secondary/80"
+            aria-labelledby="dropdownLargeButton"
           >
-        </li>
-        <li>
-          <button
-            id="dropdown"
-            class="flex md:text-sm lg:text-lg hover:text-light-primary dark:hover:text-dark-primary items-center justify-between w-full py-2 px-3 rounded md md:border-0 md:p-0 md:w-auto dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-          >
-            Servicios
-            <svg
-              class="w-2.5 h-2.5 ms-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"></path>
-            </svg>
-          </button>
-          <!-- Dropdown menu -->
-          <div
-            id="dropdownNavbar"
-            class="bg -z-10 backdrop-blur-2xl hidden font-normal divide-y divide-gray-100 rounded-b-lg shadow w-44"
-          >
-            <ul
-              class="py-2 text-sm dark:bg-dark-secondary/80 bg-light-secondary/80"
-              aria-labelledby="dropdownLargeButton"
-            >
-              <li>
-                <a
-                  href="/servicios/landingpage"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >Landing Page</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/servicios/website"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >Sitio Web</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/servicios/ecommerce"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >E-commerce</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/servicios/consultoria"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >Consultoria</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/servicios/mantenimiento"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >Mantenimiento</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/servicios/marketing"
-                  class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                  >Marketing</a
-                >
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a
-            href="/trabajos"
-            class="block hover:text-white dark:hover:text-black"
-            >Nuestros Trabajos</a
-          >
-        </li>
-        <li>
-          <a
-            href="/blog"
-            class="block hover:text-white dark:hover:text-black"
-            >Blog</a
-          >
-        </li>
-        <li>
-          <a
-            href="/contacto"
-            class="block hover:text-white dark:hover:text-black">Contacto</a
-          >
-        </li>
-      </ul>
-    </div>
+            <li>
+              <a
+                href="/servicios/landingpage"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >Landing Page</a
+              >
+            </li>
+            <li>
+              <a
+                href="/servicios/website"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >Sitio Web</a
+              >
+            </li>
+            <li>
+              <a
+                href="/servicios/ecommerce"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >E-commerce</a
+              >
+            </li>
+            <li>
+              <a
+                href="/servicios/consultoria"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >Consultoria</a
+              >
+            </li>
+            <li>
+              <a
+                href="/servicios/mantenimiento"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >Mantenimiento</a
+              >
+            </li>
+            <li>
+              <a
+                href="/servicios/marketing"
+                class="block px-4 py-2 hover:text-white dark:hover:text-black"
+                >Marketing</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="/trabajos" class="block hover:text-white dark:hover:text-black"
+          >Nuestros Trabajos</a
+        >
+      </li>
 
+      <li>
+        <a href="/contacto" class="block hover:text-white dark:hover:text-black"
+          >Contacto</a
+        >
+      </li>
+    </ul>
   </div>
 </nav>
 
-<script  is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const themeToggle = document.getElementById(
-      "themeToggle"
-    )
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const themeToggle = document.getElementById('themeToggle');
 
     // Función para aplicar el tema oscuro
     const enableDarkMode = () => {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     };
 
     // Función para aplicar el tema claro
     const disableDarkMode = () => {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     };
 
     // Comprobar el tema guardado en localStorage
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
       themeToggle.checked = true;
       enableDarkMode();
     } else {
@@ -228,7 +218,7 @@ import Logo from "./icons/logo.astro";
     }
 
     // Listener para el cambio del toggle
-    themeToggle.addEventListener("change", () => {
+    themeToggle.addEventListener('change', () => {
       if (themeToggle.checked) {
         enableDarkMode();
       } else {
@@ -238,61 +228,51 @@ import Logo from "./icons/logo.astro";
   });
 </script>
 
-<script  is:inline>
-
-
-  document.addEventListener("astro:page-load", () => {
-    const menuButton = document.getElementById('h-btn') ;
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const menuButton = document.getElementById('h-btn');
     const navMenu = document.getElementById('navbar-hamburger');
-    const dropdownToggle = document.getElementById("dropdown") ;
+    const dropdownToggle = document.getElementById('dropdown');
 
-    menuButton.addEventListener("click", function(){
-      navMenu.classList.toggle('hidden')
-    })
+    menuButton.addEventListener('click', function () {
+      navMenu.classList.toggle('hidden');
+    });
 
+    const dropdownMenu = document.getElementById('dropdownNavbar');
 
+    dropdownToggle.addEventListener('click', function () {
+      dropdownMenu.classList.toggle('hidden');
+      dropdownMenu.classList.toggle('block');
+      dropdownMenu.classList.toggle('opacity-0');
+      dropdownMenu.classList.toggle('opacity-100');
 
-
-
-    const dropdownMenu = document.getElementById(
-      "dropdownNavbar"
-    )
-
-    dropdownToggle.addEventListener("click", function () {
-      dropdownMenu.classList.toggle("hidden");
-      dropdownMenu.classList.toggle("block");
-      dropdownMenu.classList.toggle("opacity-0");
-      dropdownMenu.classList.toggle("opacity-100");
-
-      dropdownMenu.classList.toggle("md:absolute");
-      dropdownMenu.classList.toggle("md:top-11");
+      dropdownMenu.classList.toggle('md:absolute');
+      dropdownMenu.classList.toggle('md:top-11');
     });
   });
 </script>
 
 <script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const listItem = document.querySelectorAll("#landing-header li");
-    const menuBackDrop = document.querySelector(
-      "#menu-backdrop"
-    )
+  document.addEventListener('astro:page-load', () => {
+    const listItem = document.querySelectorAll('#landing-header li');
+    const menuBackDrop = document.querySelector('#menu-backdrop');
 
     listItem.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
+      item.addEventListener('mouseenter', () => {
         const { left, top, width, height } = item.getBoundingClientRect();
 
-        menuBackDrop.style.setProperty("--left", `${left}px`);
-        menuBackDrop.style.setProperty("--top", `${top}px`);
-        menuBackDrop.style.setProperty("--width", `${width}px`);
-        menuBackDrop.style.setProperty("--height", `${height}px`);
+        menuBackDrop.style.setProperty('--left', `${left}px`);
+        menuBackDrop.style.setProperty('--top', `${top}px`);
+        menuBackDrop.style.setProperty('--width', `${width}px`);
+        menuBackDrop.style.setProperty('--height', `${height}px`);
 
-        menuBackDrop.style.opacity = "1";
-        menuBackDrop.style.visibility = "visible";
+        menuBackDrop.style.opacity = '1';
+        menuBackDrop.style.visibility = 'visible';
       });
 
-      item.addEventListener("mouseleave", () => {
-        menuBackDrop.style.opacity = "0";
-        menuBackDrop.style.visibility = "hidden";
+      item.addEventListener('mouseleave', () => {
+        menuBackDrop.style.opacity = '0';
+        menuBackDrop.style.visibility = 'hidden';
       });
     });
   });

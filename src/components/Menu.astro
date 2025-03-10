@@ -1,279 +1,608 @@
----
-import Dark from './icons/dark.astro';
-import Light from './icons/light.astro';
-import Logo from './icons/logo.astro';
----
+/**
+ * Clase MultiStepForm
+ * Gestiona un formulario multi-paso con validación y experiencia de usuario mejorada
+ */
+export class MultiStepForm {
+  constructor() {
+    // Elementos del DOM
+    this.form = document.getElementById('consultForm');
+    this.steps = Array.from(document.querySelectorAll('.pasos'));
+    this.progress = document.getElementById('progress-bar');
+    this.stepCounter = document.getElementById('step-counter');
+    this.stepPercentage = document.getElementById('step-percentage');
+    this.notification = document.getElementById('notification');
+    this.notificationMessage = document.getElementById('notification-message');
+    this.loadingSpinner = document.getElementById('loading-spinner');
+    this.submitButton = document.querySelector('.btn-submit');
 
-<div
-  id="menu-backdrop"
-  class={`
-    fixed dark:bg-white bg-black block  rounded
-    translate-x-[var(--left)] translate-y-[var(--top)]
-    left-0 top-0
-    w-[var(--width)] h-[var(--height)]
-    transition-all duration-500
-    ease-in-out opacity-0 z-30
-  `}
->
-</div>
-<nav
-  id="landing-header"
-  class="text-light-primary dark:text-dark-primary sticky top-0 left-0 w-full dark:bg-dark-secondary/80 bg-light-secondary/80 backdrop-blur-sm z-40"
->
-  <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto"
-  >
-    <!-- Logo -->
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <Logo size="150" />
-    </a>
+    // Estado del formulario
+    this.currentStep = 0;
+    this.sessionStartTime = new Date();
 
-    <!-- Toggle Switch for Dark Mode -->
-    <div class="flex items-center px-4">
-      <label
-        for="themeToggle"
-        class="relative inline-flex items-center cursor-pointer"
-      >
-        <input type="checkbox" id="themeToggle" class="sr-only peer" />
+    this.init();
+  }
 
-        <div
-          class="w-11 h-6 flex items-center justify-between bg-gray-200 rounded-full peer-focus:ring-1 peer-focus:ring-blue-300 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
-        >
-          <div class="ml-1 dark:text-light-primary">
-            <Light size="19" />
-          </div>
-          <div class="mr-1 text-dark-primary">
-            <Dark size="20" />
-          </div>
-        </div>
-      </label>
-    </div>
-  </div>
-  <!-- hamburger -->
-  <button
-    data-collapse-toggle="navbar-hamburger"
-    id="h-btn"
-    type="button"
-    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-    aria-controls="navbar-hamburger"
-    aria-expanded="false"
-  >
-    <span class="sr-only">Open main menu</span>
-    <svg
-      class="w-5 h-5"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 17 14"
-    >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M1 1h15M1 7h15M1 13h15"></path>
-    </svg>
-  </button>
-
-  <!-- menu -->
-  <div class="hidden md:px-1 w-full md:block md:w-auto" id="navbar-hamburger">
-    <ul
-      class="font-medium flex flex-col items-center md:[&>li>a]:py-0 md:[&>li>a]:px-1 md:[&>li>a]:text-sm lg:[&>li>a]:text-lg md:[&>li]:text-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-1 lg:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 transition-all duration-700"
-    >
-      <li>
-        <a
-          href="/"
-          class="block hover:text-light-primary dark:hover:text-dark-primary"
-          >Inicio</a
-        >
-      </li>
-      <li>
-        <a
-          href="/consultor"
-          class="block hover:text-light-primary dark:hover:text-dark-primary"
-          >Consultor</a
-        >
-      </li>
-      <li>
-        <a
-          href="/about"
-          class="block hover:text-light-primary dark:hover:text-dark-primary"
-          >Sobre Nosotros</a
-        >
-      </li>
-      <li>
-        <button
-          id="dropdown"
-          class="flex md:text-sm lg:text-lg hover:text-light-primary dark:hover:text-dark-primary items-center justify-between w-full py-2 px-3 rounded md md:border-0 md:p-0 md:w-auto dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-        >
-          Servicios
-          <svg
-            class="w-2.5 h-2.5 ms-2.5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 4 4 4-4"></path>
-          </svg>
-        </button>
-        <!-- Dropdown menu -->
-        <div
-          id="dropdownNavbar"
-          class="bg -z-10 backdrop-blur-2xl hidden font-normal divide-y divide-gray-100 rounded-b-lg shadow w-44"
-        >
-          <ul
-            class="py-2 text-sm dark:bg-dark-secondary/80 bg-light-secondary/80"
-            aria-labelledby="dropdownLargeButton"
-          >
-            <li>
-              <a
-                href="/servicios/landingpage"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >Landing Page</a
-              >
-            </li>
-            <li>
-              <a
-                href="/servicios/website"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >Sitio Web</a
-              >
-            </li>
-            <li>
-              <a
-                href="/servicios/ecommerce"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >E-commerce</a
-              >
-            </li>
-            <li>
-              <a
-                href="/servicios/consultoria"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >Consultoria</a
-              >
-            </li>
-            <li>
-              <a
-                href="/servicios/mantenimiento"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >Mantenimiento</a
-              >
-            </li>
-            <li>
-              <a
-                href="/servicios/marketing"
-                class="block px-4 py-2 hover:text-white dark:hover:text-black"
-                >Marketing</a
-              >
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a href="/trabajos" class="block hover:text-white dark:hover:text-black"
-          >Nuestros Trabajos</a
-        >
-      </li>
-
-      <li>
-        <a href="/contacto" class="block hover:text-white dark:hover:text-black"
-          >Contacto</a
-        >
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
-    const themeToggle = document.getElementById('themeToggle');
-
-    // Función para aplicar el tema oscuro
-    const enableDarkMode = () => {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    };
-
-    // Función para aplicar el tema claro
-    const disableDarkMode = () => {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    };
-
-    // Comprobar el tema guardado en localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      themeToggle.checked = true;
-      enableDarkMode();
-    } else {
-      themeToggle.checked = false;
-      disableDarkMode();
+  /**
+   * Inicializa el formulario
+   */
+  init() {
+    if (!this.form) {
+      console.error('Formulario no encontrado');
+      return;
     }
 
-    // Listener para el cambio del toggle
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        enableDarkMode();
-      } else {
-        disableDarkMode();
+    this.setupEventListeners();
+    this.setupExampleButtons();
+    this.setupBudgetSlider();
+    this.setupCharacterCounters();
+    this.updateUI();
+  }
+
+  /**
+   * Configura todos los event listeners para el formulario
+   */
+  setupEventListeners() {
+    // Botones de navegación
+    const nextButton = document.querySelector('.btn-next');
+    const prevButton = document.querySelector('.btn-prev');
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => this.nextStep());
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => this.prevStep());
+    }
+
+    // Validación de campos
+    this.setupFieldValidation();
+
+    // Envío del formulario
+    if (this.form) {
+      this.form.addEventListener('submit', (event) => this.handleSubmit(event));
+    }
+
+    // Teclas de navegación
+    document.addEventListener('keydown', (e) => this.handleKeyboardNavigation(e));
+  }
+
+  /**
+   * Configura la validación en tiempo real para los campos
+   */
+  setupFieldValidation() {
+    if (!this.form) return;
+
+    this.form.querySelectorAll('input, textarea, select').forEach((input) => {
+      // Validar durante la edición
+      input.addEventListener('input', () => {
+        this.validateField(input);
+        this.updateCharCount(input);
+      });
+
+      // Validar después de cambios (útil para select, checkbox)
+      input.addEventListener('change', () => {
+        this.validateField(input);
+        this.updateCharCount(input);
+      });
+
+      // Para campos con valores predeterminados
+      if (input.value) {
+        this.validateField(input);
+        this.updateCharCount(input);
       }
     });
-  });
-</script>
+  }
 
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
-    const menuButton = document.getElementById('h-btn');
-    const navMenu = document.getElementById('navbar-hamburger');
-    const dropdownToggle = document.getElementById('dropdown');
+  /**
+   * Configura botones para insertar ejemplos en campos
+   */
+  setupExampleButtons() {
+    // Ejemplo para el campo SMART
+    const metaExampleBtn = document.getElementById('insert-meta-example');
+    const metasField = document.querySelector('textarea[name="metas"]');
 
-    menuButton.addEventListener('click', function () {
-      navMenu.classList.toggle('hidden');
-    });
+    if (metaExampleBtn && metasField) {
+      metaExampleBtn.addEventListener('click', () => {
+        const example =
+          'Incrementar ventas online en un 20% durante los próximos 3 meses a través de mi tienda en línea';
+        metasField.value = example;
+        this.validateField(metasField);
+        this.updateCharCount(metasField);
+      });
+    }
 
-    const dropdownMenu = document.getElementById('dropdownNavbar');
+    // Puedes añadir más ejemplos para otros campos aquí
+    const propuestaExampleBtn = document.getElementById(
+      'insert-propuesta-example'
+    );
+    const propuestaField = document.querySelector(
+      'textarea[name="propuestaValor"]'
+    );
 
-    dropdownToggle.addEventListener('click', function () {
-      dropdownMenu.classList.toggle('hidden');
-      dropdownMenu.classList.toggle('block');
-      dropdownMenu.classList.toggle('opacity-0');
-      dropdownMenu.classList.toggle('opacity-100');
+    if (propuestaExampleBtn && propuestaField) {
+      propuestaExampleBtn.addEventListener('click', () => {
+        const example =
+          'Ayudo a pequeños negocios a aumentar su visibilidad en línea para conseguir más clientes';
+        propuestaField.value = example;
+        this.validateField(propuestaField);
+        this.updateCharCount(propuestaField);
+      });
+    }
+  }
 
-      dropdownMenu.classList.toggle('md:absolute');
-      dropdownMenu.classList.toggle('md:top-11');
-    });
-  });
-</script>
+  /**
+   * Configura el deslizador de presupuesto
+   */
+  setupBudgetSlider() {
+    const slider = document.getElementById('budget-slider');
+    const budgetInput = document.querySelector('input[name="presupuesto"]');
+    const currencySymbol = document.getElementById('currency-symbol');
+    const currencySelect = document.querySelector('select[name="moneda"]');
 
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
-    const listItem = document.querySelectorAll('#landing-header li');
-    const menuBackDrop = document.querySelector('#menu-backdrop');
-
-    listItem.forEach((item) => {
-      item.addEventListener('mouseenter', () => {
-        const { left, top, width, height } = item.getBoundingClientRect();
-
-        menuBackDrop.style.setProperty('--left', `${left}px`);
-        menuBackDrop.style.setProperty('--top', `${top}px`);
-        menuBackDrop.style.setProperty('--width', `${width}px`);
-        menuBackDrop.style.setProperty('--height', `${height}px`);
-
-        menuBackDrop.style.opacity = '1';
-        menuBackDrop.style.visibility = 'visible';
+    if (slider && budgetInput) {
+      // Slider afecta al input
+      slider.addEventListener('input', () => {
+        budgetInput.value = slider.value;
+        this.validateField(budgetInput);
       });
 
-      item.addEventListener('mouseleave', () => {
-        menuBackDrop.style.opacity = '0';
-        menuBackDrop.style.visibility = 'hidden';
+      // Input afecta al slider
+      budgetInput.addEventListener('input', () => {
+        const value = parseInt(budgetInput.value) || 0;
+        slider.value = Math.min(parseInt(slider.max), Math.max(0, value));
       });
+    }
+
+    // Actualiza el símbolo de moneda cuando cambie la selección
+    if (currencySelect && currencySymbol) {
+      currencySelect.addEventListener('change', () => {
+        currencySymbol.textContent =
+          currencySelect.value === 'USD' ? '$' : 'MX$';
+      });
+    }
+  }
+
+  /**
+   * Configura contadores de caracteres para campos de texto
+   */
+  setupCharacterCounters() {
+    if (!this.form) return;
+
+    this.form.querySelectorAll('textarea').forEach((textarea) => {
+      const container = textarea.closest('div');
+      if (!container) return;
+
+      // Buscar o crear el contador de caracteres
+      let counter = container.querySelector('.char-counter');
+      if (!counter) {
+        counter = document.createElement('div');
+        counter.className =
+          'char-counter text-xs text-gray-500 mt-1 text-right';
+        container.appendChild(counter);
+
+        // Opcional: configurar límite máximo
+        const maxLength = 300;
+        textarea.setAttribute('maxlength', maxLength);
+
+        counter.textContent = `0/${maxLength}`;
+
+        // Actualizar contador en tiempo real
+        textarea.addEventListener('input', () =>
+          this.updateCharCount(textarea)
+        );
+      }
+
+      // Inicializar contador
+      this.updateCharCount(textarea);
     });
-  });
-</script>
+  }
+
+  /**
+   * Actualiza el contador de caracteres para un campo
+   * @param {HTMLElement} field - Campo de texto
+   */
+  updateCharCount(field) {
+    if (field.tagName !== 'TEXTAREA') return;
+
+    const container = field.closest('div');
+    if (!container) return;
+
+    const counter = container.querySelector('.char-counter');
+    if (!counter) return;
+
+    const maxLength = field.getAttribute('maxlength') || 300;
+    const currentLength = field.value.length;
+    counter.textContent = `${currentLength}/${maxLength}`;
+
+    // Cambiar color cuando se acerca al límite
+    if (currentLength > maxLength * 0.9) {
+      counter.classList.add('text-amber-500');
+    } else {
+      counter.classList.remove('text-amber-500');
+    }
+
+    // Cambiar color cuando excede el límite
+    if (currentLength >= maxLength) {
+      counter.classList.add('text-red-500');
+      counter.classList.remove('text-amber-500');
+    } else {
+      counter.classList.remove('text-red-500');
+    }
+  }
+
+  /**
+   * Maneja la navegación por teclado
+   * @param {KeyboardEvent} e - Evento de teclado
+   */
+  handleKeyboardNavigation(e) {
+    // Enter avanza al siguiente paso cuando no está en textarea o botón enviar
+    if (
+      e.key === 'Enter' &&
+      e.target.tagName !== 'TEXTAREA' &&
+      !e.target.classList.contains('btn-submit')
+    ) {
+      e.preventDefault();
+      if (this.currentStep < this.steps.length - 1) {
+        this.nextStep();
+      } else if (this.form) {
+        this.form.dispatchEvent(new Event('submit'));
+      }
+    }
+  }
+
+  /**
+   * Valida un campo específico
+   * @param {HTMLElement} field - Campo a validar
+   * @returns {boolean} - Si el campo es válido
+   */
+  validateField(field) {
+    if (!field.dataset || !field.dataset.validate) return true;
+
+    // Buscar el contenedor de mensaje de error
+    const container = field.closest('div');
+    let errorMessage;
+
+    // Localizar el elemento de mensaje de error
+    if (field.type === 'checkbox') {
+      const parentElement = field.parentElement;
+      errorMessage = parentElement && parentElement.parentElement
+        ? parentElement.parentElement.querySelector('.error-message')
+        : null;
+    } else {
+      errorMessage = container ? container.querySelector('.error-message') : null;
+    }
+
+    const validationTypes = field.dataset.validate.split('|');
+    let isValid = true;
+    let errorText = '';
+
+    // Comprobar cada tipo de validación
+    for (const type of validationTypes) {
+      if (type === 'required' && !this.isRequired(field)) {
+        isValid = false;
+        errorText = 'Este campo es requerido';
+        break;
+      } else if (type === 'email' && !this.isValidEmail(field.value)) {
+        isValid = false;
+        errorText = 'Ingresa un correo válido';
+        break;
+      } else if (type === 'phone' && !this.isValidPhone(field.value)) {
+        isValid = false;
+        errorText = 'Ingresa un número de teléfono válido';
+        break;
+      }
+    }
+
+    // Mostrar error o limpiar el campo
+    if (!isValid) {
+      this.showError(field, errorMessage, errorText);
+      return false;
+    } else {
+      this.clearError(field, errorMessage);
+      return true;
+    }
+  }
+
+  /**
+   * Verifica si un campo cumple la validación de obligatorio
+   * @param {HTMLElement} field - Campo a validar
+   * @returns {boolean} - Si el campo cumple la validación
+   */
+  isRequired(field) {
+    if (field.type === 'checkbox') {
+      return field.checked;
+    }
+    return field.value.trim() !== '';
+  }
+
+  /**
+   * Valida un correo electrónico
+   * @param {string} email - Correo a validar
+   * @returns {boolean} - Si el correo es válido
+   */
+  isValidEmail(email) {
+    if (!email) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /**
+   * Valida un número de teléfono
+   * @param {string} phone - Número a validar
+   * @returns {boolean} - Si el teléfono es válido
+   */
+  isValidPhone(phone) {
+    if (!phone) return false;
+    return /^\d{8,15}$/.test(phone);
+  }
+
+  /**
+   * Muestra un mensaje de error para un campo
+   * @param {HTMLElement} field - Campo con error
+   * @param {HTMLElement} errorElement - Elemento para mostrar el mensaje
+   * @param {string} message - Mensaje de error
+   */
+  showError(field, errorElement, message) {
+    field.classList.add('input-error');
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.classList.remove('hidden');
+    }
+  }
+
+  /**
+   * Limpia los mensajes de error
+   * @param {HTMLElement} field - Campo a limpiar
+   * @param {HTMLElement} errorElement - Elemento de mensaje de error
+   */
+  clearError(field, errorElement) {
+    field.classList.remove('input-error');
+    if (errorElement) {
+      errorElement.classList.add('hidden');
+    }
+  }
+
+  /**
+   * Avanza al siguiente paso del formulario
+   */
+  nextStep() {
+    if (!this.validateStep(this.steps[this.currentStep])) return;
+
+    // Ocultar paso actual
+    this.steps[this.currentStep].classList.remove('active');
+
+    // Avanzar al siguiente paso
+    this.currentStep++;
+
+    // Mostrar nuevo paso
+    this.steps[this.currentStep].classList.add('active');
+
+    // Actualizar UI
+    this.updateProgress();
+    this.updateUI();
+
+    // Scroll al inicio del formulario
+    this.form.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /**
+   * Retrocede al paso anterior del formulario
+   */
+  prevStep() {
+    // Ocultar paso actual
+    this.steps[this.currentStep].classList.remove('active');
+
+    // Retroceder al paso anterior
+    this.currentStep--;
+
+    // Mostrar nuevo paso
+    this.steps[this.currentStep].classList.add('active');
+
+    // Actualizar UI
+    this.updateProgress();
+    this.updateUI();
+
+    // Scroll al inicio del formulario
+    if (this.form) {
+      this.form.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  /**
+   * Valida todos los campos de un paso
+   * @param {HTMLElement} step - Paso a validar
+   * @returns {boolean} - Si el paso es válido
+   */
+  validateStep(step) {
+    // El paso 1 no requiere validación (es informativo)
+    if (parseInt(step.dataset.step) === 1) return true;
+
+    let isValid = true;
+    const fields = step.querySelectorAll('[data-validate]');
+
+    fields.forEach((field) => {
+      if (!this.validateField(field)) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+  /**
+   * Actualiza la barra de progreso y los contadores
+   */
+  updateProgress() {
+    if (!this.progress || !this.stepCounter || !this.stepPercentage) return;
+
+    const progressWidth = ((this.currentStep + 1) / this.steps.length) * 100;
+
+    // Actualizar barra de progreso
+    this.progress.style.width = `${progressWidth}%`;
+
+    // Actualizar texto de progreso
+    this.stepCounter.textContent = `Paso ${this.currentStep + 1} de ${
+      this.steps.length
+    }`;
+    this.stepPercentage.textContent = `${Math.round(progressWidth)}%`;
+  }
+
+  /**
+   * Actualiza los elementos de la interfaz según el paso actual
+   */
+  updateUI() {
+    const prevButton = document.querySelector('.btn-prev');
+    const nextButton = document.querySelector('.btn-next');
+    const submitButton = document.querySelector('.btn-submit');
+
+    // Mostrar/ocultar botones según el paso
+    if (prevButton) {
+      prevButton.classList.toggle('hidden', this.currentStep === 0);
+    }
+
+    if (nextButton) {
+      nextButton.classList.toggle(
+        'hidden',
+        this.currentStep === this.steps.length - 1
+      );
+    }
+
+    if (submitButton) {
+      submitButton.classList.toggle(
+        'hidden',
+        this.currentStep !== this.steps.length - 1
+      );
+    }
+  }
+
+  /**
+   * Muestra una notificación al usuario
+   * @param {string} message - Mensaje a mostrar
+   * @param {boolean} isSuccess - Si es un mensaje de éxito o error
+   */
+  showNotification(message, isSuccess) {
+    if (!this.notification || !this.notificationMessage) return;
+
+    // Mostrar la notificación
+    this.notification.classList.remove('hidden');
+
+    // Limpiar clases existentes
+    this.notification.classList.remove(
+      'bg-green-100',
+      'bg-red-100',
+      'text-green-800',
+      'text-red-800',
+      'bg-light-primary',
+      'bg-dark-primary',
+      'text-light-secondary',
+      'text-dark-secondary'
+    );
+
+    // Aplicar estilo según tipo y tema
+    if (isSuccess) {
+      this.notification.classList.add('bg-teal-100', 'text-teal-800');
+    } else {
+      this.notification.classList.add('bg-rose-100', 'text-rose-800');
+    }
+
+    // Establecer mensaje
+    this.notificationMessage.textContent = message;
+
+    // Auto-ocultar después de 5 segundos
+    setTimeout(() => {
+      this.notification.classList.add('hidden');
+    }, 5000);
+  }
+
+  /**
+   * Maneja el envío del formulario
+   * @param {Event} event - Evento de envío
+   */
+  handleSubmit(event) {
+    event.preventDefault();
+
+    // Validar el paso actual antes de enviar
+    if (!this.validateStep(this.steps[this.currentStep])) return;
+
+    // Mostrar indicador de carga
+    if (this.loadingSpinner) {
+      this.loadingSpinner.classList.remove('hidden');
+    }
+
+    if (this.submitButton) {
+      this.submitButton.disabled = true;
+    }
+
+    const datosFormulario = new FormData(this.form);
+
+    // Añadir datos adicionales
+    datosFormulario.append('tiempoFormulario', this.getElapsedTime());
+
+    // Enviar a la API
+    this.sendFormData(datosFormulario);
+  }
+
+  /**
+   * Envía los datos del formulario a la API
+   * @param {FormData} formData - Datos del formulario
+   */
+  sendFormData(formData) {
+    fetch(
+      'https://david2211888.app.n8n.cloud/webhook/f34c888b-7212-439f-9c30-9975bfc381f9',
+      {
+        method: 'POST',
+        body: formData,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error en la respuesta del servidor');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Datos enviados a n8n:', data);
+        this.showNotification(
+          '¡Formulario enviado con éxito! Revisa tu correo en los próximos minutos',
+          true
+        );
+        if (this.form) {
+          this.form.reset();
+        }
+
+        // Redirigir a la página de gracias después de 2 segundos
+        setTimeout(() => {
+          window.location.href = '/gracias';
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error('Error al enviar datos a n8n:', error);
+        this.showNotification(
+          'Error al enviar el formulario. Inténtalo de nuevo.',
+          false
+        );
+      })
+      .finally(() => {
+        // Ocultar indicador de carga
+        if (this.loadingSpinner) {
+          this.loadingSpinner.classList.add('hidden');
+        }
+
+        if (this.submitButton) {
+          this.submitButton.disabled = false;
+        }
+      });
+  }
+
+  /**
+   * Calcula el tiempo transcurrido desde que se inició el formulario
+   * @returns {string} - Tiempo transcurrido formateado
+   */
+  getElapsedTime() {
+    const now = new Date();
+    const elapsedSeconds = Math.floor((now - this.sessionStartTime) / 1000);
+    const minutes = Math.floor(elapsedSeconds / 60);
+    const seconds = elapsedSeconds % 60;
+
+    return `${minutes}m ${seconds}s`;
+  }
+}
